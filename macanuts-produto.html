@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macadâmia Natural Tipo 0 — MacaNuts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde-escuro: #4A5240;
+    --verde-musgo: #5C6147;
+    --verde-sage: #E8EDE0;
+    --verde-medio: #7A8A6A;
+    --creme: #F5F2EC;
+    --creme-escuro: #E8E2D6;
+    --terra: #C4A882;
+    --texto-escuro: #2C2E26;
+    --texto-medio: #5A5D4E;
+    --branco: #FDFCF9;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+body {
+font-family: ‘Jost’, sans-serif;
+background: var(–branco);
+color: var(–texto-escuro);
+font-weight: 300;
+overflow-x: hidden;
+}
+
+body::before {
+content: ‘’;
+position: fixed;
+inset: 0;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.03’/%3E%3C/svg%3E”);
+pointer-events: none;
+z-index: 1000;
+opacity: 0.4;
+}
+
+/* ─── NAV ─── */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 22px 60px;
+background: rgba(253,252,249,0.92);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(74,82,64,0.08);
+}
+
+.nav-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 22px;
+font-weight: 400;
+letter-spacing: 0.12em;
+color: var(–verde-escuro);
+text-decoration: none;
+}
+
+.nav-links {
+display: flex;
+gap: 40px;
+list-style: none;
+}
+
+.nav-links a {
+font-size: 11px;
+font-weight: 300;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–texto-medio);
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(–verde-escuro); }
+
+.nav-cart {
+font-size: 11px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–verde-escuro);
+text-decoration: none;
+padding: 10px 22px;
+border: 1px solid var(–verde-escuro);
+transition: all 0.3s;
+}
+
+.nav-cart:hover {
+background: var(–verde-escuro);
+color: var(–branco);
+}
+
+/* ─── BREADCRUMB ─── */
+.breadcrumb {
+padding: 110px 60px 0;
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 11px;
+font-weight: 300;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–texto-medio);
+}
+
+.breadcrumb a {
+color: var(–verde-medio);
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.breadcrumb a:hover { color: var(–verde-escuro); }
+.breadcrumb span { color: rgba(90,93,78,0.4); }
+
+/* ─── PRODUTO MAIN ─── */
+.produto-main {
+padding: 40px 60px 100px;
+display: grid;
+grid-template-columns: 1.1fr 1fr;
+gap: 80px;
+align-items: start;
+}
+
+/* ─── GALERIA ─── */
+.galeria {
+position: sticky;
+top: 90px;
+}
+
+.galeria-principal {
+width: 100%;
+aspect-ratio: 1;
+background: var(–verde-sage);
+margin-bottom: 16px;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+cursor: zoom-in;
+}
+
+.galeria-principal img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.6s ease;
+}
+
+.galeria-principal:hover img { transform: scale(1.04); }
+
+.galeria-placeholder {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 16px;
+font-style: italic;
+color: var(–verde-medio);
+opacity: 0.5;
+text-align: center;
+padding: 40px;
+}
+
+/* Badge de tipo */
+.galeria-badge {
+position: absolute;
+top: 20px;
+left: 20px;
+background: var(–verde-escuro);
+color: var(–branco);
+font-family: ‘Jost’, sans-serif;
+font-size: 9px;
+font-weight: 300;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+padding: 7px 14px;
+}
+
+.galeria-thumbs {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 10px;
+}
+
+.thumb {
+aspect-ratio: 1;
+background: var(–verde-sage);
+cursor: pointer;
+overflow: hidden;
+border: 2px solid transparent;
+transition: border-color 0.3s;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.thumb.active { border-color: var(–verde-escuro); }
+
+.thumb img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.4s;
+}
+
+.thumb:hover img { transform: scale(1.08); }
+
+.thumb-placeholder {
+font-size: 9px;
+color: var(–verde-medio);
+opacity: 0.4;
+text-align: center;
+padding: 8px;
+font-family: ‘Cormorant Garamond’, serif;
+font-style: italic;
+}
+
+/* ─── INFO DO PRODUTO ─── */
+.produto-info {
+padding-top: 10px;
+}
+
+.produto-categoria {
+font-size: 10px;
+font-weight: 300;
+letter-spacing: 0.35em;
+text-transform: uppercase;
+color: var(–terra);
+margin-bottom: 16px;
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+.produto-categoria::before {
+content: ‘’;
+width: 28px;
+height: 1px;
+background: var(–terra);
+opacity: 0.7;
+}
+
+.produto-titulo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(36px, 4vw, 52px);
+font-weight: 300;
+line-height: 1.1;
+color: var(–texto-escuro);
+margin-bottom: 10px;
+}
+
+.produto-titulo em {
+font-style: italic;
+color: var(–verde-musgo);
+}
+
+.produto-subtitulo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 18px;
+font-weight: 300;
+font-style: italic;
+color: var(–texto-medio);
+margin-bottom: 32px;
+}
+
+/* Seletor de tipo */
+.tipo-selector {
+margin-bottom: 32px;
+}
+
+.selector-label {
+font-size: 10px;
+font-weight: 300;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–texto-medio);
+margin-bottom: 14px;
+}
+
+.tipo-options {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 10px;
+}
+
+.tipo-btn {
+padding: 16px 12px;
+border: 1px solid var(–creme-escuro);
+background: transparent;
+cursor: pointer;
+text-align: left;
+transition: all 0.3s;
+font-family: ‘Jost’, sans-serif;
+}
+
+.tipo-btn:hover {
+border-color: var(–verde-medio);
+}
+
+.tipo-btn.active {
+border-color: var(–verde-escuro);
+background: rgba(74,82,64,0.04);
+}
+
+.tipo-btn-nome {
+font-size: 13px;
+font-weight: 400;
+color: var(–texto-escuro);
+margin-bottom: 4px;
+letter-spacing: 0.05em;
+}
+
+.tipo-btn-desc {
+font-size: 10px;
+font-weight: 300;
+color: var(–texto-medio);
+line-height: 1.5;
+letter-spacing: 0.03em;
+}
+
+/* Seletor de peso */
+.peso-selector {
+margin-bottom: 36px;
+}
+
+.peso-options {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+}
+
+.peso-btn {
+padding: 12px 24px;
+border: 1px solid var(–creme-escuro);
+background: transparent;
+cursor: pointer;
+font-family: ‘Jost’, sans-serif;
+font-size: 13px;
+font-weight: 300;
+color: var(–texto-escuro);
+letter-spacing: 0.08em;
+transition: all 0.3s;
+}
+
+.peso-btn:hover { border-color: var(–verde-medio); }
+
+.peso-btn.active {
+border-color: var(–verde-escuro);
+background: var(–verde-escuro);
+color: var(–branco);
+}
+
+/* Preço */
+.preco-bloco {
+margin-bottom: 36px;
+padding: 24px 0;
+border-top: 1px solid var(–creme-escuro);
+border-bottom: 1px solid var(–creme-escuro);
+display: flex;
+align-items: baseline;
+gap: 16px;
+}
+
+.preco-valor {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 44px;
+font-weight: 300;
+color: var(–verde-escuro);
+line-height: 1;
+}
+
+.preco-detalhe {
+font-size: 13px;
+font-weight: 300;
+color: var(–texto-medio);
+letter-spacing: 0.05em;
+}
+
+.preco-frete {
+font-size: 11px;
+font-weight: 300;
+color: var(–verde-medio);
+margin-top: 10px;
+letter-spacing: 0.05em;
+}
+
+/* Quantidade */
+.quantidade-row {
+display: flex;
+gap: 16px;
+align-items: center;
+margin-bottom: 20px;
+}
+
+.qtd-label {
+font-size: 11px;
+font-weight: 300;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–texto-medio);
+white-space: nowrap;
+}
+
+.qtd-control {
+display: flex;
+align-items: center;
+border: 1px solid var(–creme-escuro);
+}
+
+.qtd-btn {
+width: 42px;
+height: 42px;
+background: transparent;
+border: none;
+cursor: pointer;
+font-size: 18px;
+color: var(–texto-escuro);
+display: flex;
+align-items: center;
+justify-content: center;
+transition: background 0.2s;
+font-weight: 300;
+}
+
+.qtd-btn:hover { background: var(–creme); }
+
+.qtd-num {
+width: 52px;
+text-align: center;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+font-weight: 300;
+color: var(–texto-escuro);
+border: none;
+border-left: 1px solid var(–creme-escuro);
+border-right: 1px solid var(–creme-escuro);
+background: transparent;
+outline: none;
+}
+
+/* CTA */
+.cta-bloco {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin-bottom: 36px;
+}
+
+.btn-comprar {
+width: 100%;
+padding: 18px;
+background: var(–verde-escuro);
+color: var(–branco);
+border: none;
+cursor: pointer;
+font-family: ‘Jost’, sans-serif;
+font-size: 11px;
+font-weight: 400;
+letter-spacing: 0.28em;
+text-transform: uppercase;
+transition: all 0.3s;
+}
+
+.btn-comprar:hover {
+background: var(–verde-musgo);
+transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+width: 100%;
+padding: 16px;
+background: transparent;
+color: var(–verde-escuro);
+border: 1px solid var(–verde-escuro);
+cursor: pointer;
+font-family: ‘Jost’, sans-serif;
+font-size: 11px;
+font-weight: 300;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+transition: all 0.3s;
+text-decoration: none;
+display: block;
+text-align: center;
+}
+
+.btn-whatsapp:hover {
+background: var(–verde-sage);
+}
+
+/* Selos de confiança */
+.selos {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
+padding: 24px 0;
+border-top: 1px solid var(–creme-escuro);
+margin-bottom: 36px;
+}
+
+.selo {
+text-align: center;
+}
+
+.selo-icone {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 22px;
+color: var(–verde-medio);
+margin-bottom: 8px;
+}
+
+.selo-texto {
+font-size: 10px;
+font-weight: 300;
+letter-spacing: 0.1em;
+color: var(–texto-medio);
+line-height: 1.5;
+text-align: center;
+}
+
+/* Accordion de detalhes */
+.detalhes {
+border-top: 1px solid var(–creme-escuro);
+}
+
+.detalhe-item {
+border-bottom: 1px solid var(–creme-escuro);
+}
+
+.detalhe-toggle {
+width: 100%;
+padding: 20px 0;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: none;
+border: none;
+cursor: pointer;
+font-family: ‘Jost’, sans-serif;
+font-size: 12px;
+font-weight: 300;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–texto-escuro);
+text-align: left;
+transition: color 0.3s;
+}
+
+.detalhe-toggle:hover { color: var(–verde-escuro); }
+
+.detalhe-arrow {
+font-size: 18px;
+color: var(–verde-medio);
+transition: transform 0.3s;
+font-weight: 300;
+line-height: 1;
+}
+
+.detalhe-item.open .detalhe-arrow { transform: rotate(45deg); }
+
+.detalhe-content {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.4s ease;
+}
+
+.detalhe-item.open .detalhe-content { max-height: 400px; }
+
+.detalhe-inner {
+padding: 0 0 24px;
+font-size: 14px;
+font-weight: 300;
+line-height: 1.9;
+color: var(–texto-medio);
+}
+
+.detalhe-inner strong {
+font-weight: 400;
+color: var(–texto-escuro);
+}
+
+.tabela-nutri {
+width: 100%;
+border-collapse: collapse;
+margin-top: 12px;
+}
+
+.tabela-nutri tr {
+border-bottom: 1px solid var(–creme-escuro);
+}
+
+.tabela-nutri td {
+padding: 10px 0;
+font-size: 13px;
+font-weight: 300;
+color: var(–texto-medio);
+}
+
+.tabela-nutri td:last-child {
+text-align: right;
+font-weight: 400;
+color: var(–texto-escuro);
+}
+
+/* ─── SEÇÃO ORIGEM DO LOTE ─── */
+.lote-section {
+background: var(–verde-escuro);
+padding: 80px 60px;
+display: grid;
+grid-template-columns: 1fr 2fr;
+gap: 80px;
+align-items: center;
+}
+
+.lote-label {
+font-size: 10px;
+font-weight: 300;
+letter-spacing: 0.35em;
+text-transform: uppercase;
+color: var(–terra);
+margin-bottom: 20px;
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+.lote-label::before {
+content: ‘’;
+width: 28px;
+height: 1px;
+background: var(–terra);
+}
+
+.lote-titulo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 36px;
+font-weight: 300;
+line-height: 1.2;
+color: var(–branco);
+margin-bottom: 8px;
+}
+
+.lote-subtitulo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 18px;
+font-style: italic;
+color: var(–terra);
+}
+
+.lote-dados {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 32px;
+}
+
+.lote-dado {}
+
+.lote-dado-label {
+font-size: 9px;
+font-weight: 300;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: rgba(253,252,249,0.35);
+margin-bottom: 10px;
+}
+
+.lote-dado-valor {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 24px;
+font-weight: 300;
+color: var(–branco);
+line-height: 1.1;
+margin-bottom: 6px;
+}
+
+.lote-dado-detalhe {
+font-size: 12px;
+font-weight: 300;
+color: rgba(253,252,249,0.4);
+letter-spacing: 0.05em;
+}
+
+/* ─── COMO APRECIAR ─── */
+.apreciar {
+background: var(–creme);
+padding: 80px 60px;
+}
+
+.apreciar-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 40px;
+margin-top: 50px;
+}
+
+.apreciar-item {}
+
+.apreciar-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 48px;
+font-weight: 300;
+color: var(–creme-escuro);
+line-height: 1;
+margin-bottom: 16px;
+}
+
+.apreciar-titulo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+font-weight: 400;
+color: var(–texto-escuro);
+margin-bottom: 10px;
+}
+
+.apreciar-desc {
+font-size: 13px;
+font-weight: 300;
+line-height: 1.7;
+color: var(–texto-medio);
+}
+
+/* ─── RELACIONADOS ─── */
+.relacionados {
+padding: 80px 60px;
+background: var(–branco);
+}
+
+.relacionados-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 32px;
+margin-top: 50px;
+}
+
+.rel-card {
+text-decoration: none;
+color: inherit;
+display: block;
+}
+
+.rel-img {
+width: 100%;
+aspect-ratio: 1;
+background: var(–verde-sage);
+margin-bottom: 20px;
+overflow: hidden;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.rel-img::after {
+content: ‘Ver produto’;
+position: absolute;
+inset: 0;
+background: rgba(74,82,64,0.85);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 10px;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–branco);
+opacity: 0;
+transition: opacity 0.4s;
+}
+
+.rel-card:hover .rel-img::after { opacity: 1; }
+
+.rel-img-placeholder {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 13px;
+font-style: italic;
+color: var(–verde-medio);
+opacity: 0.4;
+}
+
+.rel-tipo {
+font-size: 9px;
+font-weight: 300;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–terra);
+margin-bottom: 8px;
+}
+
+.rel-nome {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 22px;
+font-weight: 400;
+color: var(–texto-escuro);
+margin-bottom: 8px;
+transition: color 0.3s;
+}
+
+.rel-card:hover .rel-nome { color: var(–verde-musgo); }
+
+.rel-desc {
+font-size: 12px;
+font-weight: 300;
+color: var(–texto-medio);
+line-height: 1.6;
+margin-bottom: 12px;
+}
+
+.rel-preco {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+font-weight: 300;
+color: var(–verde-musgo);
+}
+
+/* ─── SECTION HELPERS ─── */
+.section-tag {
+font-size: 10px;
+font-weight: 300;
+letter-spacing: 0.35em;
+text-transform: uppercase;
+color: var(–terra);
+margin-bottom: 16px;
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+.section-tag::before {
+content: ‘’;
+width: 28px;
+height: 1px;
+background: var(–terra);
+opacity: 0.6;
+}
+
+.section-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(28px, 3vw, 42px);
+font-weight: 300;
+color: var(–texto-escuro);
+line-height: 1.15;
+}
+
+.section-title em { font-style: italic; color: var(–verde-musgo); }
+
+/* ─── FOOTER ─── */
+footer {
+background: var(–texto-escuro);
+padding: 60px 60px 32px;
+color: rgba(253,252,249,0.5);
+}
+
+.footer-bottom {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding-top: 32px;
+border-top: 1px solid rgba(253,252,249,0.08);
+}
+
+.footer-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 22px;
+font-weight: 400;
+color: var(–branco);
+letter-spacing: 0.1em;
+}
+
+.footer-links-row {
+display: flex;
+gap: 32px;
+list-style: none;
+}
+
+.footer-links-row a {
+font-size: 11px;
+font-weight: 300;
+letter-spacing: 0.15em;
+color: rgba(253,252,249,0.35);
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.footer-links-row a:hover { color: var(–branco); }
+
+.footer-copy {
+font-size: 11px;
+font-weight: 300;
+color: rgba(253,252,249,0.2);
+}
+
+/* ─── REVEAL ─── */
+.reveal {
+opacity: 0;
+transform: translateY(24px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+nav { padding: 18px 24px; }
+.nav-links { display: none; }
+.breadcrumb { padding: 90px 24px 0; }
+.produto-main { grid-template-columns: 1fr; padding: 30px 24px 70px; gap: 40px; }
+.galeria { position: static; }
+.tipo-options { grid-template-columns: 1fr; }
+.selos { grid-template-columns: repeat(3,1fr); }
+.lote-section { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+.lote-dados { grid-template-columns: repeat(3,1fr); }
+.apreciar { padding: 60px 24px; }
+.apreciar-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+.relacionados { padding: 60px 24px; }
+.relacionados-grid { grid-template-columns: 1fr; }
+footer { padding: 40px 24px 24px; }
+.footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+.footer-links-row { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+
+<nav>
+  <a href="index.html" class="nav-logo">MacaNuts</a>
+  <ul class="nav-links">
+    <li><a href="#">A Fazenda</a></li>
+    <li><a href="#">Produtos</a></li>
+    <li><a href="#">Processo</a></li>
+    <li><a href="#">Editorial</a></li>
+  </ul>
+  <a href="#" class="nav-cart">Carrinho (0)</a>
+</nav>
+
+<!-- ─── BREADCRUMB ─── -->
+
+<div class="breadcrumb">
+  <a href="index.html">Início</a>
+  <span>/</span>
+  <a href="#">Produtos</a>
+  <span>/</span>
+  Macadâmia Natural
+</div>
+
+<!-- ─── PRODUTO PRINCIPAL ─── -->
+
+<div class="produto-main">
+
+  <!-- GALERIA -->
+
+  <div class="galeria">
+    <div class="galeria-principal" id="imgPrincipal">
+      <div class="galeria-badge">Tipo 0 — Premium</div>
+      <!-- SUBSTITUA pelo elemento abaixo com sua foto:
+      <img src="macadamia-tipo0-principal.jpg" alt="Macadâmia Natural Tipo 0">
+      -->
+      <div class="galeria-placeholder">
+        Sua foto do produto aqui<br><br>
+        <small style="font-size:11px;opacity:0.6">Substitua por: &lt;img src="foto.jpg"&gt;</small>
+      </div>
+    </div>
+
+
+<div class="galeria-thumbs">
+  <div class="thumb active">
+    <!-- <img src="foto1.jpg" alt=""> -->
+    <div class="thumb-placeholder">Produto</div>
+  </div>
+  <div class="thumb">
+    <!-- <img src="foto2.jpg" alt=""> -->
+    <div class="thumb-placeholder">Embalagem</div>
+  </div>
+  <div class="thumb">
+    <!-- <img src="foto3.jpg" alt=""> -->
+    <div class="thumb-placeholder">Detalhe</div>
+  </div>
+  <div class="thumb">
+    <!-- <img src="foto4.jpg" alt=""> -->
+    <div class="thumb-placeholder">Textura</div>
+  </div>
+</div>
+
+
+  </div>
+
+  <!-- INFO -->
+
+  <div class="produto-info">
+    <div class="produto-categoria">Macadâmia Natural · Sem sal · Sem aditivos</div>
+    <h1 class="produto-titulo">Macadâmia<br><em>Natural</em></h1>
+    <p class="produto-subtitulo">Cultivada e colhida na nossa fazenda em Minas Gerais.</p>
+
+
+<!-- SELETOR DE TIPO -->
+<div class="tipo-selector">
+  <div class="selector-label">Classificação</div>
+  <div class="tipo-options">
+    <button class="tipo-btn active" onclick="selecionarTipo(this, 'Tipo 0', 'R$ 67,00', 'R$ 134,00', 'R$ 529,00')">
+      <div class="tipo-btn-nome">Tipo 0 — Premium</div>
+      <div class="tipo-btn-desc">As maiores e mais inteiras. Mín. 95% acima de 20mm. Para quem não abre mão do melhor.</div>
+    </button>
+    <button class="tipo-btn" onclick="selecionarTipo(this, 'Tipo 2', 'R$ 65,00', 'R$ 124,00', 'R$ 509,00')">
+      <div class="tipo-btn-nome">Tipo 2 — Versátil</div>
+      <div class="tipo-btn-desc">~50% inteiras, ~50% metades. O equilíbrio ideal para o dia a dia e para presentear.</div>
+    </button>
+    <button class="tipo-btn" onclick="selecionarTipo(this, 'Tipo 4', 'R$ 63,00', 'R$ 115,00', 'R$ 490,00')">
+      <div class="tipo-btn-nome">Tipo 4 — Culinário</div>
+      <div class="tipo-btn-desc">~90% metades. Perfeito para receitas, confeitaria, granola e preparações gourmet.</div>
+    </button>
+  </div>
+</div>
+
+<!-- SELETOR DE PESO -->
+<div class="peso-selector">
+  <div class="selector-label">Peso</div>
+  <div class="peso-options">
+    <button class="peso-btn active" onclick="selecionarPeso(this, 0)">500g</button>
+    <button class="peso-btn" onclick="selecionarPeso(this, 1)">1 kg</button>
+    <button class="peso-btn" onclick="selecionarPeso(this, 2)">5 kg</button>
+  </div>
+</div>
+
+<!-- PREÇO -->
+<div class="preco-bloco">
+  <div>
+    <div class="preco-valor" id="precoAtual">R$ 67,00</div>
+    <div class="preco-frete">✓ Frete para todo o Brasil · Calcular prazo</div>
+  </div>
+</div>
+
+<!-- QUANTIDADE -->
+<div class="quantidade-row">
+  <span class="qtd-label">Quantidade</span>
+  <div class="qtd-control">
+    <button class="qtd-btn" onclick="alterarQtd(-1)">−</button>
+    <input class="qtd-num" id="qtdInput" type="text" value="1" readonly>
+    <button class="qtd-btn" onclick="alterarQtd(1)">+</button>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-bloco">
+  <button class="btn-comprar">Adicionar ao carrinho</button>
+  <a href="https://wa.me/5500000000000?text=Olá!%20Tenho%20interesse%20na%20Macadâmia%20MacaNuts." class="btn-whatsapp" target="_blank">
+    Pedir pelo WhatsApp
+  </a>
+</div>
+
+<!-- SELOS -->
+<div class="selos">
+  <div class="selo">
+    <div class="selo-icone">⌖</div>
+    <div class="selo-texto">Fazenda<br>própria</div>
+  </div>
+  <div class="selo">
+    <div class="selo-icone">◈</div>
+    <div class="selo-texto">Sem sal<br>sem aditivos</div>
+  </div>
+  <div class="selo">
+    <div class="selo-icone">◉</div>
+    <div class="selo-texto">Entrega<br>para o Brasil</div>
+  </div>
+</div>
+
+<!-- DETALHES ACCORDION -->
+<div class="detalhes">
+
+  <div class="detalhe-item open">
+    <button class="detalhe-toggle" onclick="toggleDetalhe(this)">
+      Descrição
+      <span class="detalhe-arrow">+</span>
+    </button>
+    <div class="detalhe-content">
+      <div class="detalhe-inner">
+        Macadâmia natural, sem sal, cultivada e colhida na nossa fazenda em Minas Gerais. Separada por classificação para que você escolha o formato ideal para o seu uso — sem abrir mão da qualidade em nenhum dos tipos.
+        <br><br>
+        Produzimos tudo aqui: do cultivo à embalagem. Colhemos quando a macadâmia cai naturalmente do pé — sinal de que está no ponto exato de maturação. Selecionamos cada unidade à mão e embalamos a vácuo para preservar o frescor sem conservantes.
+      </div>
+    </div>
+  </div>
+
+  <div class="detalhe-item">
+    <button class="detalhe-toggle" onclick="toggleDetalhe(this)">
+      Informação Nutricional
+      <span class="detalhe-arrow">+</span>
+    </button>
+    <div class="detalhe-content">
+      <div class="detalhe-inner">
+        <strong>Porção: 30g (aproximadamente 10 unidades inteiras)</strong>
+        <table class="tabela-nutri">
+          <tr><td>Valor energético</td><td>220 kcal</td></tr>
+          <tr><td>Carboidratos</td><td>4,0g</td></tr>
+          <tr><td>Proteínas</td><td>2,4g</td></tr>
+          <tr><td>Gorduras totais</td><td>22,5g</td></tr>
+          <tr><td>Gorduras saturadas</td><td>3,4g</td></tr>
+          <tr><td>Gorduras monoinsaturadas</td><td>16,7g</td></tr>
+          <tr><td>Fibra alimentar</td><td>2,4g</td></tr>
+          <tr><td>Sódio</td><td>0mg</td></tr>
+        </table>
+        <br>
+        <strong>Ingredientes:</strong> Macadâmia (<em>Macadamia integrifolia</em>). <br>
+        Não contém glúten. Pode conter traços de outras oleaginosas.
+      </div>
+    </div>
+  </div>
+
+  <div class="detalhe-item">
+    <button class="detalhe-toggle" onclick="toggleDetalhe(this)">
+      Armazenamento & Validade
+      <span class="detalhe-arrow">+</span>
+    </button>
+    <div class="detalhe-content">
+      <div class="detalhe-inner">
+        <strong>Validade:</strong> 12 meses a partir da data de embalagem (impressa na embalagem).<br><br>
+        <strong>Armazenamento:</strong> Manter em local fresco, seco e protegido da luz. Após aberto, armazenar em recipiente fechado e consumir em até 30 dias. Pode ser refrigerado para maior durabilidade.
+      </div>
+    </div>
+  </div>
+
+  <div class="detalhe-item">
+    <button class="detalhe-toggle" onclick="toggleDetalhe(this)">
+      Entrega & Frete
+      <span class="detalhe-arrow">+</span>
+    </button>
+    <div class="detalhe-content">
+      <div class="detalhe-inner">
+        Enviamos para todo o Brasil via Correios e transportadoras. O prazo e custo de frete são calculados no momento da compra com base no seu CEP.<br><br>
+        Pedidos acima de R$ 250,00 têm <strong>frete grátis</strong> para todo o Brasil.<br><br>
+        Embalamos com cuidado para que o produto chegue íntegro. Em caso de qualquer problema, entre em contato — resolvemos.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  </div>
+</div>
+
+<!-- ─── ORIGEM DO LOTE ─── -->
+
+<section class="lote-section">
+  <div>
+    <div class="lote-label">Rastreabilidade</div>
+    <div class="lote-titulo">A origem<br>deste lote.</div>
+    <div class="lote-subtitulo">Fazenda MacaNuts</div>
+  </div>
+  <div class="lote-dados reveal">
+    <div class="lote-dado">
+      <div class="lote-dado-label">Fazenda</div>
+      <div class="lote-dado-valor">Minas Gerais</div>
+      <div class="lote-dado-detalhe">Brasil · Altitude 800m</div>
+    </div>
+    <div class="lote-dado">
+      <div class="lote-dado-label">Safra</div>
+      <div class="lote-dado-valor">2024</div>
+      <div class="lote-dado-detalhe">Colheita março–junho</div>
+    </div>
+    <div class="lote-dado">
+      <div class="lote-dado-label">Classificação</div>
+      <div class="lote-dado-valor">Tipo 0</div>
+      <div class="lote-dado-detalhe">Mín. 95% inteiras acima de 20mm</div>
+    </div>
+    <div class="lote-dado">
+      <div class="lote-dado-label">Processamento</div>
+      <div class="lote-dado-valor">100%</div>
+      <div class="lote-dado-detalhe">Feito na própria fazenda</div>
+    </div>
+    <div class="lote-dado">
+      <div class="lote-dado-label">Embalagem</div>
+      <div class="lote-dado-valor">Vácuo</div>
+      <div class="lote-dado-detalhe">Sem conservantes</div>
+    </div>
+    <div class="lote-dado">
+      <div class="lote-dado-label">Intermediários</div>
+      <div class="lote-dado-valor">Zero</div>
+      <div class="lote-dado-detalhe">Da fazenda direto para você</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── COMO APRECIAR ─── -->
+
+<section class="apreciar">
+  <div class="section-tag reveal">Sugestões</div>
+  <h2 class="section-title reveal">Como <em>apreciar.</em></h2>
+  <div class="apreciar-grid">
+    <div class="apreciar-item reveal">
+      <div class="apreciar-num">01</div>
+      <div class="apreciar-titulo">Pura</div>
+      <p class="apreciar-desc">Temperatura ambiente, uma de cada vez. Deixe a manteiga natural derreter na língua antes de mastigar.</p>
+    </div>
+    <div class="apreciar-item reveal reveal-delay-1">
+      <div class="apreciar-num">02</div>
+      <div class="apreciar-titulo">Com queijos</div>
+      <p class="apreciar-desc">A macadâmia natural complementa bries e camemberts com uma crocância que nenhuma bolacha consegue.</p>
+    </div>
+    <div class="apreciar-item reveal reveal-delay-2">
+      <div class="apreciar-num">03</div>
+      <div class="apreciar-titulo">Em receitas</div>
+      <p class="apreciar-desc">Crosta para peixes, granola premium, pralinê, beurre de macadâmia. O Tipo 4 é ideal para preparações.</p>
+    </div>
+    <div class="apreciar-item reveal reveal-delay-2">
+      <div class="apreciar-num">04</div>
+      <div class="apreciar-titulo">Para presentear</div>
+      <p class="apreciar-desc">Em uma embalagem bonita ou num Kit Colheita. O presente que quem recebe nunca esquece.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRODUTOS RELACIONADOS ─── -->
+
+<section class="relacionados">
+  <div class="section-tag reveal">Você também pode gostar</div>
+  <h2 class="section-title reveal">Outros <em>produtos.</em></h2>
+  <div class="relacionados-grid">
+    <a href="#" class="rel-card reveal">
+      <div class="rel-img"><span class="rel-img-placeholder">Foto produto</span></div>
+      <div class="rel-tipo">Macadâmia Natural · Tipo 2</div>
+      <div class="rel-nome">Macadâmia Versátil</div>
+      <p class="rel-desc">A escolha do dia a dia. Inteiras e metades em equilíbrio perfeito.</p>
+      <div class="rel-preco">A partir de R$ 65,00</div>
+    </a>
+    <a href="#" class="rel-card reveal reveal-delay-1">
+      <div class="rel-img"><span class="rel-img-placeholder">Foto produto</span></div>
+      <div class="rel-tipo">Macadâmia Natural · Tipo 4</div>
+      <div class="rel-nome">Macadâmia Culinária</div>
+      <p class="rel-desc">Para quem cozinha com intenção. A preferida dos chefs.</p>
+      <div class="rel-preco">A partir de R$ 63,00</div>
+    </a>
+    <a href="#" class="rel-card reveal reveal-delay-2">
+      <div class="rel-img"><span class="rel-img-placeholder">Foto kit</span></div>
+      <div class="rel-tipo">Kit Presente · Edição Limitada</div>
+      <div class="rel-nome">Kit Colheita</div>
+      <p class="rel-desc">Os três tipos numa embalagem para presentear com elegância.</p>
+      <div class="rel-preco">A partir de R$ 138,00</div>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-logo">MacaNuts</div>
+    <ul class="footer-links-row">
+      <li><a href="#">A Fazenda</a></li>
+      <li><a href="#">Produtos</a></li>
+      <li><a href="#">Receitas</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 MacaNuts</div>
+  </div>
+</footer>
+
+<script>
+  // Preços por tipo e peso
+  const precos = {
+    'Tipo 0': ['R$ 67,00', 'R$ 134,00', 'R$ 529,00'],
+    'Tipo 2': ['R$ 65,00', 'R$ 124,00', 'R$ 509,00'],
+    'Tipo 4': ['R$ 63,00', 'R$ 115,00', 'R$ 490,00'],
+  };
+
+  let tipoAtual = 'Tipo 0';
+  let pesoAtual = 0;
+
+  function atualizarPreco() {
+    document.getElementById('precoAtual').textContent = precos[tipoAtual][pesoAtual];
+  }
+
+  function selecionarTipo(btn, tipo, p1, p2, p3) {
+    document.querySelectorAll('.tipo-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    tipoAtual = tipo;
+    atualizarPreco();
+  }
+
+  function selecionarPeso(btn, idx) {
+    document.querySelectorAll('.peso-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    pesoAtual = idx;
+    atualizarPreco();
+  }
+
+  // Quantidade
+  let qtd = 1;
+  function alterarQtd(delta) {
+    qtd = Math.max(1, qtd + delta);
+    document.getElementById('qtdInput').value = qtd;
+  }
+
+  // Accordion
+  function toggleDetalhe(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.detalhe-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
