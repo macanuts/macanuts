@@ -11,6 +11,7 @@
 a { color: inherit; text-decoration: none; }
 body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; color: #2C2E26; }
 
+/* NAV */
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(245,242,236,0.97); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
 .nav-logo { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; color: #2C2E26; display: flex; align-items: center; text-transform: uppercase; }
 .nav-logo .maca { font-weight: 600; color: #3A5232; }
@@ -22,6 +23,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
 .hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
+
 @media (max-width: 768px) {
 .nav { padding: 18px 24px; }
 .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); z-index: 99; }
@@ -31,7 +33,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .nav-btn { display: none; }
 }
 
-/* PAGE HERO */
+/* HERO */
 .page-hero { background: #4A5240; padding: 160px 60px 90px; position: relative; overflow: hidden; }
 .page-hero::after { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 80% 40%, rgba(196,168,130,0.07) 0%, transparent 65%); pointer-events: none; }
 .tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
@@ -39,41 +41,44 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .page-hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(44px, 6.5vw, 84px); font-weight: 300; line-height: 1.05; color: #FDFCF9; }
 .page-hero h1 em { font-style: italic; color: #C4A882; }
 .page-hero-sub { font-size: 16px; line-height: 1.9; color: rgba(253,252,249,0.6); max-width: 560px; margin-top: 24px; }
+
 @media (max-width: 768px) { .page-hero { padding: 120px 24px 64px; } }
 
-/* POR QUE MACANUTS */
+/* POR QUE */
 .porque { background: #F5F2EC; padding: 100px 60px; }
-.porque h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; color: #2C2E26; margin-bottom: 48px; line-height: 1.2; }
-.porque h2 em { font-style: italic; color: #5C6147; }
-.diferenciais { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 64px; }
+.secao-titulo { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; color: #2C2E26; margin-bottom: 48px; line-height: 1.2; }
+.secao-titulo em { font-style: italic; color: #5C6147; }
+.diferenciais { display: flex; gap: 28px; flex-wrap: wrap; }
 .dif { flex: 1; min-width: 200px; padding: 32px 28px; background: #FDFCF9; }
 .dif-titulo { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 400; color: #2C2E26; margin-bottom: 12px; }
 .dif-desc { font-size: 14px; line-height: 1.85; color: #5A5D4E; }
+
 @media (max-width: 768px) { .porque { padding: 72px 24px; } .diferenciais { flex-direction: column; } }
 
 /* CLIENTES */
 .clientes { background: #E8EDE0; padding: 72px 60px; }
+.clientes .tag { color: #5C6147; }
+.clientes .tag::before { background: #5C6147; }
 .clientes-lista { display: flex; align-items: center; gap: 56px; flex-wrap: wrap; margin-top: 32px; }
-.cliente-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 26px; font-weight: 400; color: rgba(44,46,38,0.4); }
+.cliente-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 26px; font-weight: 400; color: rgba(44,46,38,0.4); transition: color 0.3s; }
+.cliente-nome:hover { color: rgba(44,46,38,0.75); }
+
 @media (max-width: 768px) { .clientes { padding: 60px 24px; } .clientes-lista { gap: 28px; } }
 
 /* PRODUTOS B2B */
 .produtos-b2b { background: #FDFCF9; padding: 100px 60px; }
-.produtos-b2b h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; color: #2C2E26; margin-bottom: 48px; line-height: 1.2; }
-.produtos-b2b h2 em { font-style: italic; color: #5C6147; }
-.tipos { display: flex; flex-direction: column; gap: 0; margin-bottom: 48px; }
+.tipos { display: flex; flex-direction: column; margin-bottom: 48px; }
 .tipo { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; border-bottom: 1px solid rgba(74,82,64,0.1); flex-wrap: wrap; gap: 16px; }
 .tipo:first-child { border-top: 1px solid rgba(74,82,64,0.1); }
 .tipo-esq { display: flex; align-items: baseline; gap: 20px; }
 .tipo-badge { font-family: ‘Cormorant Garamond’, serif; font-size: 42px; font-weight: 300; color: rgba(74,82,64,0.15); line-height: 1; }
-.tipo-info {}
 .tipo-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 400; color: #2C2E26; margin-bottom: 4px; }
 .tipo-desc { font-size: 13px; color: #7A8A6A; }
-.tipo-peso { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: #C4A882; }
-.volumes { background: #F5F2EC; padding: 28px 32px; display: flex; gap: 48px; flex-wrap: wrap; margin-top: 8px; }
-.vol { }
+.tipo-uso { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #C4A882; margin-top: 6px; }
+.volumes { background: #F5F2EC; padding: 28px 32px; display: flex; gap: 48px; flex-wrap: wrap; }
 .vol-num { font-family: ‘Cormorant Garamond’, serif; font-size: 36px; font-weight: 300; color: #4A5240; line-height: 1; margin-bottom: 6px; }
 .vol-lbl { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A8A6A; }
+
 @media (max-width: 768px) { .produtos-b2b { padding: 72px 24px; } .tipo { flex-direction: column; align-items: flex-start; } .volumes { gap: 28px; padding: 20px; } }
 
 /* CONTATO B2B */
@@ -87,6 +92,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .btn-whats { background: transparent; color: #FDFCF9; border: 1px solid rgba(253,252,249,0.3); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; padding: 16px 36px; display: inline-block; transition: all 0.3s; }
 .btn-whats:hover { background: rgba(253,252,249,0.08); }
 .contato-nota { font-size: 13px; color: rgba(253,252,249,0.35); margin-top: 24px; }
+
 @media (max-width: 768px) { .contato-b2b { padding: 72px 24px; } }
 
 /* EXPORT LINK */
@@ -96,6 +102,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .export-link-texto p { font-size: 14px; color: rgba(253,252,249,0.45); }
 .btn-export { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #C4A882; border: 1px solid rgba(196,168,130,0.4); padding: 14px 32px; display: inline-block; transition: all 0.3s; white-space: nowrap; }
 .btn-export:hover { background: rgba(196,168,130,0.1); }
+
 @media (max-width: 768px) { .export-link { padding: 48px 24px; } }
 
 /* FOOTER */
@@ -110,8 +117,10 @@ footer { background: #2C2E26; padding: 60px 60px 36px; border-top: 1px solid rgb
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
 .footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
+
 @media (max-width: 768px) { footer { padding: 48px 24px 24px; } .footer-topo { flex-direction: column; } .footer-links { gap: 20px; } .footer-bottom { flex-direction: column; } }
 
+/* ANIMAÇÕES */
 .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .fade-up.d1 { transition-delay: 0.15s; }
 .fade-up.d2 { transition-delay: 0.3s; }
@@ -123,27 +132,31 @@ footer { background: #2C2E26; padding: 60px 60px 36px; border-top: 1px solid rgb
 
 <nav class="nav">
   <a href="index.html" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="historia.html">Nossa História</a>
-    <a href="index.html#produtos">Produtos</a>
+    <a href="produtos.html">Produtos</a>
     <a href="empresas.html" class="ativa">Para Empresas</a>
     <a href="sustentabilidade.html">Sustentabilidade</a>
     <a href="export.html">Export</a>
   </div>
-  <a href="index.html#produtos" class="nav-btn">Comprar</a>
+  <a href="produtos.html" class="nav-btn">Comprar</a>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
 </nav>
 
+<!-- HERO -->
+
 <section class="page-hero">
   <div class="tag">Para Empresas</div>
-  <h1>Macadâmia premium<br><em>em grande volume.</em></h1>
-  <p class="page-hero-sub">Atendemos supermercados, padarias, confeitarias e distribuidores com macadâmia diretamente da nossa fazenda em Minas Gerais. Sem intermediários, com rastreabilidade total.</p>
+  <h1>Macadâmia premium,<br>direto da fazenda,<br><em>em grande volume.</em></h1>
+  <p class="page-hero-sub">Atendemos supermercados, padarias, confeitarias e distribuidores com macadâmia diretamente da nossa fazenda em Minas Gerais — rastreável, sem intermediários, com classificação internacional.</p>
 </section>
 
+<!-- POR QUE COMPRAR DIRETO -->
+
 <section class="porque">
-  <h2>Por que comprar<br><em>direto da fazenda?</em></h2>
+  <h2 class="secao-titulo">Por que comprar<br><em>direto da fazenda?</em></h2>
   <div class="diferenciais">
     <div class="dif fade-up">
       <div class="dif-titulo">Origem garantida</div>
@@ -151,7 +164,7 @@ footer { background: #2C2E26; padding: 60px 60px 36px; border-top: 1px solid rgb
     </div>
     <div class="dif fade-up d1">
       <div class="dif-titulo">Frescor real</div>
-      <p class="dif-desc">Sem intermediários, o produto chega até você em menos tempo e com mais frescor. Embalagem a vácuo sem conservantes.</p>
+      <p class="dif-desc">Sem intermediários, o produto chega até você em menos tempo e com mais frescor. Embalagem a vácuo, sem conservantes.</p>
     </div>
     <div class="dif fade-up d2">
       <div class="dif-titulo">Classificação precisa</div>
@@ -160,23 +173,29 @@ footer { background: #2C2E26; padding: 60px 60px 36px; border-top: 1px solid rgb
   </div>
 </section>
 
+<!-- CLIENTES -->
+
 <section class="clientes">
   <p class="tag">Quem já compra da MacaNuts</p>
   <div class="clientes-lista">
     <div class="cliente-nome fade-up">Wickbold</div>
     <div class="cliente-nome fade-up d1">Naked Nuts</div>
+    <div class="cliente-nome fade-up d2">Bavarian Nuts</div>
   </div>
 </section>
 
+<!-- PRODUTOS B2B -->
+
 <section class="produtos-b2b">
-  <h2>O que<br><em>oferecemos.</em></h2>
+  <h2 class="secao-titulo">O que<br><em>oferecemos.</em></h2>
   <div class="tipos">
     <div class="tipo fade-up">
       <div class="tipo-esq">
         <div class="tipo-badge">0</div>
         <div class="tipo-info">
           <div class="tipo-nome">Tipo 0 — Seleção Premium</div>
-          <div class="tipo-desc">Mín. 95% inteiras acima de 20mm · Para produtos premium e varejo sofisticado</div>
+          <div class="tipo-desc">Mín. 95% inteiras acima de 20mm</div>
+          <div class="tipo-uso">Varejo sofisticado · linha gourmet · produtos premium</div>
         </div>
       </div>
     </div>
@@ -185,7 +204,8 @@ footer { background: #2C2E26; padding: 60px 60px 36px; border-top: 1px solid rgb
         <div class="tipo-badge">2</div>
         <div class="tipo-info">
           <div class="tipo-nome">Tipo 2 — Versátil</div>
-          <div class="tipo-desc">~50% inteiras, ~50% metades · Para mix, granola, confeitaria e varejo</div>
+          <div class="tipo-desc">~50% inteiras, ~50% metades</div>
+          <div class="tipo-uso">Mix · granola · confeitaria · varejo em geral</div>
         </div>
       </div>
     </div>
@@ -194,7 +214,8 @@ footer { background: #2C2E26; padding: 60px 60px 36px; border-top: 1px solid rgb
         <div class="tipo-badge">4</div>
         <div class="tipo-info">
           <div class="tipo-nome">Tipo 4 — Culinário</div>
-          <div class="tipo-desc">~90% metades · Ideal para pastaria, panificação e ingrediente industrial</div>
+          <div class="tipo-desc">~90% metades</div>
+          <div class="tipo-uso">Panificação · pastaria · barras de cereal · ingrediente industrial</div>
         </div>
       </div>
     </div>
@@ -202,29 +223,37 @@ footer { background: #2C2E26; padding: 60px 60px 36px; border-top: 1px solid rgb
   <div class="volumes fade-up">
     <div class="vol">
       <div class="vol-num">10kg+</div>
-      <div class="vol-lbl">Volume mínimo</div>
-    </div>
-    <div class="vol">
-      <div class="vol-num">100%</div>
-      <div class="vol-lbl">Fazenda própria</div>
+      <div class="vol-lbl">Volume mínimo por pedido</div>
     </div>
     <div class="vol">
       <div class="vol-num">NF</div>
       <div class="vol-lbl">Emissão de nota fiscal</div>
     </div>
+    <div class="vol">
+      <div class="vol-num">BR</div>
+      <div class="vol-lbl">Entrega para todo o Brasil</div>
+    </div>
+    <div class="vol">
+      <div class="vol-num">100%</div>
+      <div class="vol-lbl">Fazenda própria · MG</div>
+    </div>
   </div>
 </section>
+
+<!-- CONTATO B2B -->
 
 <section class="contato-b2b">
   <div class="tag">Fale com a gente</div>
   <h2>Vamos conversar<br><em>sobre volume.</em></h2>
   <p class="contato-sub">Nos conte sobre o seu negócio, o volume que precisa e qual classificação tem interesse. Respondemos em até 1 dia útil com uma proposta personalizada.</p>
   <div class="contato-btns">
-    <a href="/cdn-cgi/l/email-protection#afccc0c2caddccc6cec3efc2cecccec1dadbdc81ccc0c281cddd90dcdacdc5caccdb92e6c1dbcaddcadcdcca8fcac28fcedbcecccecbc0" class="btn-email"><span class="__cf_email__" data-cfemail="71121e1c14031218101d311c1012101f0405025f121e1c5f1303">[email&#160;protected]</span></a>
-    <a href="https://wa.me/5535992679099?text=Olá!%20Tenho%20interesse%20em%20comprar%20em%20atacado." target="_blank" class="btn-whats">WhatsApp</a>
+    <a href="mailto:comercial@macanuts.com.br" class="btn-email">comercial@macanuts.com.br</a>
+    <a href="https://wa.me/5535992679099?text=Olá!%20Tenho%20interesse%20em%20comprar%20macadâmia%20em%20atacado." target="_blank" class="btn-whats">WhatsApp</a>
   </div>
-  <p class="contato-nota">Informe: tipo de negócio, tipo de macadâmia de interesse e volume estimado.</p>
+  <p class="contato-nota">Informe: tipo de negócio · classificação de interesse · volume estimado mensal.</p>
 </section>
+
+<!-- EXPORT BANNER -->
 
 <div class="export-link">
   <div class="export-link-texto">
@@ -234,13 +263,15 @@ footer { background: #2C2E26; padding: 60px 60px 36px; border-top: 1px solid rgb
   <a href="export.html" class="btn-export">View Export Page →</a>
 </div>
 
+<!-- FOOTER -->
+
 <footer>
   <div class="footer-topo">
     <div class="footer-nome"><span class="maca">Maca</span><span class="nuts">Nuts</span></div>
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="historia.html">Nossa História</a></li>
-      <li><a href="index.html#produtos">Produtos</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
       <li><a href="empresas.html">Para Empresas</a></li>
       <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
       <li><a href="export.html">Export</a></li>
@@ -252,7 +283,21 @@ footer { background: #2C2E26; padding: 60px 60px 36px; border-top: 1px solid rgb
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('aberto');
+}
 
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(e
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
