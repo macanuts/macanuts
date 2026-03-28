@@ -22,6 +22,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
 .hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
+
 @media (max-width: 768px) {
 .nav { padding: 18px 24px; }
 .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); z-index: 99; }
@@ -37,6 +38,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
 .page-hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(44px, 6.5vw, 84px); font-weight: 300; line-height: 1.05; color: #FDFCF9; }
 .page-hero h1 em { font-style: italic; color: #C4A882; }
+
 @media (max-width: 768px) { .page-hero { padding: 120px 24px 64px; } }
 
 .video-section { background: #2C2E26; padding: 80px 60px; }
@@ -44,6 +46,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .video-label::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
 .video-wrap { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
 .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
 @media (max-width: 768px) { .video-section { padding: 56px 24px; } }
 
 .historia { background: #F5F2EC; padding: 100px 60px; }
@@ -52,12 +55,14 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .historia-inner h2 em { font-style: italic; color: #5C6147; }
 .historia-inner p { font-size: 16px; line-height: 2; color: #5A5D4E; margin-bottom: 24px; }
 .historia-inner p strong { font-weight: 400; color: #2C2E26; }
+
 @media (max-width: 768px) { .historia { padding: 72px 24px; } }
 
 .stats-section { background: #5C6147; padding: 80px 60px; }
 .stats { display: flex; gap: 64px; flex-wrap: wrap; }
 .stat-n { font-family: ‘Cormorant Garamond’, serif; font-size: 56px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 10px; }
 .stat-l { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); }
+
 @media (max-width: 768px) { .stats-section { padding: 64px 24px; } .stats { gap: 36px; } }
 
 footer { background: #2C2E26; padding: 60px 60px 36px; }
@@ -71,10 +76,11 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
 .footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
+
 @media (max-width: 768px) { footer { padding: 48px 24px 24px; } .footer-topo { flex-direction: column; } .footer-links { gap: 20px; } .footer-bottom { flex-direction: column; } }
 
-.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.fade-up.visible { opacity: 1; transform: none; }
+/* sem animação — conteúdo sempre visível */
+.fade-up { opacity: 1; transform: none; }
 </style>
 
 </head>
@@ -82,14 +88,14 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 
 <nav class="nav">
   <a href="index.html" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="historia.html" class="ativa">Nossa História</a>
     <a href="produtos.html">Produtos</a>
     <a href="empresas.html">Para Empresas</a>
     <a href="sustentabilidade.html">Sustentabilidade</a>
     <a href="export.html">Export</a>
   </div>
-  <a href="index.html#produtos" class="nav-btn">Comprar</a>
+  <a href="produtos.html" class="nav-btn">Comprar</a>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -114,24 +120,27 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 
 <section class="historia">
   <div class="historia-inner">
-    <h2>Como tudo<br><em>começou.</em></h2>
+    <h2>O legado que<br><em>ficou.</em></h2>
     <p>
-      [Manda a história aqui — áudio, texto, bullet points. Eu escrevo no tom certo da marca.]
+      Paulo Sérgio dedicou sua vida a entender a terra — e foi dessa escuta que nasceu uma das primeiras plantações de macadâmia do Brasil. Em 1975, ele apostou numa noz originária da Austrália que poucos conheciam no país. O que começou como uma aposta transformou-se em vocação de família.
     </p>
     <p>
-      [A decisão de cultivar macadâmia, os primeiros anos, os desafios.]
+      Hoje sua filha toca as Fazendas São Miguel e Manacá, em Minas Gerais, com a mesma filosofia que ele plantou: rigor no cultivo, respeito ao solo e nenhum atalho.
     </p>
     <p>
-      [O que guia a MacaNuts hoje — valores, visão, futuro.]
+      A MacaNuts nasceu desse legado. Do desejo de levar diretamente da fazenda para a mesa de quem valoriza o que é genuíno — uma noz cultivada com cuidado, por uma família que conhece cada etapa do processo.
+    </p>
+    <p>
+      <strong>50 anos cultivando macadâmia. Uma história que ainda está crescendo.</strong>
     </p>
   </div>
 </section>
 
 <section class="stats-section">
   <div class="stats">
-    <div class="fade-up"><div class="stat-n">+10</div><div class="stat-l">Anos de cultivo</div></div>
+    <div class="fade-up"><div class="stat-n">1975</div><div class="stat-l">Primeiro plantio de macadâmia</div></div>
+    <div class="fade-up"><div class="stat-n">50</div><div class="stat-l">Anos de cultivo</div></div>
     <div class="fade-up"><div class="stat-n">100%</div><div class="stat-l">Fazenda própria</div></div>
-    <div class="fade-up"><div class="stat-n">0</div><div class="stat-l">Intermediários</div></div>
     <div class="fade-up"><div class="stat-n">MG</div><div class="stat-l">Minas Gerais, Brasil</div></div>
   </div>
 </section>
@@ -142,9 +151,10 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="historia.html">Nossa História</a></li>
-      <li><a href="index.html#produtos">Produtos</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="empresas.html">Para Empresas</a></li>
       <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
-      <li><a href="contato.html">Contato</a></li>
+      <li><a href="export.html">Export</a></li>
     </ul>
   </div>
   <div class="footer-bottom">
@@ -154,12 +164,8 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 function toggleMenu() {
-  document.querySelector('.nav-links').classList.toggle('aberto');
+  document.getElementById('navLinks').classList.toggle('aberto');
 }
 </script>
 
