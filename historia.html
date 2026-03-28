@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nossa História — MacaNuts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { color: inherit; text-decoration: none; }
+body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; color: #2C2E26; }
+
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(245,242,236,0.97); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
+.nav-logo { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; color: #2C2E26; display: flex; align-items: center; text-transform: uppercase; }
+.nav-logo .maca { font-weight: 600; color: #3A5232; }
+.nav-logo .nuts { font-weight: 400; color: #4A5240; }
+.nav-links { display: flex; gap: 36px; }
+.nav-links a { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.ativa { color: #2C2E26; }
+.nav-btn { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 12px 28px; transition: all 0.3s; }
+.nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
+@media (max-width: 768px) {
+.nav { padding: 18px 24px; }
+.nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); z-index: 99; }
+.nav-links.aberto { display: flex; }
+.nav-links a { padding: 16px 24px; border-top: 1px solid rgba(74,82,64,0.07); }
+.hamburger { display: flex; }
+.nav-btn { display: none; }
+}
+
+.page-hero { background: #4A5240; padding: 160px 60px 90px; position: relative; overflow: hidden; }
+.page-hero::after { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 80% 40%, rgba(196,168,130,0.07) 0%, transparent 65%); pointer-events: none; }
+.tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+.tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
+.page-hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(44px, 6.5vw, 84px); font-weight: 300; line-height: 1.05; color: #FDFCF9; }
+.page-hero h1 em { font-style: italic; color: #C4A882; }
+@media (max-width: 768px) { .page-hero { padding: 120px 24px 64px; } }
+
+.video-section { background: #2C2E26; padding: 80px 60px; }
+.video-label { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+.video-label::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
+.video-wrap { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+@media (max-width: 768px) { .video-section { padding: 56px 24px; } }
+
+.historia { background: #F5F2EC; padding: 100px 60px; }
+.historia-inner { max-width: 780px; }
+.historia-inner h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; line-height: 1.2; color: #2C2E26; margin-bottom: 36px; }
+.historia-inner h2 em { font-style: italic; color: #5C6147; }
+.historia-inner p { font-size: 16px; line-height: 2; color: #5A5D4E; margin-bottom: 24px; }
+.historia-inner p strong { font-weight: 400; color: #2C2E26; }
+@media (max-width: 768px) { .historia { padding: 72px 24px; } }
+
+.stats-section { background: #5C6147; padding: 80px 60px; }
+.stats { display: flex; gap: 64px; flex-wrap: wrap; }
+.stat-n { font-family: ‘Cormorant Garamond’, serif; font-size: 56px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 10px; }
+.stat-l { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); }
+@media (max-width: 768px) { .stats-section { padding: 64px 24px; } .stats { gap: 36px; } }
+
+footer { background: #2C2E26; padding: 60px 60px 36px; }
+.footer-topo { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(253,252,249,0.07); margin-bottom: 32px; }
+.footer-nome { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; display: flex; }
+.footer-nome .maca { font-weight: 600; color: #FDFCF9; }
+.footer-nome .nuts { font-weight: 400; color: rgba(253,252,249,0.6); }
+.footer-links { list-style: none; display: flex; gap: 32px; flex-wrap: wrap; }
+.footer-links a { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); transition: color 0.3s; }
+.footer-links a:hover { color: #FDFCF9; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
+.footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
+@media (max-width: 768px) { footer { padding: 48px 24px 24px; } .footer-topo { flex-direction: column; } .footer-links { gap: 20px; } .footer-bottom { flex-direction: column; } }
+
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+</style>
+
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
+  <div class="nav-links">
+    <a href="historia.html" class="ativa">Nossa História</a>
+    <a href="index.html#produtos">Produtos</a>
+    <a href="sustentabilidade.html">Sustentabilidade</a>
+    <a href="contato.html">Contato</a>
+  </div>
+  <a href="index.html#produtos" class="nav-btn">Comprar</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="tag">Nossa História</div>
+  <h1>Da semente<br>à <em>sua mesa.</em></h1>
+</section>
+
+<section class="video-section">
+  <div class="video-label">A fazenda em vídeo</div>
+  <div class="video-wrap">
+    <iframe
+      src="https://www.youtube.com/embed/evg_qEBvQdc"
+      title="MacaNuts — A história da nossa fazenda"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<section class="historia">
+  <div class="historia-inner">
+    <h2>Como tudo<br><em>começou.</em></h2>
+    <p>
+      [Manda a história aqui — áudio, texto, bullet points. Eu escrevo no tom certo da marca.]
+    </p>
+    <p>
+      [A decisão de cultivar macadâmia, os primeiros anos, os desafios.]
+    </p>
+    <p>
+      [O que guia a MacaNuts hoje — valores, visão, futuro.]
+    </p>
+  </div>
+</section>
+
+<section class="stats-section">
+  <div class="stats">
+    <div class="fade-up"><div class="stat-n">+10</div><div class="stat-l">Anos de cultivo</div></div>
+    <div class="fade-up"><div class="stat-n">100%</div><div class="stat-l">Fazenda própria</div></div>
+    <div class="fade-up"><div class="stat-n">0</div><div class="stat-l">Intermediários</div></div>
+    <div class="fade-up"><div class="stat-n">MG</div><div class="stat-l">Minas Gerais, Brasil</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-topo">
+    <div class="footer-nome"><span class="maca">Maca</span><span class="nuts">Nuts</span></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="historia.html">Nossa História</a></li>
+      <li><a href="index.html#produtos">Produtos</a></li>
+      <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 MacaNuts · Todos os direitos reservados</span>
+    <span class="footer-origin">Fazenda própria · Minas Gerais, Brasil</span>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('aberto');
+}
+</script>
+
+</body>
+</html>

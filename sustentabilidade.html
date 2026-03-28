@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustentabilidade — MacaNuts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { color: inherit; text-decoration: none; }
+body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; color: #2C2E26; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(245,242,236,0.97); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
+.nav-logo { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; color: #2C2E26; display: flex; align-items: center; text-transform: uppercase; }
+.nav-logo .maca { font-weight: 600; color: #3A5232; }
+.nav-logo .nuts { font-weight: 400; color: #4A5240; }
+.nav-links { display: flex; gap: 36px; }
+.nav-links a { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.ativa { color: #2C2E26; }
+.nav-btn { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 12px 28px; transition: all 0.3s; }
+.nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
+@media (max-width: 768px) {
+.nav { padding: 18px 24px; }
+.nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); z-index: 99; }
+.nav-links.aberto { display: flex; }
+.nav-links a { padding: 16px 24px; border-top: 1px solid rgba(74,82,64,0.07); }
+.hamburger { display: flex; }
+.nav-btn { display: none; }
+}
+
+/* PAGE HERO */
+.page-hero { background: #5C6147; padding: 160px 60px 90px; position: relative; overflow: hidden; }
+.page-hero::after { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 60% at 80% 40%, rgba(196,168,130,0.07) 0%, transparent 65%); pointer-events: none; }
+.tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+.tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
+.page-hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(44px, 6.5vw, 84px); font-weight: 300; line-height: 1.05; color: #FDFCF9; }
+.page-hero h1 em { font-style: italic; color: #C4A882; }
+.page-hero-sub { font-size: 16px; line-height: 1.9; color: rgba(253,252,249,0.6); max-width: 560px; margin-top: 24px; }
+@media (max-width: 768px) { .page-hero { padding: 120px 24px 64px; } }
+
+/* MANIFESTO SUSTENTA */
+.manifesto { background: #4A5240; padding: 100px 60px; }
+.manifesto blockquote { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(22px, 2.8vw, 38px); font-weight: 300; line-height: 1.65; color: rgba(253,252,249,0.85); max-width: 800px; font-style: italic; }
+.manifesto blockquote em { color: #C4A882; }
+@media (max-width: 768px) { .manifesto { padding: 72px 24px; } }
+
+/* PILARES */
+.pilares { background: #F5F2EC; padding: 100px 60px; }
+.pilares h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(30px, 3.5vw, 50px); font-weight: 300; color: #2C2E26; margin-bottom: 64px; line-height: 1.1; }
+.pilares h2 em { font-style: italic; color: #5C6147; }
+.pilares-grid { display: flex; flex-direction: column; gap: 0; }
+.pilar { display: flex; align-items: flex-start; gap: 48px; padding: 48px 0; border-bottom: 1px solid rgba(74,82,64,0.1); }
+.pilar:first-child { border-top: 1px solid rgba(74,82,64,0.1); }
+.pilar-num { font-family: ‘Cormorant Garamond’, serif; font-size: 64px; font-weight: 300; color: rgba(74,82,64,0.1); line-height: 1; flex-shrink: 0; width: 80px; }
+.pilar-content { flex: 1; }
+.pilar-titulo { font-family: ‘Cormorant Garamond’, serif; font-size: 28px; font-weight: 400; color: #2C2E26; margin-bottom: 14px; }
+.pilar-desc { font-size: 15px; line-height: 1.9; color: #5A5D4E; }
+@media (max-width: 768px) { .pilares { padding: 72px 24px; } .pilar { flex-direction: column; gap: 16px; } .pilar-num { font-size: 48px; width: auto; } }
+
+/* CASCA */
+.casca { background: #4A5240; padding: 100px 60px; display: flex; gap: 80px; align-items: center; flex-wrap: wrap; }
+.casca-texto { flex: 1; min-width: 280px; }
+.casca-tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.casca-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
+.casca-texto h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; line-height: 1.2; color: #FDFCF9; margin-bottom: 20px; }
+.casca-texto h2 em { font-style: italic; color: #C4A882; }
+.casca-texto p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.58); }
+.casca-stat { flex: 0 0 240px; text-align: center; border-left: 1px solid rgba(253,252,249,0.1); padding-left: 60px; }
+.casca-stat-n { font-family: ‘Cormorant Garamond’, serif; font-size: 80px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 12px; }
+.casca-stat-l { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); line-height: 1.6; }
+@media (max-width: 768px) { .casca { padding: 72px 24px; gap: 40px; } .casca-stat { border-left: none; border-top: 1px solid rgba(253,252,249,0.1); padding: 40px 0 0; flex: 1; } }
+
+/* COMPROMISSO */
+.compromisso { background: #E8E2D6; padding: 100px 60px; }
+.compromisso h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; color: #2C2E26; margin-bottom: 48px; line-height: 1.2; }
+.compromisso h2 em { font-style: italic; color: #5C6147; }
+.items { display: flex; gap: 36px; flex-wrap: wrap; }
+.item { flex: 1; min-width: 200px; }
+.item-titulo { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 400; color: #2C2E26; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(74,82,64,0.15); }
+.item-desc { font-size: 14px; line-height: 1.85; color: #5A5D4E; margin-top: 12px; }
+@media (max-width: 768px) { .compromisso { padding: 72px 24px; } .items { flex-direction: column; } }
+
+/* FOOTER */
+footer { background: #2C2E26; padding: 60px 60px 36px; }
+.footer-topo { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(253,252,249,0.07); margin-bottom: 32px; }
+.footer-nome { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; display: flex; }
+.footer-nome .maca { font-weight: 600; color: #FDFCF9; }
+.footer-nome .nuts { font-weight: 400; color: rgba(253,252,249,0.6); }
+.footer-links { list-style: none; display: flex; gap: 32px; flex-wrap: wrap; }
+.footer-links a { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); transition: color 0.3s; }
+.footer-links a:hover { color: #FDFCF9; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
+.footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
+@media (max-width: 768px) { footer { padding: 48px 24px 24px; } .footer-topo { flex-direction: column; } .footer-links { gap: 20px; } .footer-bottom { flex-direction: column; } }
+
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.d1 { transition-delay: 0.15s; }
+.fade-up.d2 { transition-delay: 0.3s; }
+.fade-up.visible { opacity: 1; transform: none; }
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
+  <div class="nav-links">
+    <a href="historia.html">Nossa História</a>
+    <a href="index.html#produtos">Produtos</a>
+    <a href="sustentabilidade.html" class="ativa">Sustentabilidade</a>
+    <a href="index.html#contato">Contato</a>
+  </div>
+  <a href="index.html#produtos" class="nav-btn">Comprar</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+
+<section class="page-hero">
+  <div class="tag">Sustentabilidade</div>
+  <h1>Cuidamos da terra<br><em>que nos alimenta.</em></h1>
+  <p class="page-hero-sub">Cada decisão que tomamos na fazenda leva em conta o impacto no solo, na água e nas pessoas. Não por obrigação — por convicção.</p>
+</section>
+
+<!-- MANIFESTO -->
+
+<section class="manifesto">
+  <div class="tag">Nossa visão</div>
+  <blockquote>
+    "Não existe macadâmia de qualidade sem solo saudável. O cuidado com a terra não é um detalhe do nosso processo — é o <em>centro</em> dele."
+  </blockquote>
+</section>
+
+<!-- PILARES -->
+
+<section class="pilares">
+  <h2>O que <em>fazemos</em><br>na prática.</h2>
+  <div class="pilares-grid">
+    <div class="pilar fade-up">
+      <div class="pilar-num">I</div>
+      <div class="pilar-content">
+        <div class="pilar-titulo">A casca vira insumo</div>
+        <p class="pilar-desc">A casca externa da macadâmia — que seria descartada — é reaproveitada como insumo orgânico na própria fazenda. Ela retorna ao solo como adubo, fechando o ciclo sem desperdício.</p>
+      </div>
+    </div>
+    <div class="pilar fade-up">
+      <div class="pilar-num">II</div>
+      <div class="pilar-content">
+        <div class="pilar-titulo">Solo vivo, sempre</div>
+        <p class="pilar-desc">Cultivamos com técnicas que preservam a microbiota do solo. Nada de queimadas, nada de compactação desnecessária. A terra que alimenta a macadâmia hoje precisa estar ainda mais saudável daqui a 10 anos.</p>
+      </div>
+    </div>
+    <div class="pilar fade-up">
+      <div class="pilar-num">III</div>
+      <div class="pilar-content">
+        <div class="pilar-titulo">Colheita que respeita o tempo</div>
+        <p class="pilar-desc">A macadâmia cai quando está pronta — nunca é arrancada. Esse respeito ao ciclo natural da planta garante qualidade e preserva a árvore para as próximas safras.</p>
+      </div>
+    </div>
+    <div class="pilar fade-up">
+      <div class="pilar-num">IV</div>
+      <div class="pilar-content">
+        <div class="pilar-titulo">Embalagem pensada</div>
+        <p class="pilar-desc">Embalamos a vácuo para maximizar a validade sem conservantes. Menos desperdício de produto significa menos impacto no caminho da fazenda até a sua mesa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASCA -->
+
+<section class="casca">
+  <div class="casca-texto fade-up">
+    <div class="casca-tag">Economia circular</div>
+    <h2>Da casca ao<br><em>solo fértil.</em></h2>
+    <p>A macadâmia tem uma das cascas mais duras do reino vegetal. Em vez de descartá-la, transformamos esse resíduo em adubo orgânico que nutre o próprio macadamial. Um ciclo que se fecha dentro da nossa fazenda.</p>
+  </div>
+  <div class="casca-stat fade-up d1">
+    <div class="casca-stat-n">0</div>
+    <div class="casca-stat-l">quilos de casca<br>descartados</div>
+  </div>
+</section>
+
+<!-- COMPROMISSO -->
+
+<section class="compromisso">
+  <h2>Nosso compromisso<br><em>com o futuro.</em></h2>
+  <div class="items">
+    <div class="item fade-up">
+      <div class="item-titulo">Com o solo</div>
+      <p class="item-desc">Monitoramos a saúde do solo regularmente. Cada decisão de manejo é tomada com base em análises técnicas e respeito aos ciclos naturais.</p>
+    </div>
+    <div class="item fade-up d1">
+      <div class="item-titulo">Com a água</div>
+      <p class="item-desc">Gerenciamos o uso de água com atenção ao lençol freático da região e às épocas de chuva, evitando desperdício e pressão sobre os recursos locais.</p>
+    </div>
+    <div class="item fade-up d2">
+      <div class="item-titulo">Com as pessoas</div>
+      <p class="item-desc">Valorizamos quem trabalha na fazenda. Condições dignas, vínculos duradouros e transparência são parte do que acreditamos ser uma produção realmente sustentável.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-topo">
+    <div class="footer-nome"><span class="maca">Maca</span><span class="nuts">Nuts</span></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="historia.html">Nossa História</a></li>
+      <li><a href="index.html#produtos">Produtos</a></li>
+      <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
+      <li><a href="index.html#contato">Contato</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 MacaNuts · Todos os direitos reservados</span>
+    <span class="footer-origin">Fazenda própria · Minas Gerais, Brasil</span>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('aberto');
+}
+</script>
+
+</body>
+</html>
