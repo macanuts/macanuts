@@ -20,8 +20,16 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .nav-links a { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
 .nav-links a:hover { color: #2C2E26; }
 .nav-btn { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 12px 28px; transition: all 0.3s; }
-.hamburger { display: none; }
-@media (max-width: 768px) { .nav { padding: 18px 24px; } .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); } .nav-links.aberto { display: flex; } .nav-links a { padding: 16px 24px; border-top: 1px solid rgba(74,82,64,0.07); } .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; } .hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; transition: all 0.3s; } }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
+@media (max-width: 768px) {
+.nav { padding: 18px 24px; }
+.nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); z-index: 99; }
+.nav-links.aberto { display: flex; }
+.nav-links a { padding: 16px 24px; border-top: 1px solid rgba(74,82,64,0.07); }
+.hamburger { display: flex; }
+.nav-btn { display: none; }
+}
 
 /* HERO */
 .hero { background: #F5F2EC; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px 60px 90px; position: relative; overflow: hidden; }
@@ -181,13 +189,15 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   <div class="nav-links">
     <a href="historia.html">Nossa História</a>
     <a href="index.html#produtos">Produtos</a>
+    <a href="empresas.html">Para Empresas</a>
     <a href="sustentabilidade.html">Sustentabilidade</a>
-    <a href="contato.html">Contato</a>
+    <a href="export.html">Export</a>
   </div>
   <a href="index.html#produtos" class="nav-btn">Comprar</a>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
+</nav>
 
 <!-- HERO -->
 
@@ -325,7 +335,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   <h2>Vamos conversar<br><em>sobre macadâmias.</em></h2>
   <p class="contato-sub">Para pedidos, parcerias ou só para saber mais — estamos aqui.</p>
   <div class="contato-opcoes">
-    <a href="mailto:comercial@macanuts.com.br" class="btn-contato btn-email">comercial@macanuts.com.br</a>
+    <a href="/cdn-cgi/l/email-protection#80e3efede5f2e3e9e1ecc0ede1e3e1eef5f4f3aee3efedaee2f2" class="btn-contato btn-email"><span class="__cf_email__" data-cfemail="f3909c9e9681909a929fb39e9290929d868780dd909c9edd9181">[email&#160;protected]</span></a>
     <a href="https://wa.me/5500000000000" target="_blank" class="btn-contato btn-whats">WhatsApp</a>
   </div>
 </section>
@@ -372,7 +382,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
     <div class="footer-col">
       <span class="footer-col-titulo">Contato</span>
       <ul class="footer-links">
-        <li><a href="mailto:comercial@macanuts.com.br">comercial@macanuts.com.br</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#d5b6bab8b0a7b6bcb4b995b8b4b6b4bba0a1a6fbb6bab8fbb7a7"><span class="__cf_email__" data-cfemail="a1c2ceccc4d3c2c8c0cde1ccc0c2c0cfd4d5d28fc2cecc8fc3d3">[email&#160;protected]</span></a></li>
         <li><a href="https://instagram.com/macanutsbr">@macanutsbr</a></li>
       </ul>
     </div>
@@ -383,16 +393,4 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   </div>
 </footer>
 
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-function toggleMenu() {
-  document.querySelector('.nav-links').classList.toggle('aberto');
-}
-</script>
-
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/
