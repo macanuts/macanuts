@@ -17,52 +17,40 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .nav-logo .maca { font-weight: 600; color: #3A5232; }
 .nav-logo .nuts { font-weight: 400; color: #4A5240; }
 .nav-links { display: flex; gap: 36px; }
-.nav-links a { font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
+.nav-links a { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
 .nav-links a:hover { color: #2C2E26; }
-.nav-btn { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 12px 28px; transition: all 0.3s; }
-.nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
-@media (max-width: 768px) { .nav { padding: 18px 24px; } .nav-links { display: none; } }
+.nav-btn { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 12px 28px; transition: all 0.3s; }
+.hamburger { display: none; }
+@media (max-width: 768px) { .nav { padding: 18px 24px; } .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); } .nav-links.aberto { display: flex; } .nav-links a { padding: 16px 24px; border-top: 1px solid rgba(74,82,64,0.07); } .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; } .hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; transition: all 0.3s; } }
 
 /* HERO */
 .hero { background: #F5F2EC; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px 60px 90px; position: relative; overflow: hidden; }
 .hero-logo { width: 180px; height: 180px; position: absolute; top: 80px; right: 60px; }
 .hero-logo img { width: 100%; height: 100%; object-fit: contain; }
-.hero-tag { font-size: 17px; letter-spacing: 0.28em; text-transform: uppercase; color: #7A8A6A; margin-bottom: 24px; }
+.hero-tag { font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: #7A8A6A; margin-bottom: 24px; }
 .hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(48px, 7vw, 88px); font-weight: 300; line-height: 1.04; color: #2C2E26; margin-bottom: 28px; }
 .hero h1 em { font-style: italic; color: #5C6147; }
-.hero-sub { font-size: 17px; line-height: 1.85; color: rgba(44,46,38,0.55); max-width: 400px; margin-bottom: 52px; }
+.hero-sub { font-size: 16px; line-height: 1.85; color: rgba(44,46,38,0.55); max-width: 400px; margin-bottom: 52px; }
 .hero-ctas { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
-.btn-verde-escuro { background: #4A5240; color: #FDFCF9; font-size: 17px; letter-spacing: 0.22em; text-transform: uppercase; padding: 15px 36px; display: inline-block; transition: all 0.3s; }
+.btn-verde-escuro { background: #4A5240; color: #FDFCF9; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; padding: 15px 36px; display: inline-block; transition: all 0.3s; }
 .btn-verde-escuro:hover { background: #5C6147; }
-.btn-texto-escuro { font-size: 17px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.5); display: flex; align-items: center; gap: 12px; }
+.btn-texto-escuro { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.5); display: flex; align-items: center; gap: 12px; }
 .btn-texto-escuro::after { content: ‘’; width: 28px; height: 1px; background: currentColor; }
 @media (max-width: 768px) { .hero { padding: 100px 24px 72px; } .hero-logo { width: 100px; height: 100px; top: 72px; right: 24px; } }
 
 /* MANIFESTO */
 .manifesto { background: #5C6147; padding: 100px 60px; }
-.tag { font-size: 14px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 32px; }
+.tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 32px; }
 .manifesto blockquote { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(20px, 2.4vw, 32px); font-weight: 300; line-height: 1.75; color: rgba(253,252,249,0.85); max-width: 760px; font-style: italic; }
 .manifesto blockquote em { font-style: italic; color: #C4A882; font-weight: 400; }
 @media (max-width: 768px) { .manifesto { padding: 72px 24px; } }
-
-/* ORIGEM */
-.origem { background: #4A5240; padding: 100px 60px; }
-.origem-tag { font-size: 14px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
-.origem-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
-.origem h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(34px, 5vw, 64px); font-weight: 300; line-height: 1.1; color: #FDFCF9; margin-bottom: 32px; }
-.origem h2 em { font-style: italic; color: #C4A882; }
-.origem p { font-size: 17px; line-height: 1.9; color: rgba(253,252,249,0.58); max-width: 580px; margin-bottom: 60px; }
-.stats { display: flex; gap: 64px; flex-wrap: wrap; padding-top: 44px; border-top: 1px solid rgba(253,252,249,0.1); }
-.stat-n { font-family: ‘Cormorant Garamond’, serif; font-size: 52px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 10px; }
-.stat-l { font-size: 17px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.3); }
-@media (max-width: 768px) { .origem { padding: 72px 24px; } .stats { gap: 36px; } }
 
 /* PRODUTOS */
 .produtos { background: #FDFCF9; padding: 100px 60px; }
 .produtos-topo { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 64px; flex-wrap: wrap; gap: 20px; }
 .produtos h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 4vw, 56px); font-weight: 300; line-height: 1.1; color: #2C2E26; }
 .produtos h2 em { font-style: italic; color: #5C6147; }
-.link-todos { font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: #7A8A6A; display: flex; align-items: center; gap: 10px; }
+.link-todos { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #7A8A6A; display: flex; align-items: center; gap: 10px; }
 .link-todos::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
 .prods { display: flex; gap: 28px; }
 .prod { flex: 1; background: #F5F2EC; display: flex; flex-direction: column; }
@@ -72,70 +60,86 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .prod-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s; }
 .prod:hover .prod-img img { transform: scale(1.04); }
 .prod-body { padding: 28px 24px 32px; flex: 1; display: flex; flex-direction: column; }
-.prod-tipo { font-size: 17px; letter-spacing: 0.3em; text-transform: uppercase; color: #C4A882; margin-bottom: 10px; }
+.prod-tipo { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #C4A882; margin-bottom: 10px; }
 .prod-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 400; color: #2C2E26; margin-bottom: 10px; line-height: 1.2; }
-.prod-desc { font-size: 17px; line-height: 1.75; color: #5A5D4E; margin-bottom: 20px; flex: 1; }
+.prod-desc { font-size: 14px; line-height: 1.75; color: #5A5D4E; margin-bottom: 20px; flex: 1; }
 .prod-preco { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 300; color: #5C6147; }
-.prod-preco small { font-family: ‘Jost’, sans-serif; font-size: 17px; color: #7A8A6A; }
+.prod-preco small { font-family: ‘Jost’, sans-serif; font-size: 12px; color: #7A8A6A; }
 @media (max-width: 768px) { .produtos { padding: 72px 24px; } .prods { flex-direction: column; } .prod, .prod:nth-child(2), .prod:nth-child(3) { margin-top: 0; } }
 
-/* FLORAÇÃO */
+/* FLORADA */
 .floracao { background: #4A5240; padding: 0; display: flex; min-height: 300px; }
 .floracao-img { flex: 0 0 40%; min-height: 300px; overflow: hidden; background: #5C6147; }
 .floracao-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.8; }
 .floracao-texto { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
-.floracao-tag { font-size: 14px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.floracao-tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
 .floracao-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
 .floracao-texto h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 50px); font-weight: 300; line-height: 1.15; color: #FDFCF9; margin-bottom: 20px; }
 .floracao-texto h2 em { font-style: italic; color: #C4A882; }
-.floracao-texto p { font-size: 16px; line-height: 1.9; color: rgba(253,252,249,0.58); margin-bottom: 36px; }
-.link-claro { font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(253,252,249,0.5); display: flex; align-items: center; gap: 12px; }
+.floracao-texto p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.58); margin-bottom: 36px; }
+.link-claro { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(253,252,249,0.5); display: flex; align-items: center; gap: 12px; }
 .link-claro::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
 @media (max-width: 768px) { .floracao { flex-direction: column; } .floracao-img { min-height: 260px; } .floracao-texto { padding: 56px 24px; } }
 
-/* PROCESSO */
-.processo { background: #E8E2D6; padding: 100px 60px; }
-.processo-topo { text-align: center; margin-bottom: 72px; }
-.processo h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 50px); font-weight: 300; color: #2C2E26; line-height: 1.1; margin-top: 14px; }
-.processo h2 em { font-style: italic; color: #5C6147; }
-.steps { display: flex; gap: 0; }
-.step { flex: 1; padding: 0 32px; border-left: 1px solid rgba(74,82,64,0.12); }
-.step:first-child { border-left: none; padding-left: 0; }
-.step-n { font-family: ‘Cormorant Garamond’, serif; font-size: 52px; font-weight: 300; color: rgba(74,82,64,0.12); line-height: 1; margin-bottom: 20px; }
-.step-tag { font-size: 17px; letter-spacing: 0.28em; text-transform: uppercase; color: #C4A882; margin-bottom: 10px; }
-.step-titulo { font-family: ‘Cormorant Garamond’, serif; font-size: 20px; font-weight: 400; color: #2C2E26; margin-bottom: 10px; }
-.step p { font-size: 17px; line-height: 1.75; color: #5A5D4E; }
-@media (max-width: 768px) { .processo { padding: 72px 24px; } .steps { flex-direction: column; gap: 36px; } .step { border-left: none; border-top: 1px solid rgba(74,82,64,0.12); padding: 28px 0 0; } .step:first-child { border-top: none; padding-top: 0; } }
+/* SUSTENTABILIDADE PREVIEW */
+.sustenta { background: #4A5240; padding: 100px 60px; }
+.sustenta h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 4vw, 54px); font-weight: 300; line-height: 1.1; color: #FDFCF9; margin-bottom: 24px; }
+.sustenta h2 em { font-style: italic; color: #C4A882; }
+.sustenta > p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.58); max-width: 580px; margin-bottom: 52px; }
+.sustenta-items { display: flex; gap: 48px; flex-wrap: wrap; padding-top: 44px; border-top: 1px solid rgba(253,252,249,0.1); margin-bottom: 44px; }
+.sustenta-item-n { font-family: ‘Cormorant Garamond’, serif; font-size: 48px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 10px; }
+.sustenta-item-t { font-size: 14px; font-weight: 400; color: #FDFCF9; margin-bottom: 8px; }
+.sustenta-item-d { font-size: 13px; line-height: 1.7; color: rgba(253,252,249,0.45); }
+@media (max-width: 768px) { .sustenta { padding: 72px 24px; } .sustenta-items { gap: 32px; } }
+
+/* CLIENTES */
+.clientes { background: #E8EDE0; padding: 80px 60px; }
+.clientes-lista { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; margin-top: 40px; }
+.cliente-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 26px; font-weight: 400; color: rgba(44,46,38,0.35); letter-spacing: 0.05em; }
+@media (max-width: 768px) { .clientes { padding: 60px 24px; } .clientes-lista { gap: 32px; } }
 
 /* RECEITA */
 .receita { background: #2C2E26; display: flex; flex-direction: row-reverse; min-height: 300px; }
 .receita-img { flex: 0 0 30%; overflow: hidden; background: #3A3C33; min-height: 300px; }
 .receita-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; }
 .receita-texto { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
-.receita-tag { font-size: 14px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.receita-tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
 .receita-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
 .receita-texto h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(24px, 3vw, 44px); font-weight: 300; line-height: 1.2; color: #FDFCF9; margin-bottom: 20px; }
 .receita-texto h2 em { font-style: italic; color: #C4A882; }
-.receita-texto p { font-size: 16px; line-height: 1.9; color: rgba(253,252,249,0.55); margin-bottom: 36px; }
-.link-terra { font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: #C4A882; display: flex; align-items: center; gap: 12px; }
+.receita-texto p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.55); margin-bottom: 36px; }
+.link-terra { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #C4A882; display: flex; align-items: center; gap: 12px; }
 .link-terra::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
 @media (max-width: 768px) { .receita { flex-direction: column; } .receita-img { min-height: 260px; } .receita-texto { padding: 56px 24px; } }
 
+/* CONTATO */
+.contato { background: #F5F2EC; padding: 100px 60px; }
+.contato h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 4vw, 54px); font-weight: 300; line-height: 1.1; color: #2C2E26; margin-bottom: 16px; }
+.contato h2 em { font-style: italic; color: #5C6147; }
+.contato-sub { font-size: 15px; line-height: 1.85; color: rgba(44,46,38,0.55); max-width: 480px; margin-bottom: 48px; }
+.contato-opcoes { display: flex; gap: 20px; flex-wrap: wrap; }
+.btn-contato { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; padding: 15px 32px; display: inline-block; transition: all 0.3s; }
+.btn-email { background: #4A5240; color: #FDFCF9; }
+.btn-email:hover { background: #5C6147; }
+.btn-whats { background: transparent; color: #4A5240; border: 1px solid rgba(74,82,64,0.4); }
+.btn-whats:hover { background: rgba(74,82,64,0.06); }
+@media (max-width: 768px) { .contato { padding: 72px 24px; } }
+
 /* CITAÇÃO */
-.citacao { background: #E8EDE0; padding: 100px 60px; text-align: center; }
+.citacao { background: #E8EDE0; padding: 90px 60px; text-align: center; }
 .citacao blockquote { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(20px, 2.6vw, 34px); font-weight: 300; font-style: italic; line-height: 1.65; color: #2C2E26; max-width: 720px; margin: 0 auto 28px; }
-.citacao cite { font-size: 14px; letter-spacing: 0.26em; text-transform: uppercase; color: #7A8A6A; font-style: normal; }
+.citacao cite { font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #7A8A6A; font-style: normal; }
 @media (max-width: 768px) { .citacao { padding: 72px 24px; } }
 
 /* NEWSLETTER */
 .newsletter { background: #FDFCF9; padding: 100px 60px; border-top: 1px solid #E8E2D6; }
 .newsletter h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(26px, 3vw, 42px); font-weight: 300; color: #2C2E26; margin-bottom: 12px; line-height: 1.2; }
 .newsletter h2 em { font-style: italic; color: #5C6147; }
-.newsletter > p { font-size: 16px; line-height: 1.8; color: #5A5D4E; margin-bottom: 40px; max-width: 460px; }
-.nl-campo { display: block; width: 100%; max-width: 460px; background: transparent; border: none; border-bottom: 1px solid rgba(74,82,64,0.2); padding: 12px 0; font-family: ‘Jost’, sans-serif; font-size: 17px; color: #2C2E26; outline: none; margin-bottom: 16px; }
-.nl-campo::placeholder { font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(74,82,64,0.35); }
-.btn-verde { background: #4A5240; color: #FDFCF9; font-family: ‘Jost’, sans-serif; font-size: 14px; letter-spacing: 0.24em; text-transform: uppercase; padding: 14px 36px; border: none; cursor: pointer; margin-top: 8px; display: inline-block; }
-.nl-nota { font-size: 17px; color: rgba(74,82,64,0.35); margin-top: 14px; }
+.newsletter > p { font-size: 15px; line-height: 1.8; color: #5A5D4E; margin-bottom: 40px; max-width: 460px; }
+.nl-campo { display: block; width: 100%; max-width: 460px; background: transparent; border: none; border-bottom: 1px solid rgba(74,82,64,0.2); padding: 12px 0; font-family: ‘Jost’, sans-serif; font-size: 15px; color: #2C2E26; outline: none; margin-bottom: 16px; }
+.nl-campo::placeholder { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(74,82,64,0.35); }
+.btn-verde { background: #4A5240; color: #FDFCF9; font-family: ‘Jost’, sans-serif; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; padding: 14px 36px; border: none; cursor: pointer; margin-top: 8px; display: inline-block; }
+.nl-nota { font-size: 12px; color: rgba(74,82,64,0.35); margin-top: 14px; }
 @media (max-width: 768px) { .newsletter { padding: 72px 24px; } }
 
 /* FOOTER */
@@ -143,22 +147,28 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 .footer-top { display: flex; gap: 48px; flex-wrap: wrap; padding-bottom: 48px; border-bottom: 1px solid rgba(253,252,249,0.07); margin-bottom: 32px; }
 .footer-marca { flex: 2; min-width: 200px; }
 .footer-col { flex: 1; min-width: 130px; }
-.footer-nome { font-family: ‘Raleway’, sans-serif; font-size: 20px; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+.footer-nome { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; display: flex; margin-bottom: 14px; }
 .footer-nome .maca { font-weight: 600; color: #FDFCF9; }
-.footer-nome .nuts { font-weight: 400; color: rgba(253,252,249,0.7); }
-.footer-desc { font-size: 14px; line-height: 1.8; color: rgba(253,252,249,0.28); margin-bottom: 24px; max-width: 220px; }
+.footer-nome .nuts { font-weight: 400; color: rgba(253,252,249,0.6); }
+.footer-desc { font-size: 13px; line-height: 1.8; color: rgba(253,252,249,0.28); margin-bottom: 24px; max-width: 220px; }
 .footer-social { display: flex; gap: 20px; }
-.footer-social a { font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.28); transition: color 0.3s; }
+.footer-social a { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.28); transition: color 0.3s; }
 .footer-social a:hover { color: #C4A882; }
-.footer-col-titulo { font-size: 17px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(253,252,249,0.25); margin-bottom: 20px; display: block; }
+.footer-col-titulo { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(253,252,249,0.25); margin-bottom: 20px; display: block; }
 .footer-links { list-style: none; }
 .footer-links li { margin-bottom: 12px; }
-.footer-links a { font-size: 17px; color: rgba(253,252,249,0.42); transition: color 0.3s; }
+.footer-links a { font-size: 14px; color: rgba(253,252,249,0.42); transition: color 0.3s; }
 .footer-links a:hover { color: #FDFCF9; }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-.footer-copy { font-size: 17px; color: rgba(253,252,249,0.18); }
-.footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 14px; font-style: italic; color: rgba(253,252,249,0.18); }
+.footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
+.footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
 @media (max-width: 768px) { footer { padding: 56px 24px 28px; } .footer-top { flex-direction: column; gap: 32px; } .footer-bottom { flex-direction: column; } }
+
+/* FADE UP */
+.fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+.fade-up.d1 { transition-delay: 0.15s; }
+.fade-up.d2 { transition-delay: 0.3s; }
 </style>
 
 </head>
@@ -167,28 +177,30 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 <!-- NAV -->
 
 <nav class="nav">
-  <a href="/" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
+  <a href="index.html" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
   <div class="nav-links">
-    <a href="#origem">A Fazenda</a>
-    <a href="#produtos">Produtos</a>
-    <a href="#processo">Processo</a>
-    <a href="#receita">Receitas</a>
+    <a href="historia.html">Nossa História</a>
+    <a href="index.html#produtos">Produtos</a>
+    <a href="sustentabilidade.html">Sustentabilidade</a>
+    <a href="contato.html">Contato</a>
   </div>
-  <a href="#produtos" class="nav-btn">Comprar</a>
-</nav>
+  <a href="index.html#produtos" class="nav-btn">Comprar</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 
 <!-- HERO -->
 
 <section class="hero">
   <div class="hero-logo">
-    <img src="imgs/logo-adjusted.jpeg" alt="MacaNuts">
+    <img src="imgs/logo-adjusted.jpeg" alt="MacaNuts" onerror="this.src='imgs/logo-sem-escrita.jpeg'">
   </div>
   <p class="hero-tag">Fazenda própria · Minas Gerais, Brasil</p>
   <h1>Da fazenda<br><em>direto para sua mesa.</em></h1>
   <p class="hero-sub">Macadâmias cultivadas com rigor, colhidas no ponto exato e entregues diretamente da nossa fazenda para a sua mesa.</p>
   <div class="hero-ctas">
-    <a href="#produtos" class="btn-verde-escuro">Explorar produtos</a>
-    <a href="#origem" class="btn-texto-escuro">Nossa origem</a>
+    <a href="index.html#produtos" class="btn-verde-escuro">Explorar produtos</a>
+    <a href="historia.html" class="btn-texto-escuro">Nossa história</a>
   </div>
 </section>
 
@@ -201,19 +213,6 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   </blockquote>
 </section>
 
-<!-- ORIGEM -->
-
-<section class="origem" id="origem">
-  <div class="origem-tag">A Fazenda</div>
-  <h2>Uma origem<br><em>que você pode</em><br>rastrear.</h2>
-  <p>Cada embalagem carrega a história de um lugar específico: nossa fazenda em Minas Gerais, onde o microclima, o solo e o cuidado humano se combinam para produzir macadâmias de qualidade excepcional.<br><br>Não terceirizamos. Não compramos de intermediários. Cultivamos, selecionamos e embalamos nós mesmos.</p>
-  <div class="stats">
-    <div><div class="stat-n">+10</div><div class="stat-l">Anos de cultivo</div></div>
-    <div><div class="stat-n">100%</div><div class="stat-l">Colheita própria</div></div>
-    <div><div class="stat-n">0</div><div class="stat-l">Intermediários</div></div>
-  </div>
-</section>
-
 <!-- PRODUTOS -->
 
 <section class="produtos" id="produtos">
@@ -222,13 +221,11 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
       <p class="tag">Os produtos</p>
       <h2>Escolhidas<br><em>a dedo.</em></h2>
     </div>
-    <a href="#" class="link-todos">Ver todos</a>
+    <a href="index.html#produtos" class="link-todos">Ver todos</a>
   </div>
   <div class="prods">
     <div class="prod fade-up">
-      <div class="prod-img">
-        <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 0">
-      </div>
+      <div class="prod-img"><img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 0"></div>
       <div class="prod-body">
         <div class="prod-tipo">Seleção Premium · Tipo 0</div>
         <div class="prod-nome">Macadâmia Natural Tipo 0</div>
@@ -237,9 +234,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
       </div>
     </div>
     <div class="prod fade-up d1">
-      <div class="prod-img">
-        <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 2">
-      </div>
+      <div class="prod-img"><img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 2"></div>
       <div class="prod-body">
         <div class="prod-tipo">Mais Vendida · Tipo 2</div>
         <div class="prod-nome">Macadâmia Natural Tipo 2</div>
@@ -248,9 +243,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
       </div>
     </div>
     <div class="prod fade-up d2">
-      <div class="prod-img">
-        <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 4">
-      </div>
+      <div class="prod-img"><img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 4"></div>
       <div class="prod-body">
         <div class="prod-tipo">Uso Culinário · Tipo 4</div>
         <div class="prod-nome">Macadâmia Natural Tipo 4</div>
@@ -261,9 +254,9 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   </div>
 </section>
 
-<!-- FLORAÇÃO -->
+<!-- FLORADA -->
 
-<section class="floracao" id="floracao">
+<section class="floracao">
   <div class="floracao-img">
     <img src="imgs/floracao.jpeg" alt="Florada da macadâmia">
   </div>
@@ -271,48 +264,49 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
     <div class="floracao-tag">A planta</div>
     <h2>Tudo começa<br><em>com a florada.</em></h2>
     <p>Antes de cada colheita, vem a espera. A macadâmia floresce uma vez por ano e leva meses para desenvolver o fruto. Respeitamos esse tempo — porque é ele que garante o sabor.</p>
-    <a href="#processo" class="link-claro">Ver o processo</a>
+    <a href="historia.html" class="link-claro">Nossa história</a>
   </div>
 </section>
 
-<!-- PROCESSO -->
+<!-- SUSTENTABILIDADE PREVIEW -->
 
-<section class="processo" id="processo">
-  <div class="processo-topo">
-    <p class="tag">O processo</p>
-    <h2>Do pé da árvore<br><em>até a sua mão.</em></h2>
+<section class="sustenta">
+  <p class="tag">Sustentabilidade</p>
+  <h2>Cuidamos da terra<br><em>que nos alimenta.</em></h2>
+  <p>Não existe macadâmia de qualidade sem solo saudável. Cada decisão que tomamos leva em conta o impacto no ecossistema da nossa fazenda.</p>
+  <div class="sustenta-items">
+    <div class="fade-up">
+      <div class="sustenta-item-n">0</div>
+      <div class="sustenta-item-t">Desperdício</div>
+      <div class="sustenta-item-d">A casca da macadâmia vira insumo. Nada vai para o lixo.</div>
+    </div>
+    <div class="fade-up d1">
+      <div class="sustenta-item-n">+10</div>
+      <div class="sustenta-item-t">Anos de solo vivo</div>
+      <div class="sustenta-item-d">Cultivamos com técnicas que preservam e enriquecem a terra.</div>
+    </div>
+    <div class="fade-up d2">
+      <div class="sustenta-item-n">100%</div>
+      <div class="sustenta-item-t">Rastreável</div>
+      <div class="sustenta-item-d">Você sabe exatamente de onde veio cada macadâmia.</div>
+    </div>
   </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-n">I</div>
-      <div class="step-tag">Florada</div>
-      <div class="step-titulo">A espera certa</div>
-      <p>A macadâmia leva anos para produzir. Cada florada é o início de um ciclo que respeitamos sem atalhos.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">II</div>
-      <div class="step-tag">Colheita</div>
-      <div class="step-titulo">Queda natural</div>
-      <p>A macadâmia cai quando está pronta — nunca é arrancada. Colhemos do chão no momento exato.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">III</div>
-      <div class="step-tag">Seleção</div>
-      <div class="step-titulo">Olho por olho</div>
-      <p>Cada macadâmia é inspecionada. As que não atingem o padrão MacaNuts não seguem adiante.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">IV</div>
-      <div class="step-tag">Embalagem</div>
-      <div class="step-titulo">Frescor selado</div>
-      <p>Embalagem a vácuo sem conservantes. O frescor da fazenda chega intacto até você.</p>
-    </div>
+  <a href="sustentabilidade.html" class="link-claro">Saiba mais</a>
+</section>
+
+<!-- CLIENTES -->
+
+<section class="clientes">
+  <p class="tag">Quem confia na MacaNuts</p>
+  <div class="clientes-lista">
+    <div class="cliente-nome fade-up">Wickbold</div>
+    <div class="cliente-nome fade-up d1">Naked Nuts</div>
   </div>
 </section>
 
 <!-- RECEITA -->
 
-<section class="receita" id="receita">
+<section class="receita">
   <div class="receita-img">
     <img src="imgs/cheesecake.jpeg" alt="Cheesecake de macadâmia">
   </div>
@@ -324,11 +318,16 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   </div>
 </section>
 
-<!-- CITAÇÃO -->
+<!-- CONTATO -->
 
-<section class="citacao">
-  <blockquote>"Nunca pensei que uma macadâmia pudesse me fazer parar para prestar atenção no que estou comendo. A textura, o sabor — dá pra sentir que tem cuidado por trás disso."</blockquote>
-  <cite>Ana Clara M. · São Paulo, SP</cite>
+<section class="contato" id="contato">
+  <p class="tag">Fale com a gente</p>
+  <h2>Vamos conversar<br><em>sobre macadâmias.</em></h2>
+  <p class="contato-sub">Para pedidos, parcerias ou só para saber mais — estamos aqui.</p>
+  <div class="contato-opcoes">
+    <a href="mailto:comercial@macanuts.com.br" class="btn-contato btn-email">comercial@macanuts.com.br</a>
+    <a href="https://wa.me/5500000000000" target="_blank" class="btn-contato btn-whats">WhatsApp</a>
+  </div>
 </section>
 
 <!-- NEWSLETTER -->
@@ -347,35 +346,34 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 <footer>
   <div class="footer-top">
     <div class="footer-marca">
-      <span class="footer-nome"><span class="maca">Maca</span><span class="nuts">Nuts</span></span>
+      <div class="footer-nome"><span class="maca">Maca</span><span class="nuts">Nuts</span></div>
       <p class="footer-desc">Macadâmias cultivadas com rigor. Direto da nossa fazenda em Minas Gerais para a sua mesa.</p>
       <div class="footer-social">
-        <a href="https://instagram.com/macanutsbr">Instagram</a>
+        <a href="https://instagram.com/macanutsbr" target="_blank">Instagram</a>
         <a href="#">WhatsApp</a>
       </div>
     </div>
     <div class="footer-col">
+      <span class="footer-col-titulo">Navegação</span>
+      <ul class="footer-links">
+        <li><a href="historia.html">Nossa História</a></li>
+        <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
       <span class="footer-col-titulo">Produtos</span>
       <ul class="footer-links">
-        <li><a href="#">Tipo 0 — Premium</a></li>
-        <li><a href="#">Tipo 2 — Versátil</a></li>
-        <li><a href="#">Tipo 4 — Culinário</a></li>
+        <li><a href="index.html#produtos">Tipo 0 — Premium</a></li>
+        <li><a href="index.html#produtos">Tipo 2 — Versátil</a></li>
+        <li><a href="index.html#produtos">Tipo 4 — Culinário</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <span class="footer-col-titulo">A Marca</span>
+      <span class="footer-col-titulo">Contato</span>
       <ul class="footer-links">
-        <li><a href="#">A Fazenda</a></li>
-        <li><a href="#">O Processo</a></li>
-        <li><a href="#">Receitas</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <span class="footer-col-titulo">Atendimento</span>
-      <ul class="footer-links">
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Entrega</a></li>
-        <li><a href="#">Contato</a></li>
+        <li><a href="mailto:comercial@macanuts.com.br">comercial@macanuts.com.br</a></li>
+        <li><a href="https://instagram.com/macanutsbr">@macanutsbr</a></li>
       </ul>
     </div>
   </div>
@@ -385,18 +383,15 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   </div>
 </footer>
 
-<style>
-.fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.fade-up.visible { opacity: 1; transform: none; }
-.fade-up.d1 { transition-delay: 0.15s; }
-.fade-up.d2 { transition-delay: 0.3s; }
-</style>
-
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('aberto');
+}
 </script>
 
 </body>
