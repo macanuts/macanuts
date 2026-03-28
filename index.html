@@ -12,7 +12,7 @@ a { color: inherit; text-decoration: none; }
 body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; color: #2C2E26; }
 
 /* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(241,233,221,0.97); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(245,242,236,0.97); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
 .nav-logo { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; color: #2C2E26; display: flex; align-items: center; text-transform: uppercase; }
 .nav-logo .maca { font-weight: 600; color: #3A5232; }
 .nav-logo .nuts { font-weight: 400; color: #4A5240; }
@@ -24,7 +24,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 @media (max-width: 768px) { .nav { padding: 18px 24px; } .nav-links { display: none; } }
 
 /* HERO */
-.hero { background: #F1E9DD; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px 60px 90px; position: relative; overflow: hidden; }
+.hero { background: #F5F2EC; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px 60px 90px; position: relative; overflow: hidden; }
 .hero-logo { width: 180px; height: 180px; position: absolute; top: 80px; right: 60px; }
 .hero-logo img { width: 100%; height: 100%; object-fit: contain; }
 .hero-tag { font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: #7A8A6A; margin-bottom: 24px; }
@@ -81,7 +81,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 
 /* FLORAÇÃO */
 .floracao { background: #4A5240; padding: 0; display: flex; min-height: 300px; }
-.floracao-img { flex: 0 0 30%; min-height: 300px; overflow: hidden; background: #5C6147; }
+.floracao-img { flex: 0 0 40%; min-height: 300px; overflow: hidden; background: #5C6147; }
 .floracao-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.8; }
 .floracao-texto { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
 .floracao-tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
@@ -108,7 +108,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 @media (max-width: 768px) { .processo { padding: 72px 24px; } .steps { flex-direction: column; gap: 36px; } .step { border-left: none; border-top: 1px solid rgba(74,82,64,0.12); padding: 28px 0 0; } .step:first-child { border-top: none; padding-top: 0; } }
 
 /* RECEITA */
-.receita { background: #2C2E26; display: flex; min-height: 300px; }
+.receita { background: #2C2E26; display: flex; flex-direction: row-reverse; min-height: 300px; }
 .receita-img { flex: 0 0 30%; overflow: hidden; background: #3A3C33; min-height: 300px; }
 .receita-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; }
 .receita-texto { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
@@ -181,7 +181,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 
 <section class="hero">
   <div class="hero-logo">
-    <img src="imgs/logo-sem-escrita.jpeg" alt="MacaNuts">
+    <img src="imgs/logo-adjusted.jpeg" alt="MacaNuts">
   </div>
   <p class="hero-tag">Fazenda própria · Minas Gerais, Brasil</p>
   <h1>Da fazenda<br><em>direto para sua mesa.</em></h1>
@@ -265,11 +265,11 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 
 <section class="floracao" id="floracao">
   <div class="floracao-img">
-    <img src="imgs/floracao.jpeg" alt="Floração da macadâmia">
+    <img src="imgs/floracao.jpeg" alt="Florada da macadâmia">
   </div>
   <div class="floracao-texto">
     <div class="floracao-tag">A planta</div>
-    <h2>Tudo começa<br><em>com a floração.</em></h2>
+    <h2>Tudo começa<br><em>com a florada.</em></h2>
     <p>Antes de cada colheita, vem a espera. A macadâmia floresce uma vez por ano e leva meses para desenvolver o fruto. Respeitamos esse tempo — porque é ele que garante o sabor.</p>
     <a href="#processo" class="link-claro">Ver o processo</a>
   </div>
@@ -285,9 +285,9 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   <div class="steps">
     <div class="step">
       <div class="step-n">I</div>
-      <div class="step-tag">Floração</div>
+      <div class="step-tag">Florada</div>
       <div class="step-titulo">A espera certa</div>
-      <p>A macadâmia leva anos para produzir. Cada floração é o início de um ciclo que respeitamos sem atalhos.</p>
+      <p>A macadâmia leva anos para produzir. Cada florada é o início de um ciclo que respeitamos sem atalhos.</p>
     </div>
     <div class="step">
       <div class="step-n">II</div>
