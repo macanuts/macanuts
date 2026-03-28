@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cheesecake de Macadâmia com Caramelo — MacaNuts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { color: inherit; text-decoration: none; }
+body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; color: #2C2E26; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(245,242,236,0.97); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
+.nav-logo { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; color: #2C2E26; display: flex; align-items: center; text-transform: uppercase; }
+.nav-logo .maca { font-weight: 600; color: #3A5232; }
+.nav-logo .nuts { font-weight: 400; color: #4A5240; }
+.nav-links { display: flex; gap: 36px; }
+.nav-links a { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
+.nav-links a:hover { color: #2C2E26; }
+.nav-btn { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 12px 28px; transition: all 0.3s; }
+.nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
+
+@media (max-width: 768px) {
+.nav { padding: 18px 24px; }
+.nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); z-index: 99; }
+.nav-links.aberto { display: flex; }
+.nav-links a { padding: 16px 24px; border-top: 1px solid rgba(74,82,64,0.07); }
+.hamburger { display: flex; }
+.nav-btn { display: none; }
+}
+
+/* HERO */
+.hero { background: #2C2E26; min-height: 70vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 140px 60px 72px; position: relative; overflow: hidden; }
+.hero-img { position: absolute; inset: 0; }
+.hero-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; display: block; }
+.hero-content { position: relative; z-index: 2; }
+.tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
+.hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(40px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: #FDFCF9; margin-bottom: 20px; }
+.hero h1 em { font-style: italic; color: #C4A882; }
+.hero-meta { display: flex; gap: 36px; flex-wrap: wrap; }
+.meta-item { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(253,252,249,0.45); }
+.meta-item strong { color: rgba(253,252,249,0.75); font-weight: 400; display: block; font-size: 14px; letter-spacing: 0; text-transform: none; margin-top: 4px; }
+
+@media (max-width: 768px) { .hero { padding: 120px 24px 56px; } }
+
+/* INTRO */
+.intro { background: #F5F2EC; padding: 80px 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.intro-texto p { font-size: 17px; line-height: 2; color: #5A5D4E; }
+.intro-texto p + p { margin-top: 20px; }
+.intro-foto { aspect-ratio: 4/5; overflow: hidden; background: #E8EDE0; }
+.intro-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 768px) { .intro { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; } }
+
+/* INGREDIENTES */
+.ingredientes { background: #FDFCF9; padding: 80px 60px; }
+.secao-titulo { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 300; color: #2C2E26; margin-bottom: 48px; line-height: 1.1; }
+.secao-titulo em { font-style: italic; color: #5C6147; }
+.grupos { display: flex; gap: 28px; flex-wrap: wrap; }
+.grupo { flex: 1; min-width: 200px; background: #F5F2EC; padding: 32px 28px; }
+.grupo-nome { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.grupo-nome::before { content: ‘’; width: 20px; height: 1px; background: #C4A882; }
+.grupo ul { list-style: none; }
+.grupo ul li { font-size: 14px; line-height: 1.6; color: #5A5D4E; padding: 8px 0; border-bottom: 1px solid rgba(74,82,64,0.08); display: flex; align-items: baseline; gap: 10px; }
+.grupo ul li:last-child { border-bottom: none; }
+.grupo ul li::before { content: ‘’; width: 14px; height: 1px; background: #C4A882; flex-shrink: 0; }
+
+@media (max-width: 768px) { .ingredientes { padding: 60px 24px; } .grupos { flex-direction: column; } }
+
+/* MODO DE PREPARO */
+.preparo { background: #F5F2EC; padding: 80px 60px; }
+.passos { display: flex; flex-direction: column; gap: 0; }
+.passo { display: grid; grid-template-columns: 80px 1fr 1fr; gap: 48px; align-items: center; padding: 48px 0; border-bottom: 1px solid rgba(74,82,64,0.1); }
+.passo:first-child { border-top: 1px solid rgba(74,82,64,0.1); }
+.passo-num { font-family: ‘Cormorant Garamond’, serif; font-size: 72px; font-weight: 300; color: rgba(74,82,64,0.1); line-height: 1; }
+.passo-texto h3 { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 400; color: #2C2E26; margin-bottom: 12px; }
+.passo-texto p { font-size: 14px; line-height: 1.85; color: #5A5D4E; }
+.passo-foto { aspect-ratio: 4/3; overflow: hidden; background: #E8EDE0; }
+.passo-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 900px) {
+.preparo { padding: 60px 24px; }
+.passo { grid-template-columns: 1fr; gap: 20px; }
+.passo-num { font-size: 48px; }
+}
+
+/* DICA */
+.dica { background: #4A5240; padding: 72px 60px; }
+.dica-inner { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+.dica-icon { font-family: ‘Cormorant Garamond’, serif; font-size: 64px; font-weight: 300; color: rgba(196,168,130,0.3); line-height: 1; }
+.dica-texto h3 { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 300; color: #FDFCF9; margin-bottom: 10px; }
+.dica-texto h3 em { font-style: italic; color: #C4A882; }
+.dica-texto p { font-size: 14px; line-height: 1.85; color: rgba(253,252,249,0.55); max-width: 560px; }
+
+@media (max-width: 768px) { .dica { padding: 56px 24px; } }
+
+/* FINAL */
+.final { background: #FDFCF9; padding: 0; }
+.final img { width: 100%; max-height: 600px; object-fit: cover; display: block; }
+
+/* CTA */
+.cta { background: #F5F2EC; padding: 80px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px; }
+.cta-texto h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(26px, 3vw, 42px); font-weight: 300; color: #2C2E26; line-height: 1.2; }
+.cta-texto h2 em { font-style: italic; color: #5C6147; }
+.cta-texto p { font-size: 14px; color: #7A8A6A; margin-top: 8px; }
+.btn-verde { background: #4A5240; color: #FDFCF9; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 15px 36px; display: inline-block; transition: all 0.3s; }
+.btn-verde:hover { background: #5C6147; }
+
+@media (max-width: 768px) { .cta { padding: 60px 24px; } }
+
+/* FOOTER */
+footer { background: #2C2E26; padding: 60px 60px 36px; }
+.footer-topo { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(253,252,249,0.07); margin-bottom: 32px; }
+.footer-nome { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; display: flex; }
+.footer-nome .maca { font-weight: 600; color: #FDFCF9; }
+.footer-nome .nuts { font-weight: 400; color: rgba(253,252,249,0.6); }
+.footer-links { list-style: none; display: flex; gap: 32px; flex-wrap: wrap; }
+.footer-links a { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); transition: color 0.3s; }
+.footer-links a:hover { color: #FDFCF9; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
+.footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
+
+@media (max-width: 768px) { footer { padding: 48px 24px 24px; } .footer-topo { flex-direction: column; } .footer-links { gap: 20px; } .footer-bottom { flex-direction: column; } }
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="../historia.html">Nossa História</a>
+    <a href="../produtos.html">Produtos</a>
+    <a href="../empresas.html">Para Empresas</a>
+    <a href="../sustentabilidade.html">Sustentabilidade</a>
+    <a href="../export.html">Export</a>
+  </div>
+  <a href="../produtos.html" class="nav-btn">Comprar</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-img">
+    <img src="../imgs/receitas/cheesecake5.jpg" alt="Cheesecake de macadâmia com caramelo">
+  </div>
+  <div class="hero-content">
+    <div class="tag">À Mesa</div>
+    <h1>Cheesecake de macadâmia<br><em>com caramelo.</em></h1>
+    <div class="hero-meta">
+      <div class="meta-item">Rendimento <strong>8 a 10 fatias</strong></div>
+      <div class="meta-item">Tempo <strong>~90 min + geladeira</strong></div>
+      <div class="meta-item">Dificuldade <strong>Média</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+
+<section class="intro">
+  <div class="intro-texto">
+    <p>Uma receita que transforma a macadâmia em experiência. Base crocante com farelo de macadâmia, recheio cremoso de cream cheese e cobertura de caramelo salgado com brittle crocante por cima.</p>
+    <p>Simples de fazer, impossível de esquecer. Sirva gelado para realçar a textura e o contraste entre o caramelo quente e o recheio firme.</p>
+  </div>
+  <div class="intro-foto">
+    <img src="../imgs/receitas/cheesecake1.jpg" alt="Base de bolacha com macadâmia">
+  </div>
+</section>
+
+<!-- INGREDIENTES -->
+
+<section class="ingredientes">
+  <h2 class="secao-titulo">O que você<br><em>vai precisar.</em></h2>
+  <div class="grupos">
+    <div class="grupo">
+      <div class="grupo-nome">Base</div>
+      <ul>
+        <li>200g de bolacha maisena</li>
+        <li>80g de manteiga derretida</li>
+        <li>Farelo de macadâmia (opcional — para mais crocância)</li>
+      </ul>
+    </div>
+    <div class="grupo">
+      <div class="grupo-nome">Recheio</div>
+      <ul>
+        <li>600g de cream cheese</li>
+        <li>½ xícara de açúcar</li>
+        <li>1 c. chá de essência de baunilha</li>
+        <li>1 c. sopa de suco de limão</li>
+        <li>3 ovos</li>
+      </ul>
+    </div>
+    <div class="grupo">
+      <div class="grupo-nome">Caramelo</div>
+      <ul>
+        <li>1 xícara de açúcar (200g)</li>
+        <li>4 colheres de sopa de manteiga (60g)</li>
+        <li>½ xícara de creme de leite (120ml)</li>
+      </ul>
+    </div>
+    <div class="grupo">
+      <div class="grupo-nome">Brittle de Macadâmia</div>
+      <ul>
+        <li>½ xícara de açúcar (100g)</li>
+        <li>½ xícara de macadâmia picada (70g)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- MODO DE PREPARO -->
+
+<section class="preparo">
+  <h2 class="secao-titulo">Modo de<br><em>preparo.</em></h2>
+  <div class="passos">
+
+```
+<div class="passo">
+  <div class="passo-num">1</div>
+  <div class="passo-texto">
+    <h3>A base</h3>
+    <p>Triture a bolacha maisena até virar farinha. Derreta a manteiga e misture com a bolacha triturada. Se quiser mais crocância, adicione farelo de macadâmia. Forre com a massa o fundo de uma forma de fundo removível e reserve.</p>
+  </div>
+  <div class="passo-foto">
+    <img src="../imgs/receitas/cheesecake1.jpg" alt="Base de bolacha">
+  </div>
+</div>
+
+<div class="passo">
+  <div class="passo-num">2</div>
+  <div class="passo-texto">
+    <h3>O recheio</h3>
+    <p>Bata o cream cheese com o açúcar até ficar cremoso. Acrescente a baunilha, o suco de limão e os ovos um a um, batendo até incorporar completamente. Despeje o recheio sobre a base.</p>
+  </div>
+  <div class="passo-foto">
+    <img src="../imgs/receitas/cheesecake2.jpg" alt="Recheio de cream cheese">
+  </div>
+</div>
+
+<div class="passo">
+  <div class="passo-num">3</div>
+  <div class="passo-texto">
+    <h3>O forno</h3>
+    <p>Asse a 150°C por 60 a 70 minutos — o centro deve ficar levemente tremido. Deixe esfriar completamente antes de colocar na geladeira por pelo menos 2 horas antes de servir.</p>
+  </div>
+  <div class="passo-foto">
+    <img src="../imgs/receitas/cheesecake3.jpg" alt="Cheesecake no forno">
+  </div>
+</div>
+
+<div class="passo">
+  <div class="passo-num">4</div>
+  <div class="passo-texto">
+    <h3>O caramelo e o brittle</h3>
+    <p>Para o caramelo: derreta o açúcar com a manteiga em fogo médio, adicione o creme de leite e misture até ficar liso. Para o brittle: derreta o açúcar, adicione a macadâmia picada, misture e espalhe sobre papel manteiga. Depois de frio, quebre em pedaços.</p>
+  </div>
+  <div class="passo-foto">
+    <img src="../imgs/receitas/cheesecake4.jpg" alt="Caramelo e brittle">
+  </div>
+</div>
+
+<div class="passo">
+  <div class="passo-num">5</div>
+  <div class="passo-texto">
+    <h3>Finalização</h3>
+    <p>Desenforme o cheesecake gelado. Cubra com o caramelo. Finalize com o brittle de macadâmia crocante por cima. Sirva bem gelado.</p>
+  </div>
+  <div class="passo-foto">
+    <img src="../imgs/receitas/cheesecake5.jpg" alt="Cheesecake finalizado">
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- DICA -->
+
+<section class="dica">
+  <div class="dica-inner">
+    <div class="dica-icon">✦</div>
+    <div class="dica-texto">
+      <h3>Dica <em>MacaNuts</em></h3>
+      <p>Use a Macadâmia Tipo 4 para o brittle e o farelo da base — as metades picam mais uniformemente e incorporam melhor na receita. Para a cobertura, o Tipo 2 dá um acabamento mais rústico e bonito.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOTO FINAL -->
+
+<section class="final">
+  <img src="../imgs/receitas/cheesecake5.jpg" alt="Cheesecake de macadâmia com caramelo — MacaNuts">
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+  <div class="cta-texto">
+    <h2>Quer fazer essa receita?<br><em>Comece pela macadâmia certa.</em></h2>
+    <p>Tipo 4 para o brittle · Tipo 2 para a cobertura</p>
+  </div>
+  <a href="../produtos.html" class="btn-verde">Ver produtos</a>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-topo">
+    <div class="footer-nome"><span class="maca">Maca</span><span class="nuts">Nuts</span></div>
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../historia.html">Nossa História</a></li>
+      <li><a href="../produtos.html">Produtos</a></li>
+      <li><a href="../empresas.html">Para Empresas</a></li>
+      <li><a href="../sustentabilidade.html">Sustentabilidade</a></li>
+      <li><a href="../export.html">Export</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 MacaNuts · Todos os direitos reservados</span>
+    <span class="footer-origin">Fazenda própria · Minas Gerais, Brasil</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('aberto');
+}
+</script>
+
+</body>
+</html>
