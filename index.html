@@ -19,7 +19,11 @@ padding: 20px 48px;
 display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 20px; font-weight: 400; letter-spacing: 0.12em; color: #FDFCF9; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(253,252,249,0.7); }
+.nav-links a:hover { color: #FDFCF9; }
 .nav-btn { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #FDFCF9; border: 1px solid rgba(255,255,255,0.4); padding: 9px 22px; }
+@media (max-width: 768px) { .nav-links { display: none; } }
 
 /* HERO */
 .hero {
@@ -70,16 +74,18 @@ background: radial-gradient(ellipse 70% 60% at 80% 30%, rgba(196,168,130,0.1) 0%
 .ver-todos { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #7A8A6A; display: flex; align-items: center; gap: 10px; }
 .ver-todos::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
 
-.prod { background: #E8EDE0; padding: 48px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+.prods-grid { display: flex; gap: 24px; flex-wrap: wrap; }
+.prod { background: #E8EDE0; flex: 1; min-width: 240px; display: flex; flex-direction: column; }
 .prod:nth-child(2) { background: #E8E2D6; }
 .prod:nth-child(3) { background: #E8EDE0; }
-.prod-info { flex: 1; min-width: 240px; }
+.prod-foto { width: 100%; aspect-ratio: 1; overflow: hidden; }
+.prod-foto img { width: 100%; height: 100%; object-fit: cover; }
+.prod-info { padding: 28px; flex: 1; display: flex; flex-direction: column; }
 .prod-tipo { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: #C4A882; margin-bottom: 12px; }
-.prod-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 32px; font-weight: 400; color: #2C2E26; margin-bottom: 12px; line-height: 1.2; }
-.prod-desc { font-size: 14px; line-height: 1.75; color: #5A5D4E; margin-bottom: 20px; max-width: 400px; }
-.prod-preco { font-family: ‘Cormorant Garamond’, serif; font-size: 28px; font-weight: 300; color: #5C6147; }
-.prod-preco small { font-family: ‘Jost’, sans-serif; font-size: 12px; color: #7A8A6A; }
-.prod-badge { background: #4A5240; color: #FDFCF9; font-family: ‘Cormorant Garamond’, serif; font-size: 72px; font-weight: 300; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.prod-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 26px; font-weight: 400; color: #2C2E26; margin-bottom: 10px; line-height: 1.2; }
+.prod-desc { font-size: 13px; line-height: 1.75; color: #5A5D4E; margin-bottom: 20px; flex: 1; }
+.prod-preco { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 300; color: #5C6147; }
+.prod-preco small { font-family: ‘Jost’, sans-serif; font-size: 11px; color: #7A8A6A; }
 
 /* FLORAÇÃO */
 .floracao { background: #4A5240; padding: 90px 48px; }
@@ -166,12 +172,18 @@ footer { padding: 56px 24px 28px; }
 
 <nav class="nav">
   <span class="nav-logo">MacaNuts</span>
+  <div class="nav-links">
+    <a href="#origem">A Fazenda</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#processo">Processo</a>
+    <a href="#receita">Receitas</a>
+  </div>
   <a href="#produtos" class="nav-btn">Comprar</a>
 </nav>
 
 <section class="hero">
   <p class="hero-tag">Fazenda própria · Minas Gerais, Brasil</p>
-  <h1>Da fazenda<br><em>direto para sua mesa.</em></h1>
+  <h1>Da fazenda<br><em>direto para sua mesa. v2</em></h1>
   <p>Macadâmias cultivadas com rigor, colhidas no ponto exato e entregues diretamente da nossa fazenda para a sua mesa.</p>
   <div class="hero-ctas">
     <a href="#produtos" class="btn-creme">Explorar produtos</a>
@@ -217,34 +229,45 @@ footer { padding: 56px 24px 28px; }
     <a href="#" class="ver-todos">Ver todos</a>
   </div>
 
-  <div class="prod">
-    <div class="prod-info">
-      <div class="prod-tipo">Seleção Premium · Tipo 0</div>
-      <div class="prod-nome">Macadâmia Natural Tipo 0</div>
-      <p class="prod-desc">As maiores e mais inteiras. Mín. 95% acima de 20mm. Para quem não abre mão do melhor.</p>
-      <div class="prod-preco">A partir de R$ 67,00 <small>/ 500g</small></div>
+  <div class="prods-grid">
+    <div class="prod">
+      <div class="prod-foto">
+        <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 0">
+      </div>
+      <div class="prod-info">
+        <div class="prod-tipo">Seleção Premium · Tipo 0</div>
+        <div class="prod-nome">Macadâmia Natural Tipo 0</div>
+        <p class="prod-desc">As maiores e mais inteiras. Mín. 95% acima de 20mm. Para quem não abre mão do melhor.</p>
+        <div class="prod-preco">A partir de R$ 67,00 <small>/ 500g</small></div>
+      </div>
     </div>
-    <div class="prod-badge">0</div>
-  </div>
 
-  <div class="prod">
-    <div class="prod-info">
-      <div class="prod-tipo">Mais Vendida · Tipo 2</div>
-      <div class="prod-nome">Macadâmia Natural Tipo 2</div>
-      <p class="prod-desc">~50% inteiras, ~50% metades. O equilíbrio perfeito para o dia a dia e para presentear.</p>
-      <div class="prod-preco">A partir de R$ 65,00 <small>/ 500g</small></div>
-    </div>
-    <div class="prod-badge">2</div>
+```
+<div class="prod">
+  <div class="prod-foto">
+    <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 2">
   </div>
+  <div class="prod-info">
+    <div class="prod-tipo">Mais Vendida · Tipo 2</div>
+    <div class="prod-nome">Macadâmia Natural Tipo 2</div>
+    <p class="prod-desc">~50% inteiras, ~50% metades. O equilíbrio perfeito para o dia a dia e para presentear.</p>
+    <div class="prod-preco">A partir de R$ 65,00 <small>/ 500g</small></div>
+  </div>
+</div>
 
-  <div class="prod">
-    <div class="prod-info">
-      <div class="prod-tipo">Uso Culinário · Tipo 4</div>
-      <div class="prod-nome">Macadâmia Natural Tipo 4</div>
-      <p class="prod-desc">~90% metades. A preferida de chefs e confeiteiros. Perfeita para receitas e preparações.</p>
-      <div class="prod-preco">A partir de R$ 63,00 <small>/ 500g</small></div>
-    </div>
-    <div class="prod-badge">4</div>
+<div class="prod">
+  <div class="prod-foto">
+    <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 4">
+  </div>
+  <div class="prod-info">
+    <div class="prod-tipo">Uso Culinário · Tipo 4</div>
+    <div class="prod-nome">Macadâmia Natural Tipo 4</div>
+    <p class="prod-desc">~90% metades. A preferida de chefs e confeiteiros. Perfeita para receitas e preparações.</p>
+    <div class="prod-preco">A partir de R$ 63,00 <small>/ 500g</small></div>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
@@ -286,7 +309,7 @@ footer { padding: 56px 24px 28px; }
   </div>
 </section>
 
-<section class="receita">
+<section class="receita" id="receita">
   <div class="receita-tag">À Mesa</div>
   <h2>Cheesecake de<br><em>macadâmia com caramelo.</em></h2>
   <p>Base crocante de macadâmia moída, recheio cremoso e cobertura de caramelo salgado. Uma receita que transforma o produto em experiência.</p>
