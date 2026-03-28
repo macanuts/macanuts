@@ -23,6 +23,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
 .hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
+
 @media (max-width: 768px) {
 .nav { padding: 18px 24px; }
 .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); z-index: 99; }
@@ -33,12 +34,13 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 }
 
 /* PAGE HERO */
-.page-hero { background: #F5F2EC; padding: 160px 60px 80px; position: relative; overflow: hidden; }
+.page-hero { background: #F5F2EC; padding: 160px 60px 80px; }
 .tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #7A8A6A; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
 .tag::before { content: ‘’; width: 28px; height: 1px; background: #7A8A6A; opacity: 0.5; }
 .page-hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(44px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: #2C2E26; }
 .page-hero h1 em { font-style: italic; color: #5C6147; }
 .page-hero-sub { font-size: 15px; line-height: 1.9; color: rgba(44,46,38,0.55); max-width: 520px; margin-top: 20px; }
+
 @media (max-width: 768px) { .page-hero { padding: 120px 24px 60px; } }
 
 /* PRODUTO */
@@ -83,7 +85,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 
 /* BOTÕES */
 .produto-btns { display: flex; flex-direction: column; gap: 12px; }
-.btn-comprar { background: #4A5240; color: #FDFCF9; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 16px 36px; display: block; text-align: center; transition: all 0.3s; border: none; cursor: pointer; font-family: ‘Jost’, sans-serif; }
+.btn-comprar { background: #4A5240; color: #FDFCF9; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 16px 36px; display: block; text-align: center; transition: all 0.3s; }
 .btn-comprar:hover { background: #5C6147; }
 .btn-whats { background: transparent; color: #4A5240; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 14px 36px; display: block; text-align: center; transition: all 0.3s; border: 1px solid rgba(74,82,64,0.3); }
 .btn-whats:hover { background: rgba(74,82,64,0.05); }
@@ -94,7 +96,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .produto:nth-child(even) .produto-inner { direction: ltr; }
 }
 
-/* ORIGEM */
+/* ORIGEM BANNER */
 .origem-banner { background: #4A5240; padding: 80px 60px; display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
 .origem-texto h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; color: #FDFCF9; line-height: 1.2; }
 .origem-texto h2 em { font-style: italic; color: #C4A882; }
@@ -102,6 +104,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .origem-stats { display: flex; gap: 48px; flex-wrap: wrap; }
 .ostat-n { font-family: ‘Cormorant Garamond’, serif; font-size: 48px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 8px; }
 .ostat-l { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); }
+
 @media (max-width: 768px) { .origem-banner { padding: 60px 24px; } .origem-stats { gap: 28px; } }
 
 /* FOOTER */
@@ -116,19 +119,18 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
 .footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
-@media (max-width: 768px) { footer { padding: 48px 24px 24px; } .footer-topo { flex-direction: column; } .footer-links { gap: 20px; } .footer-bottom { flex-direction: column; } }
 
-.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.fade-up.d1 { transition-delay: 0.15s; }
-.fade-up.visible { opacity: 1; transform: none; }
+@media (max-width: 768px) { footer { padding: 48px 24px 24px; } .footer-topo { flex-direction: column; } .footer-links { gap: 20px; } .footer-bottom { flex-direction: column; } }
 </style>
 
 </head>
 <body>
 
+<!-- NAV -->
+
 <nav class="nav">
   <a href="index.html" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="historia.html">Nossa História</a>
     <a href="produtos.html" class="ativa">Produtos</a>
     <a href="empresas.html">Para Empresas</a>
@@ -152,7 +154,7 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 <!-- TIPO 0 -->
 
 <section class="produto" id="tipo0">
-  <div class="produto-inner fade-up">
+  <div class="produto-inner">
     <div class="produto-foto">
       <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Natural Tipo 0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="produto-foto-placeholder" style="display:none"><div class="produto-foto-num">0</div></div>
@@ -174,19 +176,19 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 
   <div class="pesos-titulo">Escolha o peso</div>
   <div class="pesos">
-    <button class="peso-btn ativo" onclick="atualizarPreco(this, 'R$ 67,00', '/ 500g')">500g</button>
-    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 134,00', '/ 1kg')">1 kg</button>
-    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 529,00', '/ 5kg')">5 kg</button>
+    <button class="peso-btn ativo" onclick="atualizarPreco(this, 'tipo0', 'R$ 67,00', '/ 500g')">500g</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'tipo0', 'R$ 134,00', '/ 1kg')">1 kg</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'tipo0', 'R$ 529,00', '/ 5kg')">5 kg</button>
   </div>
 
   <div class="preco-linha">
-    <div class="preco-valor" id="preco-t0">R$ 67,00</div>
-    <div class="preco-detalhe" id="detalhe-t0">/ 500g</div>
+    <div class="preco-valor" id="preco-tipo0">R$ 67,00</div>
+    <div class="preco-detalhe" id="detalhe-tipo0">/ 500g</div>
   </div>
 
   <div class="produto-btns">
-    <a href="mailto:comercial@macanuts.com.br?subject=Pedido — Macadâmia Tipo 0" class="btn-comprar">Pedir por e-mail</a>
-    <a href="https://wa.me/5535992679099?text=Olá!%20Quero%20pedir%20Macadâmia%20Tipo%200." target="_blank" class="btn-whats">Pedir pelo WhatsApp</a>
+    <a href="mailto:comercial@macanuts.com.br?subject=Pedido%20%E2%80%94%20Macad%C3%A2mia%20Tipo%200" class="btn-comprar">Pedir por e-mail</a>
+    <a href="https://wa.me/5535992679099?text=Ol%C3%A1!%20Quero%20pedir%20Macad%C3%A2mia%20Tipo%200." target="_blank" class="btn-whats">Pedir pelo WhatsApp</a>
   </div>
 </div>
 ```
@@ -197,9 +199,10 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 <!-- TIPO 2 -->
 
 <section class="produto" id="tipo2">
-  <div class="produto-inner fade-up">
+  <div class="produto-inner">
     <div class="produto-foto">
-      <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Natural Tipo 2">
+      <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Natural Tipo 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="produto-foto-placeholder" style="display:none"><div class="produto-foto-num">2</div></div>
     </div>
     <div class="produto-info">
       <div class="produto-tipo">Mais Vendida</div>
@@ -218,19 +221,19 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 
   <div class="pesos-titulo">Escolha o peso</div>
   <div class="pesos">
-    <button class="peso-btn ativo" onclick="atualizarPreco(this, 'R$ 65,00', '/ 500g')">500g</button>
-    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 124,00', '/ 1kg')">1 kg</button>
-    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 509,00', '/ 5kg')">5 kg</button>
+    <button class="peso-btn ativo" onclick="atualizarPreco(this, 'tipo2', 'R$ 65,00', '/ 500g')">500g</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'tipo2', 'R$ 124,00', '/ 1kg')">1 kg</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'tipo2', 'R$ 509,00', '/ 5kg')">5 kg</button>
   </div>
 
   <div class="preco-linha">
-    <div class="preco-valor" id="preco-t2">R$ 65,00</div>
-    <div class="preco-detalhe" id="detalhe-t2">/ 500g</div>
+    <div class="preco-valor" id="preco-tipo2">R$ 65,00</div>
+    <div class="preco-detalhe" id="detalhe-tipo2">/ 500g</div>
   </div>
 
   <div class="produto-btns">
-    <a href="mailto:comercial@macanuts.com.br?subject=Pedido — Macadâmia Tipo 2" class="btn-comprar">Pedir por e-mail</a>
-    <a href="https://wa.me/5535992679099?text=Olá!%20Quero%20pedir%20Macadâmia%20Tipo%202." target="_blank" class="btn-whats">Pedir pelo WhatsApp</a>
+    <a href="mailto:comercial@macanuts.com.br?subject=Pedido%20%E2%80%94%20Macad%C3%A2mia%20Tipo%202" class="btn-comprar">Pedir por e-mail</a>
+    <a href="https://wa.me/5535992679099?text=Ol%C3%A1!%20Quero%20pedir%20Macad%C3%A2mia%20Tipo%202." target="_blank" class="btn-whats">Pedir pelo WhatsApp</a>
   </div>
 </div>
 ```
@@ -241,7 +244,7 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 <!-- TIPO 4 -->
 
 <section class="produto" id="tipo4">
-  <div class="produto-inner fade-up">
+  <div class="produto-inner">
     <div class="produto-foto">
       <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Natural Tipo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="produto-foto-placeholder" style="display:none"><div class="produto-foto-num">4</div></div>
@@ -263,19 +266,19 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 
   <div class="pesos-titulo">Escolha o peso</div>
   <div class="pesos">
-    <button class="peso-btn ativo" onclick="atualizarPreco(this, 'R$ 63,00', '/ 500g')">500g</button>
-    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 115,00', '/ 1kg')">1 kg</button>
-    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 490,00', '/ 5kg')">5 kg</button>
+    <button class="peso-btn ativo" onclick="atualizarPreco(this, 'tipo4', 'R$ 63,00', '/ 500g')">500g</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'tipo4', 'R$ 115,00', '/ 1kg')">1 kg</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'tipo4', 'R$ 490,00', '/ 5kg')">5 kg</button>
   </div>
 
   <div class="preco-linha">
-    <div class="preco-valor" id="preco-t4">R$ 63,00</div>
-    <div class="preco-detalhe" id="detalhe-t4">/ 500g</div>
+    <div class="preco-valor" id="preco-tipo4">R$ 63,00</div>
+    <div class="preco-detalhe" id="detalhe-tipo4">/ 500g</div>
   </div>
 
   <div class="produto-btns">
-    <a href="mailto:comercial@macanuts.com.br?subject=Pedido — Macadâmia Tipo 4" class="btn-comprar">Pedir por e-mail</a>
-    <a href="https://wa.me/5535992679099?text=Olá!%20Quero%20pedir%20Macadâmia%20Tipo%204." target="_blank" class="btn-whats">Pedir pelo WhatsApp</a>
+    <a href="mailto:comercial@macanuts.com.br?subject=Pedido%20%E2%80%94%20Macad%C3%A2mia%20Tipo%204" class="btn-comprar">Pedir por e-mail</a>
+    <a href="https://wa.me/5535992679099?text=Ol%C3%A1!%20Quero%20pedir%20Macad%C3%A2mia%20Tipo%204." target="_blank" class="btn-whats">Pedir pelo WhatsApp</a>
   </div>
 </div>
 ```
@@ -318,20 +321,14 @@ footer { background: #2C2E26; padding: 60px 60px 36px; }
 </footer>
 
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
 function toggleMenu() {
-  document.querySelector('.nav-links').classList.toggle('aberto');
+  document.getElementById('navLinks').classList.toggle('aberto');
 }
 
-function atualizarPreco(btn, preco, detalhe) {
-  const section = btn.closest('.produto');
+function atualizarPreco(btn, id, preco, detalhe) {
+  const section = document.getElementById(id);
   section.querySelectorAll('.peso-btn').forEach(b => b.classList.remove('ativo'));
   btn.classList.add('ativo');
-  const id = section.id;
   document.getElementById('preco-' + id).textContent = preco;
   document.getElementById('detalhe-' + id).textContent = detalhe;
 }
