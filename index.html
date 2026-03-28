@@ -5,1025 +5,205 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MacaNuts — Macadâmias da Fazenda</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --verde-escuro: #4A5240;
-    --verde-musgo: #5C6147;
-    --verde-sage: #E8EDE0;
-    --verde-medio: #7A8A6A;
-    --creme: #F5F2EC;
-    --creme-escuro: #E8E2D6;
-    --terra: #C4A882;
-    --texto-escuro: #2C2E26;
-    --texto-medio: #5A5D4E;
-    --branco: #FDFCF9;
-  }
-
-- { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  a { color: inherit; text-decoration: none; }
-
-body {
-font-family: ‘Jost’, sans-serif;
-background: var(–branco);
-color: var(–texto-escuro);
-font-weight: 300;
-overflow-x: hidden;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { color: inherit; text-decoration: none; }
+body { font-family: 'Jost', sans-serif; font-weight: 300; background: #F5F2EC; color: #2C2E26; }
 
 /* NAV */
-nav {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 100;
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 28px 60px;
-transition: all 0.5s ease;
+.nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 99;
+background: rgba(74,82,64,0.97);
+padding: 20px 48px;
+display: flex; align-items: center; justify-content: space-between;
 }
-
-nav.scrolled {
-background: rgba(253,252,249,0.95);
-backdrop-filter: blur(16px);
-padding: 18px 60px;
-border-bottom: 1px solid rgba(74,82,64,0.09);
-}
-
-.nav-logo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 22px;
-font-weight: 400;
-letter-spacing: 0.12em;
-color: var(–branco);
-transition: color 0.4s;
-}
-
-nav.scrolled .nav-logo { color: var(–verde-escuro); }
-
-.nav-links {
-display: flex;
-gap: 40px;
-list-style: none;
-}
-
-.nav-links a {
-font-size: 10.5px;
-font-weight: 300;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: rgba(253,252,249,0.78);
-transition: color 0.3s;
-}
-
-nav.scrolled .nav-links a { color: var(–texto-medio); }
-
-.nav-cta {
-font-size: 10.5px;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: rgba(253,252,249,0.78);
-padding: 10px 24px;
-border: 1px solid rgba(253,252,249,0.35);
-transition: all 0.3s;
-}
-
-nav.scrolled .nav-cta {
-color: var(–verde-escuro);
-border-color: rgba(74,82,64,0.4);
-}
+.nav-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 20px; font-weight: 400; letter-spacing: 0.12em; color: #FDFCF9; }
+.nav-btn { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #FDFCF9; border: 1px solid rgba(255,255,255,0.4); padding: 9px 22px; }
 
 /* HERO */
 .hero {
-height: 100vh;
-min-height: 680px;
+background: #4A5240;
+min-height: 100vh;
+display: flex; flex-direction: column; justify-content: flex-end;
+padding: 120px 48px 80px;
 position: relative;
-display: flex;
-align-items: flex-end;
 overflow: hidden;
-background: linear-gradient(160deg, #2C2E26 0%, #4A5240 40%, #5C6147 70%, #6B7356 100%);
 }
-
-.hero-overlay {
-position: absolute;
-inset: 0;
-background: linear-gradient(to top, rgba(30,33,24,0.7) 0%, rgba(30,33,24,0.1) 60%, transparent 100%);
-}
-
-.hero-content {
-position: relative;
-z-index: 10;
-padding: 0 60px 90px;
-max-width: 720px;
-}
-
-.hero-eyebrow {
-font-size: 10px;
-font-weight: 300;
-letter-spacing: 0.38em;
-text-transform: uppercase;
-color: var(–terra);
-margin-bottom: 22px;
-
-```
-animation: fadeUp 1s ease 0.4s forwards;
-```
-
-}
-
-.hero-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(54px, 7.5vw, 92px);
-font-weight: 300;
-line-height: 1.03;
-color: var(–branco);
-margin-bottom: 28px;
-
-```
-animation: fadeUp 1s ease 0.7s forwards;
-```
-
-}
-
-.hero-title em { font-style: italic; color: var(–terra); }
-
-.hero-sub {
-font-size: 14px;
-font-weight: 300;
-line-height: 1.85;
-color: rgba(253,252,249,0.65);
-max-width: 400px;
-margin-bottom: 48px;
-
-```
-animation: fadeUp 1s ease 1s forwards;
-```
-
-}
-
-.hero-ctas {
-display: flex;
-align-items: center;
-gap: 24px;
-
-```
-animation: fadeUp 1s ease 1.2s forwards;
-```
-
-}
-
-.btn-primary {
-font-size: 11px;
-font-weight: 400;
-letter-spacing: 0.24em;
-text-transform: uppercase;
-color: var(–verde-escuro);
-background: var(–creme);
-padding: 16px 38px;
-transition: all 0.35s;
-display: inline-block;
-}
-
-.btn-primary:hover {
-background: var(–terra);
-color: var(–branco);
-transform: translateY(-2px);
-}
-
-.btn-ghost {
-font-size: 11px;
-font-weight: 300;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: rgba(253,252,249,0.65);
-display: flex;
-align-items: center;
-gap: 12px;
-}
-
-.btn-ghost::after {
+.hero::before {
 content: ‘’;
-width: 30px;
-height: 1px;
-background: currentColor;
+position: absolute; inset: 0;
+background: radial-gradient(ellipse 70% 60% at 80% 30%, rgba(196,168,130,0.1) 0%, transparent 60%);
 }
-
-.hero-coord {
-position: absolute;
-right: 60px;
-bottom: 90px;
-font-size: 9.5px;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: rgba(253,252,249,0.28);
-writing-mode: vertical-rl;
-}
+.hero-tag { font-size: 10px; letter-spacing: 0.38em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; }
+.hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(52px, 8vw, 96px); font-weight: 300; line-height: 1.02; color: #FDFCF9; margin-bottom: 24px; }
+.hero h1 em { font-style: italic; color: #C4A882; }
+.hero p { font-size: 15px; line-height: 1.8; color: rgba(253,252,249,0.6); max-width: 420px; margin-bottom: 48px; }
+.hero-ctas { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.btn-creme { background: #F5F2EC; color: #4A5240; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 16px 36px; font-family: ‘Jost’, sans-serif; display: inline-block; }
+.btn-linha { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(253,252,249,0.6); display: flex; align-items: center; gap: 12px; }
+.btn-linha::after { content: ‘’; display: inline-block; width: 28px; height: 1px; background: currentColor; }
 
 /* MANIFESTO */
-.manifesto {
-background: var(–creme);
-padding: 100px 60px;
-display: grid;
-grid-template-columns: auto 1fr;
-gap: 70px;
-align-items: center;
-}
-
-.manifesto-label {
-font-size: 9.5px;
-font-weight: 300;
-letter-spacing: 0.32em;
-text-transform: uppercase;
-color: var(–verde-medio);
-writing-mode: vertical-rl;
-transform: rotate(180deg);
-}
-
-.manifesto-quote {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(26px, 3.2vw, 42px);
-font-weight: 300;
-line-height: 1.45;
-color: var(–texto-escuro);
-}
-
-.manifesto-quote strong {
-font-weight: 500;
-font-style: italic;
-color: var(–verde-musgo);
-}
+.manifesto { background: #E8E2D6; padding: 90px 48px; }
+.manifesto-inner { max-width: 860px; }
+.label { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: #7A8A6A; margin-bottom: 28px; }
+.manifesto blockquote { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(24px, 3vw, 40px); font-weight: 300; line-height: 1.5; color: #2C2E26; font-style: normal; }
+.manifesto blockquote em { font-style: italic; color: #5C6147; }
 
 /* ORIGEM */
-.origem {
-display: grid;
-grid-template-columns: 1fr 1fr;
-min-height: 640px;
-}
-
-.origem-visual {
-background: var(–verde-musgo);
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 500px;
-}
-
-.origem-visual-inner {
-text-align: center;
-padding: 60px 40px;
-}
-
-.origem-coords {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 64px;
-font-weight: 300;
-color: rgba(253,252,249,0.12);
-line-height: 1;
-margin-bottom: 24px;
-}
-
-.origem-fazenda {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 28px;
-font-weight: 400;
-font-style: italic;
-color: var(–terra);
-margin-bottom: 12px;
-}
-
-.origem-loc {
-font-size: 10px;
-letter-spacing: 0.28em;
-text-transform: uppercase;
-color: rgba(253,252,249,0.4);
-}
-
-.origem-content {
-background: var(–verde-escuro);
-padding: 80px 70px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-}
-
-.section-tag {
-font-size: 10px;
-font-weight: 300;
-letter-spacing: 0.35em;
-text-transform: uppercase;
-color: var(–terra);
-margin-bottom: 22px;
-display: flex;
-align-items: center;
-gap: 14px;
-}
-
-.section-tag::before {
-content: ‘’;
-width: 28px;
-height: 1px;
-background: var(–terra);
-opacity: 0.6;
-}
-
-.origem-titulo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(34px, 3.8vw, 54px);
-font-weight: 300;
-line-height: 1.12;
-color: var(–branco);
-margin-bottom: 28px;
-}
-
-.origem-titulo em { font-style: italic; color: var(–terra); }
-
-.origem-texto {
-font-size: 14px;
-font-weight: 300;
-line-height: 1.9;
-color: rgba(253,252,249,0.58);
-margin-bottom: 50px;
-}
-
-.origem-stats {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 28px;
-padding-top: 36px;
-border-top: 1px solid rgba(253,252,249,0.1);
-}
-
-.stat-num {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 40px;
-font-weight: 300;
-color: var(–terra);
-line-height: 1;
-margin-bottom: 8px;
-}
-
-.stat-lbl {
-font-size: 9.5px;
-font-weight: 300;
-letter-spacing: 0.14em;
-text-transform: uppercase;
-color: rgba(253,252,249,0.32);
-}
+.origem { background: #5C6147; padding: 90px 48px; }
+.origem-tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.origem-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
+.origem h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(36px, 5vw, 60px); font-weight: 300; line-height: 1.1; color: #FDFCF9; margin-bottom: 28px; }
+.origem h2 em { font-style: italic; color: #C4A882; }
+.origem p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.6); max-width: 600px; margin-bottom: 56px; }
+.stats { display: flex; gap: 60px; flex-wrap: wrap; padding-top: 40px; border-top: 1px solid rgba(253,252,249,0.12); }
+.stat-num { font-family: ‘Cormorant Garamond’, serif; font-size: 48px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 8px; }
+.stat-lbl { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(253,252,249,0.35); }
 
 /* PRODUTOS */
-.produtos {
-background: var(–branco);
-padding: 110px 60px;
-}
+.produtos { background: #FDFCF9; padding: 90px 48px; }
+.produtos-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; gap: 20px; }
+.produtos h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 4vw, 54px); font-weight: 300; color: #2C2E26; line-height: 1.1; }
+.produtos h2 em { font-style: italic; color: #5C6147; }
+.ver-todos { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #7A8A6A; display: flex; align-items: center; gap: 10px; }
+.ver-todos::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
 
-.produtos-header {
-display: flex;
-align-items: flex-end;
-justify-content: space-between;
-margin-bottom: 64px;
-}
+.prod { background: #E8EDE0; padding: 48px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+.prod:nth-child(2) { background: #E8E2D6; }
+.prod:nth-child(3) { background: #E8EDE0; }
+.prod-info { flex: 1; min-width: 240px; }
+.prod-tipo { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: #C4A882; margin-bottom: 12px; }
+.prod-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 32px; font-weight: 400; color: #2C2E26; margin-bottom: 12px; line-height: 1.2; }
+.prod-desc { font-size: 14px; line-height: 1.75; color: #5A5D4E; margin-bottom: 20px; max-width: 400px; }
+.prod-preco { font-family: ‘Cormorant Garamond’, serif; font-size: 28px; font-weight: 300; color: #5C6147; }
+.prod-preco small { font-family: ‘Jost’, sans-serif; font-size: 12px; color: #7A8A6A; }
+.prod-badge { background: #4A5240; color: #FDFCF9; font-family: ‘Cormorant Garamond’, serif; font-size: 72px; font-weight: 300; width: 140px; height: 140px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-.section-title {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(34px, 4.2vw, 58px);
-font-weight: 300;
-line-height: 1.1;
-color: var(–texto-escuro);
-}
-
-.section-title em { font-style: italic; color: var(–verde-musgo); }
-
-.link-todos {
-font-size: 10.5px;
-font-weight: 300;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: var(–verde-medio);
-display: flex;
-align-items: center;
-gap: 12px;
-}
-
-.link-todos::after {
-content: ‘’;
-width: 28px;
-height: 1px;
-background: currentColor;
-}
-
-.produtos-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 36px;
-}
-
-.prod-card { display: block; }
-.prod-card:nth-child(2) { margin-top: 56px; }
-
-.prod-img {
-width: 100%;
-aspect-ratio: 3/4;
-overflow: hidden;
-margin-bottom: 24px;
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.prod-img-t0 { background: var(–verde-sage); }
-.prod-img-t2 { background: var(–creme-escuro); }
-.prod-img-t4 { background: var(–verde-sage); }
-
-.prod-img img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: transform 0.7s ease;
-}
-
-.prod-card:hover .prod-img img { transform: scale(1.05); }
-
-.prod-img-placeholder {
-text-align: center;
-}
-
-.tipo-badge {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 80px;
-font-weight: 300;
-color: rgba(122,138,106,0.15);
-display: block;
-line-height: 1;
-}
-
-.prod-tipo {
-font-size: 9px;
-font-weight: 300;
-letter-spacing: 0.32em;
-text-transform: uppercase;
-color: var(–terra);
-margin-bottom: 9px;
-}
-
-.prod-nome {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 25px;
-font-weight: 400;
-color: var(–texto-escuro);
-margin-bottom: 9px;
-line-height: 1.2;
-}
-
-.prod-desc {
-font-size: 13px;
-font-weight: 300;
-line-height: 1.75;
-color: var(–texto-medio);
-margin-bottom: 18px;
-}
-
-.prod-preco {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 20px;
-font-weight: 300;
-color: var(–verde-musgo);
-}
-
-.prod-preco small {
-font-family: ‘Jost’, sans-serif;
-font-size: 11px;
-font-weight: 300;
-color: var(–texto-medio);
-}
-
-/* BANNER FLORAÇÃO */
-.floracao-banner {
-background: var(–verde-escuro);
-padding: 100px 60px;
-display: flex;
-align-items: center;
-position: relative;
-overflow: hidden;
-}
-
-.floracao-banner::before {
-content: ‘’;
-position: absolute;
-inset: 0;
-background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(196,168,130,0.08) 0%, transparent 70%);
-}
-
-.floracao-content {
-position: relative;
-z-index: 2;
-max-width: 560px;
-}
-
-.floracao-titulo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(32px, 4vw, 54px);
-font-weight: 300;
-line-height: 1.15;
-color: var(–branco);
-margin-bottom: 20px;
-margin-top: 16px;
-}
-
-.floracao-titulo em { font-style: italic; color: var(–terra); }
-
-.floracao-texto {
-font-size: 14px;
-font-weight: 300;
-line-height: 1.85;
-color: rgba(253,252,249,0.6);
-margin-bottom: 36px;
-}
-
-.link-ghost {
-font-size: 10.5px;
-font-weight: 300;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: rgba(253,252,249,0.55);
-display: flex;
-align-items: center;
-gap: 14px;
-}
-
-.link-ghost::after {
-content: ‘’;
-width: 28px;
-height: 1px;
-background: currentColor;
-}
+/* FLORAÇÃO */
+.floracao { background: #4A5240; padding: 90px 48px; }
+.floracao-tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.floracao-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
+.floracao h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 4.5vw, 58px); font-weight: 300; line-height: 1.1; color: #FDFCF9; margin-bottom: 20px; }
+.floracao h2 em { font-style: italic; color: #C4A882; }
+.floracao p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.6); max-width: 560px; margin-bottom: 36px; }
+.link-claro { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(253,252,249,0.5); display: flex; align-items: center; gap: 12px; }
+.link-claro::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
 
 /* PROCESSO */
-.processo {
-background: var(–creme-escuro);
-padding: 110px 60px;
-}
-
-.processo-header {
-text-align: center;
-margin-bottom: 80px;
-}
-
-.processo-steps {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-position: relative;
-}
-
-.step { text-align: center; padding: 0 24px; }
-
-.step-num {
-width: 42px;
-height: 42px;
-border-radius: 50%;
-border: 1px solid rgba(122,138,106,0.5);
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 17px;
-font-weight: 300;
-color: var(–verde-medio);
-margin: 32px auto 28px;
-background: var(–creme-escuro);
-}
-
-.step-tag {
-font-size: 9.5px;
-font-weight: 300;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: var(–terra);
-margin-bottom: 12px;
-}
-
-.step-titulo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 21px;
-font-weight: 400;
-color: var(–texto-escuro);
-margin-bottom: 10px;
-}
-
-.step-desc {
-font-size: 13px;
-font-weight: 300;
-line-height: 1.75;
-color: var(–texto-medio);
-}
+.processo { background: #E8E2D6; padding: 90px 48px; }
+.processo h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; text-align: center; color: #2C2E26; margin-bottom: 64px; line-height: 1.1; }
+.processo h2 em { font-style: italic; color: #5C6147; }
+.steps { display: flex; gap: 0; flex-wrap: wrap; }
+.step { flex: 1; min-width: 200px; padding: 0 32px 40px; border-left: 1px solid rgba(74,82,64,0.15); }
+.step:first-child { border-left: none; }
+.step-n { font-family: ‘Cormorant Garamond’, serif; font-size: 48px; font-weight: 300; color: rgba(74,82,64,0.15); line-height: 1; margin-bottom: 16px; }
+.step-tag { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: #C4A882; margin-bottom: 10px; }
+.step-titulo { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 400; color: #2C2E26; margin-bottom: 10px; }
+.step p { font-size: 13px; line-height: 1.75; color: #5A5D4E; }
 
 /* RECEITA */
-.receita-destaque {
-display: grid;
-grid-template-columns: 1fr 1fr;
-min-height: 520px;
-}
-
-.receita-visual {
-background: linear-gradient(135deg, var(–creme-escuro) 0%, #D4B896 100%);
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 400px;
-}
-
-.receita-visual-inner {
-text-align: center;
-padding: 60px;
-}
-
-.receita-visual-titulo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 36px;
-font-weight: 300;
-font-style: italic;
-color: var(–texto-escuro);
-opacity: 0.3;
-}
-
-.receita-content {
-background: var(–verde-escuro);
-padding: 80px 70px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-}
-
-.receita-tag {
-font-size: 9.5px;
-font-weight: 300;
-letter-spacing: 0.35em;
-text-transform: uppercase;
-color: var(–terra);
-margin-bottom: 20px;
-display: flex;
-align-items: center;
-gap: 14px;
-}
-
-.receita-tag::before {
-content: ‘’;
-width: 28px;
-height: 1px;
-background: var(–terra);
-opacity: 0.6;
-}
-
-.receita-titulo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(28px, 3vw, 44px);
-font-weight: 300;
-line-height: 1.2;
-color: var(–branco);
-margin-bottom: 20px;
-}
-
-.receita-titulo em { font-style: italic; color: var(–terra); }
-
-.receita-texto {
-font-size: 14px;
-font-weight: 300;
-line-height: 1.9;
-color: rgba(253,252,249,0.55);
-margin-bottom: 36px;
-}
-
-.link-terra {
-font-size: 10.5px;
-font-weight: 300;
-letter-spacing: 0.22em;
-text-transform: uppercase;
-color: var(–terra);
-display: flex;
-align-items: center;
-gap: 14px;
-}
-
-.link-terra::after {
-content: ‘’;
-width: 28px;
-height: 1px;
-background: currentColor;
-}
+.receita { background: #4A5240; padding: 90px 48px; }
+.receita-tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.receita-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
+.receita h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; color: #FDFCF9; line-height: 1.2; margin-bottom: 20px; }
+.receita h2 em { font-style: italic; color: #C4A882; }
+.receita p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.6); max-width: 560px; margin-bottom: 36px; }
+.link-terra { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #C4A882; display: flex; align-items: center; gap: 12px; }
+.link-terra::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
 
 /* CITAÇÃO */
-.citacao {
-background: var(–verde-sage);
-padding: 100px 60px;
-text-align: center;
-position: relative;
-overflow: hidden;
-}
-
-.citacao::before {
-content: ‘”’;
-position: absolute;
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 380px;
-font-weight: 300;
-color: rgba(74,82,64,0.06);
-top: -60px;
-left: 30px;
-line-height: 1;
-pointer-events: none;
-}
-
-.citacao-inner { max-width: 740px; margin: 0 auto; position: relative; z-index: 2; }
-
-.citacao-text {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(22px, 2.8vw, 36px);
-font-weight: 300;
-font-style: italic;
-line-height: 1.55;
-color: var(–texto-escuro);
-margin-bottom: 36px;
-}
-
-.citacao-autor {
-font-size: 10.5px;
-font-weight: 300;
-letter-spacing: 0.26em;
-text-transform: uppercase;
-color: var(–verde-medio);
-}
+.citacao { background: #E8EDE0; padding: 90px 48px; text-align: center; }
+.citacao blockquote { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(22px, 2.8vw, 36px); font-weight: 300; font-style: italic; line-height: 1.6; color: #2C2E26; max-width: 740px; margin: 0 auto 28px; }
+.citacao cite { font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: #7A8A6A; font-style: normal; }
 
 /* NEWSLETTER */
-.newsletter {
-background: var(–branco);
-padding: 100px 60px;
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 80px;
-align-items: center;
-border-top: 1px solid var(–creme-escuro);
-}
-
-.nl-titulo {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(30px, 3.2vw, 46px);
-font-weight: 300;
-line-height: 1.2;
-color: var(–texto-escuro);
-margin-bottom: 14px;
-}
-
-.nl-titulo em { font-style: italic; color: var(–verde-musgo); }
-
-.nl-desc {
-font-size: 14px;
-font-weight: 300;
-line-height: 1.85;
-color: var(–texto-medio);
-}
-
-.nl-form { display: flex; flex-direction: column; gap: 14px; }
-
-.nl-form input {
-background: transparent;
-border: none;
-border-bottom: 1px solid rgba(74,82,64,0.25);
-padding: 13px 0;
-font-family: ‘Jost’, sans-serif;
-font-size: 13px;
-font-weight: 300;
-color: var(–texto-escuro);
-outline: none;
-}
-
-.nl-form input::placeholder {
-color: rgba(74,82,64,0.38);
-letter-spacing: 0.12em;
-font-size: 11px;
-text-transform: uppercase;
-}
-
-.btn-nl {
-align-self: flex-start;
-font-family: ‘Jost’, sans-serif;
-font-size: 10.5px;
-font-weight: 400;
-letter-spacing: 0.24em;
-text-transform: uppercase;
-color: var(–branco);
-background: var(–verde-escuro);
-padding: 15px 36px;
-border: none;
-cursor: pointer;
-margin-top: 8px;
-}
-
-.nl-nota {
-font-size: 10.5px;
-color: rgba(74,82,64,0.4);
-margin-top: 10px;
-}
+.newsletter { background: #FDFCF9; padding: 90px 48px; border-top: 1px solid #E8E2D6; }
+.newsletter h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3vw, 44px); font-weight: 300; color: #2C2E26; margin-bottom: 12px; line-height: 1.2; }
+.newsletter h2 em { font-style: italic; color: #5C6147; }
+.newsletter p { font-size: 14px; line-height: 1.8; color: #5A5D4E; margin-bottom: 36px; max-width: 480px; }
+.nl-campo { display: block; width: 100%; max-width: 480px; background: transparent; border: none; border-bottom: 1px solid rgba(74,82,64,0.25); padding: 12px 0; font-family: ‘Jost’, sans-serif; font-size: 13px; color: #2C2E26; outline: none; margin-bottom: 16px; }
+.nl-campo::placeholder { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(74,82,64,0.38); }
+.btn-verde { background: #4A5240; color: #FDFCF9; font-family: ‘Jost’, sans-serif; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; padding: 15px 36px; border: none; cursor: pointer; margin-top: 8px; display: inline-block; }
+.nl-nota { font-size: 11px; color: rgba(74,82,64,0.4); margin-top: 12px; }
 
 /* FOOTER */
-footer {
-background: var(–texto-escuro);
-padding: 72px 60px 36px;
-}
+footer { background: #2C2E26; padding: 64px 48px 32px; }
+.footer-top { display: flex; gap: 48px; flex-wrap: wrap; padding-bottom: 48px; border-bottom: 1px solid rgba(253,252,249,0.07); margin-bottom: 32px; }
+.footer-marca { flex: 2; min-width: 200px; }
+.footer-col { flex: 1; min-width: 140px; }
+.footer-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; color: #FDFCF9; letter-spacing: 0.1em; display: block; margin-bottom: 14px; }
+.footer-desc { font-size: 12px; line-height: 1.75; color: rgba(253,252,249,0.3); margin-bottom: 24px; max-width: 220px; }
+.footer-social { display: flex; gap: 20px; }
+.footer-social a { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(253,252,249,0.3); }
+.footer-col-titulo { font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(253,252,249,0.28); margin-bottom: 20px; display: block; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a { font-size: 13px; color: rgba(253,252,249,0.44); }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
+.footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
 
-.footer-top {
-display: grid;
-grid-template-columns: 2fr 1fr 1fr 1fr;
-gap: 56px;
-padding-bottom: 56px;
-border-bottom: 1px solid rgba(253,252,249,0.07);
-margin-bottom: 36px;
-}
-
-.footer-brand-name {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 22px;
-font-weight: 400;
-color: var(–branco);
-letter-spacing: 0.1em;
-margin-bottom: 16px;
-display: block;
-}
-
-.footer-tagline {
-font-size: 12px;
-font-weight: 300;
-line-height: 1.75;
-color: rgba(253,252,249,0.3);
-max-width: 230px;
-margin-bottom: 28px;
-}
-
-.footer-social { display: flex; gap: 22px; }
-
-.footer-social a {
-font-size: 10px;
-font-weight: 300;
-letter-spacing: 0.2em;
-text-transform: uppercase;
-color: rgba(253,252,249,0.3);
-transition: color 0.3s;
-}
-
-.footer-social a:hover { color: var(–terra); }
-
-.footer-col-title {
-font-size: 9.5px;
-font-weight: 300;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-color: rgba(253,252,249,0.28);
-margin-bottom: 22px;
-}
-
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-
-.footer-links a {
-font-size: 13px;
-font-weight: 300;
-color: rgba(253,252,249,0.44);
-transition: color 0.3s;
-}
-
-.footer-links a:hover { color: var(–branco); }
-
-.footer-bottom {
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-
-.footer-copy {
-font-size: 10.5px;
-font-weight: 300;
-color: rgba(253,252,249,0.18);
-}
-
-.footer-origin {
-font-family: ‘Cormorant Garamond’, serif;
-font-size: 12px;
-font-style: italic;
-color: rgba(253,252,249,0.18);
-}
-
-/* ANIMATIONS */
-@keyframes fadeUp {
-from {  transform: translateY(22px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-
-```
-transition: opacity 0.8s ease, transform 0.8s ease;
-```
-
-}
-
-.reveal.visible { opacity: 1; transform: none; }
-.reveal-d1 { transition-delay: 0.14s; }
-.reveal-d2 { transition-delay: 0.28s; }
-.reveal-d3 { transition-delay: 0.42s; }
-
-/* MOBILE */
-@media (max-width: 900px) {
-nav, nav.scrolled { padding: 18px 24px; }
-.nav-links { display: none; }
-.hero-content { padding: 0 24px 64px; }
-.hero-coord { display: none; }
-.manifesto { grid-template-columns: 1fr; padding: 64px 24px; gap: 16px; }
-.manifesto-label { writing-mode: horizontal-tb; transform: none; }
-.origem { grid-template-columns: 1fr; }
-.origem-visual { min-height: 280px; }
-.origem-content { padding: 56px 24px; }
-.origem-stats { grid-template-columns: repeat(3,1fr); }
-.produtos { padding: 72px 24px; }
-.produtos-grid { grid-template-columns: 1fr; gap: 48px; }
-.prod-card:nth-child(2) { margin-top: 0; }
-.floracao-banner { padding: 72px 24px; }
-.processo { padding: 72px 24px; }
-.processo-steps { grid-template-columns: 1fr 1fr; gap: 36px; }
-.receita-destaque { grid-template-columns: 1fr; }
-.receita-visual { min-height: 200px; }
-.receita-content { padding: 56px 24px; }
-.citacao { padding: 72px 24px; }
-.newsletter { grid-template-columns: 1fr; padding: 72px 24px; gap: 40px; }
+@media (max-width: 768px) {
+.nav { padding: 16px 24px; }
+.hero { padding: 100px 24px 64px; }
+.manifesto, .origem, .produtos, .floracao, .processo, .receita, .citacao, .newsletter { padding: 64px 24px; }
 footer { padding: 56px 24px 28px; }
-.footer-top { grid-template-columns: 1fr 1fr; gap: 36px; }
-.footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+.stats { gap: 32px; }
+.prod { padding: 32px 24px; }
+.prod-badge { width: 90px; height: 90px; font-size: 48px; }
+.steps { flex-direction: column; }
+.step { border-left: none; border-top: 1px solid rgba(74,82,64,0.15); padding: 24px 0; }
+.step:first-child { border-top: none; }
+.footer-top { flex-direction: column; gap: 32px; }
+.footer-bottom { flex-direction: column; }
 }
 </style>
 
 </head>
 <body>
 
-<nav id="mainNav">
-  <a href="/" class="nav-logo">MacaNuts</a>
-  <ul class="nav-links">
-    <li><a href="#origem">A Fazenda</a></li>
-    <li><a href="#produtos">Produtos</a></li>
-    <li><a href="#processo">Processo</a></li>
-    <li><a href="#">Receitas</a></li>
-    <li><a href="#">Sobre</a></li>
-  </ul>
-  <a href="#produtos" class="nav-cta">Comprar</a>
+<nav class="nav">
+  <span class="nav-logo">MacaNuts</span>
+  <a href="#produtos" class="nav-btn">Comprar</a>
 </nav>
 
 <section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Fazenda própria · Minas Gerais, Brasil</p>
-    <h1 class="hero-title">Da terra.<br><em>Com precisão.</em></h1>
-    <p class="hero-sub">Macadâmias cultivadas com rigor, colhidas no ponto exato e entregues diretamente da nossa fazenda para a sua mesa.</p>
-    <div class="hero-ctas">
-      <a href="#produtos" class="btn-primary">Explorar produtos</a>
-      <a href="#origem" class="btn-ghost">Nossa origem</a>
-    </div>
+  <p class="hero-tag">Fazenda própria · Minas Gerais, Brasil</p>
+  <h1>Da fazenda<br><em>direto para sua mesa.</em></h1>
+  <p>Macadâmias cultivadas com rigor, colhidas no ponto exato e entregues diretamente da nossa fazenda para a sua mesa.</p>
+  <div class="hero-ctas">
+    <a href="#produtos" class="btn-creme">Explorar produtos</a>
+    <a href="#origem" class="btn-linha">Nossa origem</a>
   </div>
-  <div class="hero-coord">-19.9167° S · -43.9345° W · Minas Gerais</div>
 </section>
 
 <section class="manifesto">
-  <span class="manifesto-label">Manifesto</span>
-  <p class="manifesto-quote">
-    Tudo o que produzimos nasce aqui, na nossa fazenda em Minas Gerais. Cultivamos, colhemos e embalamos com <strong>o máximo de cuidado</strong>, e prezamos pela proximidade com nossos clientes. Isso nos permite garantir <strong>frescor, pureza</strong> e a mais alta <strong>qualidade.</strong>
-  </p>
+  <div class="manifesto-inner">
+    <p class="label">Manifesto</p>
+    <blockquote>
+      Tudo o que produzimos nasce aqui, na nossa fazenda em Minas Gerais. Cultivamos, colhemos e embalamos com <em>o máximo de cuidado</em>, e prezamos pela proximidade com nossos clientes. Isso nos permite garantir <em>frescor, pureza</em> e a mais alta <em>qualidade.</em>
+    </blockquote>
+  </div>
 </section>
 
-<section id="origem">
-  <div class="origem">
-    <div class="origem-visual">
-      <div class="origem-visual-inner">
-        <div class="origem-coords">19°S<br>43°W</div>
-        <div class="origem-fazenda">Fazenda MacaNuts</div>
-        <div class="origem-loc">Minas Gerais · Brasil</div>
-      </div>
+<section class="origem" id="origem">
+  <div class="origem-tag">A Fazenda</div>
+  <h2>Uma origem<br><em>que você pode</em><br>rastrear.</h2>
+  <p>Cada embalagem carrega a história de um lugar específico: nossa fazenda em Minas Gerais, onde o microclima, o solo e o cuidado humano se combinam para produzir macadâmias de qualidade excepcional. Não terceirizamos. Não compramos de intermediários.</p>
+  <div class="stats">
+    <div>
+      <div class="stat-num">+10</div>
+      <div class="stat-lbl">Anos de cultivo</div>
     </div>
-    <div class="origem-content">
-      <div class="section-tag">A Fazenda</div>
-      <h2 class="origem-titulo">Uma origem<br><em>que você pode</em><br>rastrear.</h2>
-      <p class="origem-texto">Cada embalagem carrega a história de um lugar específico: nossa fazenda em Minas Gerais, onde o microclima, o solo e o cuidado humano se combinam para produzir macadâmias de qualidade excepcional.<br><br>Não terceirizamos. Não compramos de intermediários. Cultivamos, selecionamos e embalamos nós mesmos.</p>
-      <div class="origem-stats">
-        <div class="">
-          <div class="stat-num">+10</div>
-          <div class="stat-lbl">Anos de cultivo</div>
-        </div>
-        <div class="">
-          <div class="stat-num">100%</div>
-          <div class="stat-lbl">Colheita própria</div>
-        </div>
-        <div class="">
-          <div class="stat-num">0</div>
-          <div class="stat-lbl">Intermediários</div>
-        </div>
-      </div>
+    <div>
+      <div class="stat-num">100%</div>
+      <div class="stat-lbl">Colheita própria</div>
+    </div>
+    <div>
+      <div class="stat-num">0</div>
+      <div class="stat-lbl">Intermediários</div>
     </div>
   </div>
 </section>
@@ -1031,146 +211,130 @@ footer { padding: 56px 24px 28px; }
 <section class="produtos" id="produtos">
   <div class="produtos-header">
     <div>
-      <div class="section-tag">Os produtos</div>
-      <h2 class="section-title">Escolhidas<br><em>a dedo.</em></h2>
+      <p class="label">Os produtos</p>
+      <h2>Escolhidas<br><em>a dedo.</em></h2>
     </div>
-    <a href="#" class="link-todos">Ver todos</a>
+    <a href="#" class="ver-todos">Ver todos</a>
   </div>
-  <div class="produtos-grid">
-    <a href="#" class="prod-card">
-      <div class="prod-img prod-img-t0">
-        <div class="prod-img-placeholder"><span class="tipo-badge">0</span></div>
-      </div>
+
+  <div class="prod">
+    <div class="prod-info">
       <div class="prod-tipo">Seleção Premium · Tipo 0</div>
-      <div class="prod-nome">Macadâmia Natural<br>Tipo 0</div>
+      <div class="prod-nome">Macadâmia Natural Tipo 0</div>
       <p class="prod-desc">As maiores e mais inteiras. Mín. 95% acima de 20mm. Para quem não abre mão do melhor.</p>
       <div class="prod-preco">A partir de R$ 67,00 <small>/ 500g</small></div>
-    </a>
-    <a href="#" class="prod-card">
-      <div class="prod-img prod-img-t2">
-        <div class="prod-img-placeholder"><span class="tipo-badge">2</span></div>
-      </div>
+    </div>
+    <div class="prod-badge">0</div>
+  </div>
+
+  <div class="prod">
+    <div class="prod-info">
       <div class="prod-tipo">Mais Vendida · Tipo 2</div>
-      <div class="prod-nome">Macadâmia Natural<br>Tipo 2</div>
+      <div class="prod-nome">Macadâmia Natural Tipo 2</div>
       <p class="prod-desc">~50% inteiras, ~50% metades. O equilíbrio perfeito para o dia a dia e para presentear.</p>
       <div class="prod-preco">A partir de R$ 65,00 <small>/ 500g</small></div>
-    </a>
-    <a href="#" class="prod-card">
-      <div class="prod-img prod-img-t4">
-        <div class="prod-img-placeholder"><span class="tipo-badge">4</span></div>
-      </div>
+    </div>
+    <div class="prod-badge">2</div>
+  </div>
+
+  <div class="prod">
+    <div class="prod-info">
       <div class="prod-tipo">Uso Culinário · Tipo 4</div>
-      <div class="prod-nome">Macadâmia Natural<br>Tipo 4</div>
+      <div class="prod-nome">Macadâmia Natural Tipo 4</div>
       <p class="prod-desc">~90% metades. A preferida de chefs e confeiteiros. Perfeita para receitas e preparações.</p>
       <div class="prod-preco">A partir de R$ 63,00 <small>/ 500g</small></div>
-    </a>
+    </div>
+    <div class="prod-badge">4</div>
   </div>
 </section>
 
-<div class="floracao-banner">
-  <div class="floracao-content">
-    <div class="section-tag">A planta</div>
-    <h2 class="floracao-titulo">Tudo começa<br><em>com a floração.</em></h2>
-    <p class="floracao-texto">Antes de cada colheita, vem a espera. A macadâmia floresce uma vez por ano e leva meses para desenvolver o fruto. Respeitamos esse tempo — porque é ele que garante o sabor.</p>
-    <a href="#processo" class="link-ghost">Ver o processo</a>
-  </div>
-</div>
+<section class="floracao">
+  <div class="floracao-tag">A planta</div>
+  <h2>Tudo começa<br><em>com a floração.</em></h2>
+  <p>Antes de cada colheita, vem a espera. A macadâmia floresce uma vez por ano e leva meses para desenvolver o fruto. Respeitamos esse tempo — porque é ele que garante o sabor.</p>
+  <a href="#processo" class="link-claro">Ver o processo</a>
+</section>
 
 <section class="processo" id="processo">
-  <div class="processo-header">
-    <div class="section-tag" style="justify-content:center">O processo</div>
-    <h2 class="section-title" style="text-align:center;margin-top:14px">Do pé da árvore<br><em>até a sua mão.</em></h2>
-  </div>
-  <div class="processo-steps">
+  <p class="label" style="text-align:center;margin-bottom:16px">O processo</p>
+  <h2>Do pé da árvore<br><em>até a sua mão.</em></h2>
+  <div class="steps">
     <div class="step">
-      <div class="step-num">I</div>
+      <div class="step-n">I</div>
       <div class="step-tag">Floração</div>
       <div class="step-titulo">A espera certa</div>
-      <p class="step-desc">A macadâmia leva anos para produzir. Cada floração é o início de um ciclo que respeitamos sem atalhos.</p>
+      <p>A macadâmia leva anos para produzir. Cada floração é o início de um ciclo que respeitamos sem atalhos.</p>
     </div>
     <div class="step">
-      <div class="step-num">II</div>
+      <div class="step-n">II</div>
       <div class="step-tag">Colheita</div>
       <div class="step-titulo">Queda natural</div>
-      <p class="step-desc">A macadâmia cai quando está pronta — nunca é arrancada. Colhemos do chão no momento exato de maturação.</p>
+      <p>A macadâmia cai quando está pronta — nunca é arrancada. Colhemos do chão no momento exato.</p>
     </div>
     <div class="step">
-      <div class="step-num">III</div>
+      <div class="step-n">III</div>
       <div class="step-tag">Seleção</div>
       <div class="step-titulo">Olho por olho</div>
-      <p class="step-desc">Cada macadâmia é inspecionada. As que não atingem o padrão MacaNuts não seguem adiante — simples assim.</p>
+      <p>Cada macadâmia é inspecionada. As que não atingem o padrão MacaNuts não seguem adiante.</p>
     </div>
     <div class="step">
-      <div class="step-num">IV</div>
+      <div class="step-n">IV</div>
       <div class="step-tag">Embalagem</div>
       <div class="step-titulo">Frescor selado</div>
-      <p class="step-desc">Embalagem a vácuo sem conservantes. O frescor da fazenda chega intacto até você, em qualquer canto do Brasil.</p>
+      <p>Embalagem a vácuo sem conservantes. O frescor da fazenda chega intacto até você.</p>
     </div>
   </div>
 </section>
 
-<section class="receita-destaque">
-  <div class="receita-visual">
-    <div class="receita-visual-inner">
-      <div class="receita-visual-titulo">Cheesecake<br>de Macadâmia</div>
-    </div>
-  </div>
-  <div class="receita-content">
-    <div class="receita-tag">À Mesa</div>
-    <h2 class="receita-titulo">Cheesecake de<br><em>macadâmia com caramelo.</em></h2>
-    <p class="receita-texto">Base crocante de macadâmia moída, recheio cremoso de cream cheese e cobertura de caramelo salgado com pedaços inteiros. Uma receita que transforma o produto em experiência.</p>
-    <a href="#" class="link-terra">Ver receita completa</a>
-  </div>
+<section class="receita">
+  <div class="receita-tag">À Mesa</div>
+  <h2>Cheesecake de<br><em>macadâmia com caramelo.</em></h2>
+  <p>Base crocante de macadâmia moída, recheio cremoso e cobertura de caramelo salgado. Uma receita que transforma o produto em experiência.</p>
+  <a href="#" class="link-terra">Ver receita completa</a>
 </section>
 
 <section class="citacao">
-  <div class="citacao-inner">
-    <p class="citacao-text">"Nunca pensei que uma macadâmia pudesse me fazer parar para prestar atenção no que estou comendo. A textura, o sabor — dá pra sentir que tem cuidado por trás disso."</p>
-    <div class="citacao-autor">Ana Clara M. · São Paulo, SP</div>
-  </div>
+  <blockquote>"Nunca pensei que uma macadâmia pudesse me fazer parar para prestar atenção no que estou comendo. A textura, o sabor — dá pra sentir que tem cuidado por trás disso."</blockquote>
+  <cite>Ana Clara M. · São Paulo, SP</cite>
 </section>
 
 <section class="newsletter">
-  <div>
-    <h2 class="nl-titulo">Histórias, receitas<br>e <em>novidades da safra.</em></h2>
-    <p class="nl-desc">Sem spam. Só o que vale a pena — direto da nossa fazenda para a sua caixa de entrada.</p>
-  </div>
-  <div class="nl-form">
-    <input type="text" placeholder="Seu nome">
-    <input type="email" placeholder="Seu melhor e-mail">
-    <button class="btn-nl">Quero receber</button>
-    <p class="nl-nota">Você pode cancelar quando quiser.</p>
-  </div>
+  <h2>Histórias, receitas<br>e <em>novidades da safra.</em></h2>
+  <p>Sem spam. Só o que vale a pena — direto da nossa fazenda para a sua caixa de entrada.</p>
+  <input class="nl-campo" type="text" placeholder="Seu nome">
+  <input class="nl-campo" type="email" placeholder="Seu melhor e-mail">
+  <button class="btn-verde">Quero receber</button>
+  <p class="nl-nota">Você pode cancelar quando quiser.</p>
 </section>
 
 <footer>
   <div class="footer-top">
-    <div>
-      <span class="footer-brand-name">MacaNuts</span>
-      <p class="footer-tagline">Macadâmias cultivadas com rigor. Direto da nossa fazenda em Minas Gerais para a sua mesa.</p>
+    <div class="footer-marca">
+      <span class="footer-nome">MacaNuts</span>
+      <p class="footer-desc">Macadâmias cultivadas com rigor. Direto da nossa fazenda em Minas Gerais para a sua mesa.</p>
       <div class="footer-social">
-        <a href="https://instagram.com/macanutsbr" target="_blank">Instagram</a>
+        <a href="https://instagram.com/macanutsbr">Instagram</a>
         <a href="#">WhatsApp</a>
       </div>
     </div>
-    <div>
-      <div class="footer-col-title">Produtos</div>
+    <div class="footer-col">
+      <span class="footer-col-titulo">Produtos</span>
       <ul class="footer-links">
         <li><a href="#">Tipo 0 — Premium</a></li>
         <li><a href="#">Tipo 2 — Versátil</a></li>
         <li><a href="#">Tipo 4 — Culinário</a></li>
       </ul>
     </div>
-    <div>
-      <div class="footer-col-title">A Marca</div>
+    <div class="footer-col">
+      <span class="footer-col-titulo">A Marca</span>
       <ul class="footer-links">
         <li><a href="#">A Fazenda</a></li>
         <li><a href="#">O Processo</a></li>
         <li><a href="#">Receitas</a></li>
       </ul>
     </div>
-    <div>
-      <div class="footer-col-title">Atendimento</div>
+    <div class="footer-col">
+      <span class="footer-col-titulo">Atendimento</span>
       <ul class="footer-links">
         <li><a href="#">FAQ</a></li>
         <li><a href="#">Entrega</a></li>
@@ -1179,23 +343,10 @@ footer { padding: 56px 24px 28px; }
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 MacaNuts · Todos os direitos reservados</div>
-    <div class="footer-origin">Fazenda própria · Minas Gerais, Brasil</div>
+    <span class="footer-copy">© 2025 MacaNuts · Todos os direitos reservados</span>
+    <span class="footer-origin">Fazenda própria · Minas Gerais, Brasil</span>
   </div>
 </footer>
-
-<script>
-  const nav = document.getElementById('mainNav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
