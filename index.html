@@ -71,7 +71,7 @@ text-decoration: none;
 .nav-logo-icon {
 width: 44px;
 height: 44px;
-background: url(‘imgs/logo-sem-escrita.jpeg’) center/contain no-repeat;
+background:
 background-color: transparent;
 mix-blend-mode: multiply;
 filter: contrast(1.1);
@@ -145,12 +145,7 @@ overflow: hidden;
 .hero-bg {
 position: absolute;
 inset: 0;
-/* FOTO PRINCIPAL DO HERO: imgs/hero-fazenda.jpg */
-/* Use uma foto da fazenda, macadâmias no pé, ou a floração */
-background:
-linear-gradient(160deg, rgba(44,46,38,0.75) 0%, rgba(74,82,64,0.45) 50%, rgba(74,82,64,0.3) 100%),
-url(‘imgs/floracao.jpeg’) center/cover no-repeat;
-/* Enquanto não tiver a foto, mostra gradiente bonito: */
+background: linear-gradient(160deg, rgba(44,46,38,0.95) 0%, #4A5240 40%, #5C6147 70%, #6B7356 100%);
 }
 
 /* Fallback de cor caso imagem não carregue */
@@ -319,7 +314,7 @@ min-height: 640px;
 position: relative;
 overflow: hidden;
 /* FOTO: imgs/macadamia-casca.jpg — a foto linda com casca verde, marrom e crua */
-background: var(–verde-musgo) url(‘imgs/foto-trio.jpeg’) center/cover no-repeat;
+background: var(–verde-musgo) center/cover no-repeat;
 }
 
 .origem-foto::after {
@@ -590,7 +585,7 @@ overflow: hidden;
 display: flex;
 align-items: center;
 /* FOTO: imgs/floracao.jpg — a foto linda da floração */
-background: var(–verde-escuro) url(‘imgs/floracao.jpeg’) center 30%/cover no-repeat;
+background: var(–verde-escuro) center 30%/cover no-repeat;
 }
 
 .floracao-banner::before {
@@ -710,7 +705,7 @@ min-height: 560px;
 
 .receita-foto {
 /* FOTO: imgs/cheesecake.jpg — o cheesecake com macadâmia */
-background: var(–creme-escuro) url(‘imgs/cheesecake.jpeg’) center/cover no-repeat;
+background: var(–creme-escuro) center/cover no-repeat;
 position: relative;
 overflow: hidden;
 }
@@ -942,7 +937,7 @@ margin-bottom: 16px;
 .footer-logo-icon {
 width: 120px;
 height: 40px;
-background: url(‘imgs/logo-com-escrita.jpeg’) center/contain no-repeat;
+background:
 opacity: 0.75;
 mix-blend-mode: lighten;
 margin-bottom: 16px;
@@ -1156,7 +1151,7 @@ footer { padding: 56px 24px 28px; }
       <div class="origem-foto-caption">Macadâmia · Do fruto à noz</div>
     </div>
 
-
+```
 <div class="origem-content">
   <div class="section-tag reveal">A Fazenda</div>
   <h2 class="origem-titulo reveal">
@@ -1184,7 +1179,7 @@ footer { padding: 56px 24px 28px; }
     </div>
   </div>
 </div>
-
+```
 
   </div>
 </section>
@@ -1202,7 +1197,7 @@ footer { padding: 56px 24px 28px; }
 
   <div class="produtos-grid">
 
-
+```
 <!-- Tipo 0 — sem foto ainda -->
 <a href="macanuts-produto.html" class="prod-card reveal">
   <div class="prod-img">
@@ -1249,7 +1244,7 @@ footer { padding: 56px 24px 28px; }
   <p class="prod-desc">~90% metades. A preferida de chefs e confeiteiros. Perfeita para receitas e preparações.</p>
   <div class="prod-preco">A partir de R$ 63,00 <small>/ 500g</small></div>
 </a>
-
+```
 
   </div>
 </section>
