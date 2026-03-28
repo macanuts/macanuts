@@ -5,15 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MacaNuts — Macadâmias da Fazenda</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 a { color: inherit; text-decoration: none; }
 body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; color: #2C2E26; }
 
 /* NAV */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(237,232,223,0.95); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
-.nav-logo { font-family: ‘Cormorant Garamond’, serif; font-size: 21px; font-weight: 400; letter-spacing: 0.12em; color: #2C2E26; }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(241,233,221,0.97); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
+.nav-logo { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; color: #2C2E26; display: flex; align-items: center; text-transform: uppercase; }
+.nav-logo .maca { font-weight: 600; color: #3A5232; }
+.nav-logo .nuts { font-weight: 400; color: #4A5240; }
 .nav-links { display: flex; gap: 36px; }
 .nav-links a { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
 .nav-links a:hover { color: #2C2E26; }
@@ -22,8 +24,8 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 @media (max-width: 768px) { .nav { padding: 18px 24px; } .nav-links { display: none; } }
 
 /* HERO */
-.hero { background: #EDE8DF; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px 60px 90px; position: relative; overflow: hidden; }
-.hero-logo { width: 80px; height: 80px; position: absolute; top: 100px; left: 60px; }
+.hero { background: #F1E9DD; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px 60px 90px; position: relative; overflow: hidden; }
+.hero-logo { width: 180px; height: 180px; position: absolute; top: 80px; right: 60px; }
 .hero-logo img { width: 100%; height: 100%; object-fit: contain; }
 .hero-tag { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: #7A8A6A; margin-bottom: 24px; }
 .hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(48px, 7vw, 88px); font-weight: 300; line-height: 1.04; color: #2C2E26; margin-bottom: 28px; }
@@ -34,17 +36,17 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .btn-verde-escuro:hover { background: #5C6147; }
 .btn-texto-escuro { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.5); display: flex; align-items: center; gap: 12px; }
 .btn-texto-escuro::after { content: ‘’; width: 28px; height: 1px; background: currentColor; }
-@media (max-width: 768px) { .hero { padding: 100px 24px 72px; } .hero-logo { top: 80px; left: 24px; width: 60px; height: 60px; } }
+@media (max-width: 768px) { .hero { padding: 100px 24px 72px; } .hero-logo { width: 100px; height: 100px; top: 72px; right: 24px; } }
 
 /* MANIFESTO */
-.manifesto { background: #4A5240; padding: 100px 60px; }
+.manifesto { background: #5C6147; padding: 100px 60px; }
 .tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 32px; }
-.manifesto blockquote { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(22px, 2.8vw, 36px); font-weight: 300; line-height: 1.6; color: #FDFCF9; max-width: 800px; font-style: normal; }
-.manifesto blockquote em { font-style: italic; color: #C4A882; }
+.manifesto blockquote { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(20px, 2.4vw, 32px); font-weight: 300; line-height: 1.75; color: rgba(253,252,249,0.85); max-width: 760px; font-style: italic; }
+.manifesto blockquote em { font-style: italic; color: #C4A882; font-weight: 400; }
 @media (max-width: 768px) { .manifesto { padding: 72px 24px; } }
 
 /* ORIGEM */
-.origem { background: #5C6147; padding: 100px 60px; }
+.origem { background: #4A5240; padding: 100px 60px; }
 .origem-tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
 .origem-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
 .origem h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(34px, 5vw, 64px); font-weight: 300; line-height: 1.1; color: #FDFCF9; margin-bottom: 32px; }
@@ -78,10 +80,10 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 @media (max-width: 768px) { .produtos { padding: 72px 24px; } .prods { flex-direction: column; } .prod, .prod:nth-child(2), .prod:nth-child(3) { margin-top: 0; } }
 
 /* FLORAÇÃO */
-.floracao { background: #4A5240; padding: 0; display: flex; min-height: 520px; }
-.floracao-img { flex: 1; min-height: 400px; overflow: hidden; background: #5C6147; }
+.floracao { background: #4A5240; padding: 0; display: flex; min-height: 380px; }
+.floracao-img { flex: 1; min-height: 380px; overflow: hidden; background: #5C6147; }
 .floracao-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.8; }
-.floracao-texto { flex: 1; padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+.floracao-texto { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
 .floracao-tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
 .floracao-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
 .floracao-texto h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 50px); font-weight: 300; line-height: 1.15; color: #FDFCF9; margin-bottom: 20px; }
@@ -106,10 +108,10 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 @media (max-width: 768px) { .processo { padding: 72px 24px; } .steps { flex-direction: column; gap: 36px; } .step { border-left: none; border-top: 1px solid rgba(74,82,64,0.12); padding: 28px 0 0; } .step:first-child { border-top: none; padding-top: 0; } }
 
 /* RECEITA */
-.receita { background: #2C2E26; display: flex; min-height: 500px; }
-.receita-img { flex: 1; overflow: hidden; background: #3A3C33; min-height: 400px; }
+.receita { background: #2C2E26; display: flex; min-height: 380px; }
+.receita-img { flex: 1; overflow: hidden; background: #3A3C33; min-height: 380px; }
 .receita-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; }
-.receita-texto { flex: 1; padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+.receita-texto { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
 .receita-tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
 .receita-tag::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
 .receita-texto h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(24px, 3vw, 44px); font-weight: 300; line-height: 1.2; color: #FDFCF9; margin-bottom: 20px; }
@@ -163,7 +165,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 <!-- NAV -->
 
 <nav class="nav">
-  <span class="nav-logo">MacaNuts</span>
+  <a href="/" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
   <div class="nav-links">
     <a href="#origem">A Fazenda</a>
     <a href="#produtos">Produtos</a>
