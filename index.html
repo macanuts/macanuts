@@ -23,6 +23,7 @@
 
 - { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  a { color: inherit; text-decoration: none; }
 
 body {
 font-family: ‘Jost’, sans-serif;
@@ -318,8 +319,7 @@ min-height: 640px;
 position: relative;
 overflow: hidden;
 /* FOTO: imgs/macadamia-casca.jpg — a foto linda com casca verde, marrom e crua */
-background: url(‘imgs/foto-trio.jpeg’) center/cover no-repeat;
-background-color: var(–verde-musgo); /* fallback */
+background: var(–verde-musgo) url(‘imgs/foto-trio.jpeg’) center/cover no-repeat;
 }
 
 .origem-foto::after {
@@ -590,8 +590,7 @@ overflow: hidden;
 display: flex;
 align-items: center;
 /* FOTO: imgs/floracao.jpg — a foto linda da floração */
-background: url(‘imgs/floracao.jpeg’) center 30%/cover no-repeat;
-background-color: var(–verde-escuro);
+background: var(–verde-escuro) url(‘imgs/floracao.jpeg’) center 30%/cover no-repeat;
 }
 
 .floracao-banner::before {
@@ -711,8 +710,7 @@ min-height: 560px;
 
 .receita-foto {
 /* FOTO: imgs/cheesecake.jpg — o cheesecake com macadâmia */
-background: url(‘imgs/cheesecake.jpeg’) center/cover no-repeat;
-background-color: var(–creme-escuro);
+background: var(–creme-escuro) url(‘imgs/cheesecake.jpeg’) center/cover no-repeat;
 position: relative;
 overflow: hidden;
 }
