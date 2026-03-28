@@ -20,8 +20,10 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .nav-links a { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
 .nav-links a:hover { color: #2C2E26; }
 .nav-btn { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 12px 28px; transition: all 0.3s; }
+.nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
 .hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
+
 @media (max-width: 768px) {
 .nav { padding: 18px 24px; }
 .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); z-index: 99; }
@@ -44,13 +46,21 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .btn-verde-escuro:hover { background: #5C6147; }
 .btn-texto-escuro { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.5); display: flex; align-items: center; gap: 12px; }
 .btn-texto-escuro::after { content: ‘’; width: 28px; height: 1px; background: currentColor; }
-@media (max-width: 768px) { .hero { padding: 100px 24px 72px; } .hero-logo { width: 100px; height: 100px; top: 72px; right: 24px; } }
+
+@media (max-width: 768px) {
+.hero { padding: 100px 24px 72px; }
+.hero-logo { width: 100px; height: 100px; top: 72px; right: 24px; }
+}
+
+/* TAGS */
+.tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 32px; }
+.tag-dark { color: #5C6147; }
 
 /* MANIFESTO */
 .manifesto { background: #5C6147; padding: 100px 60px; }
-.tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 32px; }
 .manifesto blockquote { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(20px, 2.4vw, 32px); font-weight: 300; line-height: 1.75; color: rgba(253,252,249,0.85); max-width: 760px; font-style: italic; }
 .manifesto blockquote em { font-style: italic; color: #C4A882; font-weight: 400; }
+
 @media (max-width: 768px) { .manifesto { padding: 72px 24px; } }
 
 /* PRODUTOS */
@@ -61,7 +71,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .link-todos { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #7A8A6A; display: flex; align-items: center; gap: 10px; }
 .link-todos::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
 .prods { display: flex; gap: 28px; }
-.prod { flex: 1; background: #F5F2EC; display: flex; flex-direction: column; }
+.prod { flex: 1; background: #F5F2EC; display: flex; flex-direction: column; cursor: pointer; }
 .prod:nth-child(2) { background: #E8EDE0; margin-top: 48px; }
 .prod:nth-child(3) { background: #F5F2EC; margin-top: 96px; }
 .prod-img { width: 100%; aspect-ratio: 4/5; overflow: hidden; background: #E8E2D6; }
@@ -73,7 +83,12 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .prod-desc { font-size: 14px; line-height: 1.75; color: #5A5D4E; margin-bottom: 20px; flex: 1; }
 .prod-preco { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 300; color: #5C6147; }
 .prod-preco small { font-family: ‘Jost’, sans-serif; font-size: 12px; color: #7A8A6A; }
-@media (max-width: 768px) { .produtos { padding: 72px 24px; } .prods { flex-direction: column; } .prod, .prod:nth-child(2), .prod:nth-child(3) { margin-top: 0; } }
+
+@media (max-width: 768px) {
+.produtos { padding: 72px 24px; }
+.prods { flex-direction: column; }
+.prod, .prod:nth-child(2), .prod:nth-child(3) { margin-top: 0; }
+}
 
 /* FLORADA */
 .floracao { background: #4A5240; padding: 0; display: flex; min-height: 300px; }
@@ -87,7 +102,12 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .floracao-texto p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.58); margin-bottom: 36px; }
 .link-claro { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(253,252,249,0.5); display: flex; align-items: center; gap: 12px; }
 .link-claro::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
-@media (max-width: 768px) { .floracao { flex-direction: column; } .floracao-img { min-height: 260px; } .floracao-texto { padding: 56px 24px; } }
+
+@media (max-width: 768px) {
+.floracao { flex-direction: column; }
+.floracao-img { min-height: 260px; }
+.floracao-texto { padding: 56px 24px; }
+}
 
 /* SUSTENTABILIDADE PREVIEW */
 .sustenta { background: #4A5240; padding: 100px 60px; }
@@ -98,12 +118,15 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .sustenta-item-n { font-family: ‘Cormorant Garamond’, serif; font-size: 48px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 10px; }
 .sustenta-item-t { font-size: 14px; font-weight: 400; color: #FDFCF9; margin-bottom: 8px; }
 .sustenta-item-d { font-size: 13px; line-height: 1.7; color: rgba(253,252,249,0.45); }
+
 @media (max-width: 768px) { .sustenta { padding: 72px 24px; } .sustenta-items { gap: 32px; } }
 
 /* CLIENTES */
 .clientes { background: #E8EDE0; padding: 80px 60px; }
 .clientes-lista { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; margin-top: 40px; }
-.cliente-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 26px; font-weight: 400; color: rgba(44,46,38,0.35); letter-spacing: 0.05em; }
+.cliente-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 26px; font-weight: 400; color: rgba(44,46,38,0.35); letter-spacing: 0.05em; transition: color 0.3s; }
+.cliente-nome:hover { color: rgba(44,46,38,0.7); }
+
 @media (max-width: 768px) { .clientes { padding: 60px 24px; } .clientes-lista { gap: 32px; } }
 
 /* RECEITA */
@@ -118,7 +141,12 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .receita-texto p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.55); margin-bottom: 36px; }
 .link-terra { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #C4A882; display: flex; align-items: center; gap: 12px; }
 .link-terra::after { content: ‘’; width: 24px; height: 1px; background: currentColor; }
-@media (max-width: 768px) { .receita { flex-direction: column; } .receita-img { min-height: 260px; } .receita-texto { padding: 56px 24px; } }
+
+@media (max-width: 768px) {
+.receita { flex-direction: column; }
+.receita-img { min-height: 260px; }
+.receita-texto { padding: 56px 24px; }
+}
 
 /* CONTATO */
 .contato { background: #F5F2EC; padding: 100px 60px; }
@@ -131,13 +159,8 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .btn-email:hover { background: #5C6147; }
 .btn-whats { background: transparent; color: #4A5240; border: 1px solid rgba(74,82,64,0.4); }
 .btn-whats:hover { background: rgba(74,82,64,0.06); }
-@media (max-width: 768px) { .contato { padding: 72px 24px; } }
 
-/* CITAÇÃO */
-.citacao { background: #E8EDE0; padding: 90px 60px; text-align: center; }
-.citacao blockquote { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(20px, 2.6vw, 34px); font-weight: 300; font-style: italic; line-height: 1.65; color: #2C2E26; max-width: 720px; margin: 0 auto 28px; }
-.citacao cite { font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; color: #7A8A6A; font-style: normal; }
-@media (max-width: 768px) { .citacao { padding: 72px 24px; } }
+@media (max-width: 768px) { .contato { padding: 72px 24px; } }
 
 /* NEWSLETTER */
 .newsletter { background: #FDFCF9; padding: 100px 60px; border-top: 1px solid #E8E2D6; }
@@ -146,8 +169,10 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .newsletter > p { font-size: 15px; line-height: 1.8; color: #5A5D4E; margin-bottom: 40px; max-width: 460px; }
 .nl-campo { display: block; width: 100%; max-width: 460px; background: transparent; border: none; border-bottom: 1px solid rgba(74,82,64,0.2); padding: 12px 0; font-family: ‘Jost’, sans-serif; font-size: 15px; color: #2C2E26; outline: none; margin-bottom: 16px; }
 .nl-campo::placeholder { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(74,82,64,0.35); }
-.btn-verde { background: #4A5240; color: #FDFCF9; font-family: ‘Jost’, sans-serif; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; padding: 14px 36px; border: none; cursor: pointer; margin-top: 8px; display: inline-block; }
+.btn-verde { background: #4A5240; color: #FDFCF9; font-family: ‘Jost’, sans-serif; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; padding: 14px 36px; border: none; cursor: pointer; margin-top: 8px; display: inline-block; transition: background 0.3s; }
+.btn-verde:hover { background: #5C6147; }
 .nl-nota { font-size: 12px; color: rgba(74,82,64,0.35); margin-top: 14px; }
+
 @media (max-width: 768px) { .newsletter { padding: 72px 24px; } }
 
 /* FOOTER */
@@ -170,13 +195,15 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
 .footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
-@media (max-width: 768px) { footer { padding: 56px 24px 28px; } .footer-top { flex-direction: column; gap: 32px; } .footer-bottom { flex-direction: column; } }
 
-/* FADE UP */
-.fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.fade-up.visible { opacity: 1; transform: none; }
-.fade-up.d1 { transition-delay: 0.15s; }
-.fade-up.d2 { transition-delay: 0.3s; }
+@media (max-width: 768px) {
+footer { padding: 56px 24px 28px; }
+.footer-top { flex-direction: column; gap: 32px; }
+.footer-bottom { flex-direction: column; }
+}
+
+/* SEM ANIMAÇÃO — conteúdo sempre visível */
+.fade-up { opacity: 1; transform: none; }
 </style>
 
 </head>
@@ -186,14 +213,14 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 
 <nav class="nav">
   <a href="index.html" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
-  <div class="nav-links">
+  <div class="nav-links" id="navLinks">
     <a href="historia.html">Nossa História</a>
-    <a href="index.html#produtos">Produtos</a>
+    <a href="produtos.html">Produtos</a>
     <a href="empresas.html">Para Empresas</a>
     <a href="sustentabilidade.html">Sustentabilidade</a>
     <a href="export.html">Export</a>
   </div>
-  <a href="index.html#produtos" class="nav-btn">Comprar</a>
+  <a href="produtos.html" class="nav-btn">Comprar</a>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -209,7 +236,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   <h1>Da fazenda<br><em>direto para sua mesa.</em></h1>
   <p class="hero-sub">Macadâmias cultivadas com rigor, colhidas no ponto exato e entregues diretamente da nossa fazenda para a sua mesa.</p>
   <div class="hero-ctas">
-    <a href="index.html#produtos" class="btn-verde-escuro">Explorar produtos</a>
+    <a href="produtos.html" class="btn-verde-escuro">Explorar produtos</a>
     <a href="historia.html" class="btn-texto-escuro">Nossa história</a>
   </div>
 </section>
@@ -219,7 +246,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 <section class="manifesto">
   <p class="tag">Manifesto</p>
   <blockquote>
-    Tudo o que produzimos nasce aqui, na nossa fazenda em Minas Gerais. Cultivamos, colhemos e embalamos com <em>o máximo de cuidado</em>, e prezamos pela proximidade com nossos clientes. Isso nos permite garantir <em>frescor, pureza</em> e a mais alta <em>qualidade.</em>
+    Tudo o que produzimos nasce aqui, na nossa fazenda em Minas Gerais. Cultivamos, colhemos e embalamos com <em>o máximo de cuidado</em>, e prezamos pela proximidade com nossos clientes. Isso nos permite garantir <em>frescor</em>, <em>pureza</em> e a mais alta <em>qualidade.</em>
   </blockquote>
 </section>
 
@@ -228,13 +255,13 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 <section class="produtos" id="produtos">
   <div class="produtos-topo">
     <div>
-      <p class="tag">Os produtos</p>
+      <p class="tag tag-dark">Os produtos</p>
       <h2>Escolhidas<br><em>a dedo.</em></h2>
     </div>
-    <a href="index.html#produtos" class="link-todos">Ver todos</a>
+    <a href="produtos.html" class="link-todos">Ver todos</a>
   </div>
   <div class="prods">
-    <div class="prod fade-up">
+    <a href="produtos.html" class="prod fade-up">
       <div class="prod-img"><img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 0"></div>
       <div class="prod-body">
         <div class="prod-tipo">Seleção Premium · Tipo 0</div>
@@ -242,8 +269,8 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
         <p class="prod-desc">As maiores e mais inteiras. Mín. 95% acima de 20mm. Para quem não abre mão do melhor.</p>
         <div class="prod-preco">A partir de R$ 67,00 <small>/ 500g</small></div>
       </div>
-    </div>
-    <div class="prod fade-up d1">
+    </a>
+    <a href="produtos.html" class="prod fade-up d1">
       <div class="prod-img"><img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 2"></div>
       <div class="prod-body">
         <div class="prod-tipo">Mais Vendida · Tipo 2</div>
@@ -251,8 +278,8 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
         <p class="prod-desc">~50% inteiras, ~50% metades. O equilíbrio perfeito para o dia a dia e para presentear.</p>
         <div class="prod-preco">A partir de R$ 65,00 <small>/ 500g</small></div>
       </div>
-    </div>
-    <div class="prod fade-up d2">
+    </a>
+    <a href="produtos.html" class="prod fade-up d2">
       <div class="prod-img"><img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 4"></div>
       <div class="prod-body">
         <div class="prod-tipo">Uso Culinário · Tipo 4</div>
@@ -260,21 +287,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
         <p class="prod-desc">~90% metades. A preferida de chefs e confeiteiros. Perfeita para receitas e preparações.</p>
         <div class="prod-preco">A partir de R$ 63,00 <small>/ 500g</small></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- FLORADA -->
-
-<section class="floracao">
-  <div class="floracao-img">
-    <img src="imgs/floracao.jpeg" alt="Florada da macadâmia">
-  </div>
-  <div class="floracao-texto">
-    <div class="floracao-tag">A planta</div>
-    <h2>Tudo começa<br><em>com a florada.</em></h2>
-    <p>Antes de cada colheita, vem a espera. A macadâmia floresce uma vez por ano e leva meses para desenvolver o fruto. Respeitamos esse tempo — porque é ele que garante o sabor.</p>
-    <a href="historia.html" class="link-claro">Nossa história</a>
+    </a>
   </div>
 </section>
 
@@ -285,33 +298,23 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   <h2>Cuidamos da terra<br><em>que nos alimenta.</em></h2>
   <p>Não existe macadâmia de qualidade sem solo saudável. Cada decisão que tomamos leva em conta o impacto no ecossistema da nossa fazenda.</p>
   <div class="sustenta-items">
-    <div class="fade-up">
+    <div>
       <div class="sustenta-item-n">0</div>
       <div class="sustenta-item-t">Desperdício</div>
       <div class="sustenta-item-d">A casca da macadâmia vira insumo. Nada vai para o lixo.</div>
     </div>
-    <div class="fade-up d1">
+    <div>
       <div class="sustenta-item-n">+10</div>
       <div class="sustenta-item-t">Anos de solo vivo</div>
       <div class="sustenta-item-d">Cultivamos com técnicas que preservam e enriquecem a terra.</div>
     </div>
-    <div class="fade-up d2">
+    <div>
       <div class="sustenta-item-n">100%</div>
       <div class="sustenta-item-t">Rastreável</div>
       <div class="sustenta-item-d">Você sabe exatamente de onde veio cada macadâmia.</div>
     </div>
   </div>
   <a href="sustentabilidade.html" class="link-claro">Saiba mais</a>
-</section>
-
-<!-- CLIENTES -->
-
-<section class="clientes">
-  <p class="tag">Quem confia na MacaNuts</p>
-  <div class="clientes-lista">
-    <div class="cliente-nome fade-up">Wickbold</div>
-    <div class="cliente-nome fade-up d1">Naked Nuts</div>
-  </div>
 </section>
 
 <!-- RECEITA -->
@@ -331,11 +334,11 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 <!-- CONTATO -->
 
 <section class="contato" id="contato">
-  <p class="tag">Fale com a gente</p>
+  <p class="tag tag-dark">Fale com a gente</p>
   <h2>Vamos conversar<br><em>sobre macadâmias.</em></h2>
   <p class="contato-sub">Para pedidos, parcerias ou só para saber mais — estamos aqui.</p>
   <div class="contato-opcoes">
-    <a href="/cdn-cgi/l/email-protection#80e3efede5f2e3e9e1ecc0ede1e3e1eef5f4f3aee3efedaee2f2" class="btn-contato btn-email"><span class="__cf_email__" data-cfemail="f3909c9e9681909a929fb39e9290929d868780dd909c9edd9181">[email&#160;protected]</span></a>
+    <a href="mailto:comercial@macanuts.com.br" class="btn-contato btn-email">comercial@macanuts.com.br</a>
     <a href="https://wa.me/5535992679099" target="_blank" class="btn-contato btn-whats">WhatsApp</a>
   </div>
 </section>
@@ -360,7 +363,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
       <p class="footer-desc">Macadâmias cultivadas com rigor. Direto da nossa fazenda em Minas Gerais para a sua mesa.</p>
       <div class="footer-social">
         <a href="https://instagram.com/macanutsbr" target="_blank">Instagram</a>
-        <a href="#">WhatsApp</a>
+        <a href="https://wa.me/5535992679099" target="_blank">WhatsApp</a>
       </div>
     </div>
     <div class="footer-col">
@@ -368,22 +371,22 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
       <ul class="footer-links">
         <li><a href="historia.html">Nossa História</a></li>
         <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
-        <li><a href="contato.html">Contato</a></li>
+        <li><a href="#contato">Contato</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <span class="footer-col-titulo">Produtos</span>
       <ul class="footer-links">
-        <li><a href="index.html#produtos">Tipo 0 — Premium</a></li>
-        <li><a href="index.html#produtos">Tipo 2 — Versátil</a></li>
-        <li><a href="index.html#produtos">Tipo 4 — Culinário</a></li>
+        <li><a href="produtos.html">Tipo 0 — Premium</a></li>
+        <li><a href="produtos.html">Tipo 2 — Versátil</a></li>
+        <li><a href="produtos.html">Tipo 4 — Culinário</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <span class="footer-col-titulo">Contato</span>
       <ul class="footer-links">
-        <li><a href="/cdn-cgi/l/email-protection#d5b6bab8b0a7b6bcb4b995b8b4b6b4bba0a1a6fbb6bab8fbb7a7"><span class="__cf_email__" data-cfemail="a1c2ceccc4d3c2c8c0cde1ccc0c2c0cfd4d5d28fc2cecc8fc3d3">[email&#160;protected]</span></a></li>
-        <li><a href="https://instagram.com/macanutsbr">@macanutsbr</a></li>
+        <li><a href="mailto:comercial@macanuts.com.br">comercial@macanuts.com.br</a></li>
+        <li><a href="https://instagram.com/macanutsbr" target="_blank">@macanutsbr</a></li>
       </ul>
     </div>
   </div>
@@ -393,4 +396,11 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('aberto');
+}
+</script>
+
+</body>
+</html>
