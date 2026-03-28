@@ -11,90 +11,114 @@
 a { color: inherit; text-decoration: none; }
 body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; color: #2C2E26; }
 
+/* NAV */
 .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(245,242,236,0.97); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
 .nav-logo { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; color: #2C2E26; display: flex; align-items: center; text-transform: uppercase; }
 .nav-logo .maca { font-weight: 600; color: #3A5232; }
 .nav-logo .nuts { font-weight: 400; color: #4A5240; }
 .nav-lang { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(44,46,38,0.4); display: flex; align-items: center; gap: 12px; }
-.nav-lang a { color: #4A5240; font-weight: 400; }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
-@media (max-width: 768px) { .nav { padding: 18px 24px; } }
+.nav-lang a { color: #4A5240; font-weight: 400; transition: color 0.3s; }
+.nav-lang a:hover { color: #2C2E26; }
+.btn-nav-contact { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 10px 22px; transition: all 0.3s; }
+.btn-nav-contact:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
+
+@media (max-width: 768px) {
+.nav { padding: 18px 24px; }
+.btn-nav-contact { display: none; }
+}
 
 /* HERO */
 .hero { background: #2C2E26; min-height: 90vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 140px 60px 90px; position: relative; overflow: hidden; }
-.hero::before { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 75% 30%, rgba(196,168,130,0.07) 0%, transparent 65%); }
+.hero::before { content: ‘’; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 75% 30%, rgba(196,168,130,0.07) 0%, transparent 65%); pointer-events: none; }
 .hero-flag { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; }
 .hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(48px, 7vw, 92px); font-weight: 300; line-height: 1.03; color: #FDFCF9; margin-bottom: 24px; }
 .hero h1 em { font-style: italic; color: #C4A882; }
 .hero-sub { font-size: 16px; line-height: 1.9; color: rgba(253,252,249,0.55); max-width: 480px; margin-bottom: 52px; }
-.btn-contact { background: #C4A882; color: #2C2E26; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; padding: 16px 40px; display: inline-block; transition: all 0.3s; }
-.btn-contact:hover { background: #D4B892; }
+.btn-cta { background: #C4A882; color: #2C2E26; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; padding: 16px 40px; display: inline-block; transition: all 0.3s; }
+.btn-cta:hover { background: #D4B892; }
+
 @media (max-width: 768px) { .hero { padding: 120px 24px 72px; } }
+
+/* LABEL */
+.label { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+.label::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
+.label-dark { color: #5C6147; }
+.label-dark::before { background: #5C6147; }
 
 /* WHO WE ARE */
 .who { background: #F5F2EC; padding: 100px 60px; }
-.label { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
-.label::before { content: ‘’; width: 28px; height: 1px; background: #C4A882; }
 .who h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(30px, 3.5vw, 50px); font-weight: 300; color: #2C2E26; margin-bottom: 28px; line-height: 1.1; }
 .who h2 em { font-style: italic; color: #5C6147; }
 .who p { font-size: 16px; line-height: 1.95; color: #5A5D4E; max-width: 720px; margin-bottom: 20px; }
 .stats { display: flex; gap: 64px; flex-wrap: wrap; margin-top: 56px; padding-top: 48px; border-top: 1px solid rgba(74,82,64,0.1); }
 .stat-n { font-family: ‘Cormorant Garamond’, serif; font-size: 52px; font-weight: 300; color: #4A5240; line-height: 1; margin-bottom: 10px; }
 .stat-l { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(44,46,38,0.4); }
+
 @media (max-width: 768px) { .who { padding: 72px 24px; } .stats { gap: 36px; } }
 
 /* PRODUCT */
 .product { background: #4A5240; padding: 100px 60px; }
+.product .label { color: rgba(253,252,249,0.4); }
+.product .label::before { background: rgba(253,252,249,0.3); }
 .product h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(30px, 3.5vw, 50px); font-weight: 300; color: #FDFCF9; margin-bottom: 48px; line-height: 1.1; }
 .product h2 em { font-style: italic; color: #C4A882; }
-.grades { display: flex; flex-direction: column; gap: 0; margin-bottom: 52px; }
-.style { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; border-bottom: 1px solid rgba(253,252,249,0.08); flex-wrap: wrap; gap: 12px; }
-.grade:first-child { border-top: 1px solid rgba(253,252,249,0.08); }
+.styles-list { display: flex; flex-direction: column; margin-bottom: 52px; }
+.style-item { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; border-bottom: 1px solid rgba(253,252,249,0.08); flex-wrap: wrap; gap: 12px; }
+.style-item:first-child { border-top: 1px solid rgba(253,252,249,0.08); }
 .style-left { display: flex; align-items: baseline; gap: 20px; }
 .style-badge { font-family: ‘Cormorant Garamond’, serif; font-size: 40px; font-weight: 300; color: rgba(253,252,249,0.12); line-height: 1; }
-.style-name { font-family: ‘Cormorant Garamond’, serif; font-size: 20px; font-weight: 400; color: #FDFCF9; }
-.style-desc { font-size: 13px; color: rgba(253,252,249,0.45); margin-top: 4px; }
-.style-pack { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #C4A882; }
-.volumes { background: rgba(253,252,249,0.05); padding: 28px 32px; display: flex; gap: 48px; flex-wrap: wrap; }
-.vol-n { font-family: ‘Cormorant Garamond’, serif; font-size: 36px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 6px; }
-.vol-l { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); }
-@media (max-width: 768px) { .product { padding: 72px 24px; } .volumes { gap: 28px; padding: 20px; } }
+.style-name { font-family: ‘Cormorant Garamond’, serif; font-size: 20px; font-weight: 400; color: #FDFCF9; margin-bottom: 4px; }
+.style-desc { font-size: 13px; color: rgba(253,252,249,0.45); }
+.product-facts { background: rgba(253,252,249,0.05); padding: 28px 32px; display: flex; gap: 48px; flex-wrap: wrap; }
+.fact-n { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 6px; }
+.fact-l { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); }
+
+@media (max-width: 768px) { .product { padding: 72px 24px; } .product-facts { gap: 28px; padding: 20px; } }
 
 /* CREDENTIALS */
-.credentials { background: #E8E2D6; padding: 100px 60px; }
+.credentials { background: #E8EDE0; padding: 100px 60px; }
 .credentials h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 46px); font-weight: 300; color: #2C2E26; margin-bottom: 48px; line-height: 1.1; }
 .credentials h2 em { font-style: italic; color: #5C6147; }
 .creds { display: flex; gap: 28px; flex-wrap: wrap; }
 .cred { flex: 1; min-width: 180px; padding: 32px 28px; background: #FDFCF9; }
 .cred-titulo { font-family: ‘Cormorant Garamond’, serif; font-size: 20px; font-weight: 400; color: #2C2E26; margin-bottom: 10px; }
 .cred-desc { font-size: 13px; line-height: 1.8; color: #5A5D4E; }
+
 @media (max-width: 768px) { .credentials { padding: 72px 24px; } .creds { flex-direction: column; } }
 
 /* MARKETS */
 .markets { background: #5C6147; padding: 80px 60px; }
-.markets h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(26px, 3vw, 42px); font-weight: 300; color: #FDFCF9; margin-bottom: 40px; }
+.markets .label { color: rgba(253,252,249,0.4); }
+.markets .label::before { background: rgba(253,252,249,0.3); }
+.markets h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(26px, 3vw, 42px); font-weight: 300; color: #FDFCF9; margin-bottom: 40px; line-height: 1.1; }
 .markets h2 em { font-style: italic; color: #C4A882; }
-.market-list { display: flex; gap: 0; flex-wrap: wrap; }
+.market-list { display: flex; flex-wrap: wrap; }
 .market { flex: 1; min-width: 160px; padding: 28px 32px; border-left: 1px solid rgba(253,252,249,0.08); }
-.market:first-child { border-left: none; }
+.market:first-child { border-left: none; padding-left: 0; }
 .market-name { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; font-weight: 400; color: #FDFCF9; margin-bottom: 8px; }
 .market-desc { font-size: 12px; color: rgba(253,252,249,0.4); line-height: 1.6; }
-@media (max-width: 768px) { .markets { padding: 64px 24px; } .market-list { flex-direction: column; } .market { border-left: none; border-top: 1px solid rgba(253,252,249,0.08); padding: 20px 0; } .market:first-child { border-top: none; } }
+
+@media (max-width: 768px) {
+.markets { padding: 64px 24px; }
+.market-list { flex-direction: column; }
+.market { border-left: none; border-top: 1px solid rgba(253,252,249,0.08); padding: 20px 0; }
+.market:first-child { border-top: none; padding-left: 0; }
+}
 
 /* CONTACT */
 .contact { background: #2C2E26; padding: 100px 60px; }
 .contact h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 4vw, 56px); font-weight: 300; color: #FDFCF9; margin-bottom: 16px; line-height: 1.1; }
 .contact h2 em { font-style: italic; color: #C4A882; }
 .contact-sub { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.5); max-width: 520px; margin-bottom: 48px; }
-.contact-email { display: inline-flex; align-items: center; gap: 16px; background: #C4A882; color: #2C2E26; font-size: 14px; letter-spacing: 0.1em; padding: 18px 40px; transition: all 0.3s; }
-.contact-email:hover { background: #D4B892; }
+.btn-email { display: inline-block; background: #C4A882; color: #2C2E26; font-size: 14px; letter-spacing: 0.1em; padding: 18px 40px; transition: all 0.3s; }
+.btn-email:hover { background: #D4B892; }
 .contact-note { font-size: 13px; color: rgba(253,252,249,0.3); margin-top: 20px; line-height: 1.7; max-width: 480px; }
+
 @media (max-width: 768px) { .contact { padding: 72px 24px; } }
 
 /* FOOTER */
 footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgba(253,252,249,0.05); }
-.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; align-items: center; }
+.footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: center; }
 .footer-nome { font-family: ‘Raleway’, sans-serif; font-size: 16px; letter-spacing: 0.06em; text-transform: uppercase; display: flex; }
 .footer-nome .maca { font-weight: 600; color: #FDFCF9; }
 .footer-nome .nuts { font-weight: 400; color: rgba(253,252,249,0.6); }
@@ -102,8 +126,10 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
 .footer-links a { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(253,252,249,0.28); transition: color 0.3s; }
 .footer-links a:hover { color: #FDFCF9; }
 .footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
-@media (max-width: 768px) { footer { padding: 40px 24px 24px; } .footer-bottom { flex-direction: column; gap: 16px; } .footer-links { gap: 16px; } }
 
+@media (max-width: 768px) { footer { padding: 40px 24px 24px; } .footer-inner { flex-direction: column; gap: 20px; } }
+
+/* ANIMAÇÕES */
 .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .fade-up.d1 { transition-delay: 0.15s; }
 .fade-up.d2 { transition-delay: 0.3s; }
@@ -120,9 +146,9 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
   <div class="nav-lang">
     <a href="index.html">PT</a>
     <span>·</span>
-    <span style="color:#2C2E26">EN</span>
+    <span style="color:#2C2E26;font-weight:600;">EN</span>
   </div>
-  <a href="#contact" class="btn-contact" style="font-size:11px;padding:10px 22px;">Get in touch</a>
+  <a href="#contact" class="btn-nav-contact">Get in touch</a>
 </nav>
 
 <!-- HERO -->
@@ -130,21 +156,30 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
 <section class="hero">
   <p class="hero-flag">Brazil · Minas Gerais · Farm to Port</p>
   <h1>Premium macadamia<br><em>from farm to world.</em></h1>
-  <p class="hero-sub">MacaNuts is a Brazilian macadamia producer based in Minas Gerais. We grow, process and export directly from our own farm — no middlemen, full traceability.</p>
-  <a href="#contact" class="btn-contact">Request a Quote</a>
+  <p class="hero-sub">MacaNuts is a Brazilian macadamia producer based in Minas Gerais. We grow, process and export directly from our own farm — no middlemen, full traceability, RADAR registered.</p>
+  <a href="#contact" class="btn-cta">Request a Quote</a>
 </section>
 
 <!-- WHO WE ARE -->
 
 <section class="who">
-  <div class="label">Who we are</div>
+  <div class="label label-dark">Who we are</div>
   <h2>Grown in Brazil,<br><em>trusted worldwide.</em></h2>
   <p>MacaNuts is a single-origin macadamia producer located in Minas Gerais, Brazil. We control every step of production — from cultivation and harvesting to processing and packaging — ensuring consistent quality and full supply chain transparency.</p>
   <p>We have been exporting macadamia for several years, with China as our primary international market. Our operations are registered with Brazil's RADAR export system, enabling direct international trade.</p>
   <div class="stats">
-    <div class="fade-up"><div class="stat-n">+10</div><div class="stat-l">Years farming</div></div>
-    <div class="fade-up"><div class="stat-n">100%</div><div class="stat-l">Own farm</div></div>
-    <div class="fade-up"><div class="stat-n">MG</div><div class="stat-l">Minas Gerais, BR</div></div>
+    <div class="fade-up">
+      <div class="stat-n">+10</div>
+      <div class="stat-l">Years farming</div>
+    </div>
+    <div class="fade-up d1">
+      <div class="stat-n">100%</div>
+      <div class="stat-l">Own farm</div>
+    </div>
+    <div class="fade-up d2">
+      <div class="stat-n">MG</div>
+      <div class="stat-l">Minas Gerais, Brazil</div>
+    </div>
   </div>
 </section>
 
@@ -153,8 +188,8 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
 <section class="product">
   <div class="label">Our product</div>
   <h2>Natural macadamia,<br><em>three styles.</em></h2>
-  <div class="grades">
-    <div class="style fade-up">
+  <div class="styles-list">
+    <div class="style-item fade-up">
       <div class="style-left">
         <div class="style-badge">0</div>
         <div>
@@ -163,7 +198,7 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
         </div>
       </div>
     </div>
-    <div class="style fade-up">
+    <div class="style-item fade-up">
       <div class="style-left">
         <div class="style-badge">2</div>
         <div>
@@ -172,7 +207,7 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
         </div>
       </div>
     </div>
-    <div class="style fade-up">
+    <div class="style-item fade-up">
       <div class="style-left">
         <div class="style-badge">4</div>
         <div>
@@ -182,30 +217,39 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
       </div>
     </div>
   </div>
-  <div class="volumes fade-up">
-    <div><div class="vol-n">Seasonal</div><div class="vol-l">Harvest availability</div></div>
-    <div><div class="vol-n">Vacuum</div><div class="vol-l">Packaging — no preservatives</div></div>
-    <div><div class="vol-n">RADAR</div><div class="vol-l">Export registered</div></div>
+  <div class="product-facts fade-up">
+    <div>
+      <div class="fact-n">Seasonal</div>
+      <div class="fact-l">Harvest availability</div>
+    </div>
+    <div>
+      <div class="fact-n">Vacuum</div>
+      <div class="fact-l">Packaging — no preservatives</div>
+    </div>
+    <div>
+      <div class="fact-n">RADAR</div>
+      <div class="fact-l">Export registered</div>
+    </div>
   </div>
 </section>
 
 <!-- CREDENTIALS -->
 
 <section class="credentials">
-  <div class="label">Why trust us</div>
+  <div class="label label-dark">Why trust us</div>
   <h2>Credentials &<br><em>traceability.</em></h2>
   <div class="creds">
     <div class="cred fade-up">
       <div class="cred-titulo">RADAR Registration</div>
-      <p class="cred-desc">Registered with Brazil's RADAR system (Ambiente de Registro e Rastreamento da Atuação dos Intervenientes Aduaneiros), enabling direct international exports.</p>
+      <p class="cred-desc">Registered with Brazil's RADAR system (Receita Federal), enabling us to export directly without intermediaries. All shipments are fully documented.</p>
     </div>
     <div class="cred fade-up d1">
       <div class="cred-titulo">Full traceability</div>
-      <p class="cred-desc">Every batch is traceable to the farm, harvest season and processing date. We provide full documentation for each shipment.</p>
+      <p class="cred-desc">Every batch is traceable to the farm, harvest season and processing date. We provide complete documentation for each shipment upon request.</p>
     </div>
     <div class="cred fade-up d2">
       <div class="cred-titulo">Own processing</div>
-      <p class="cred-desc">We grow, harvest, process and package on-site. No outsourced steps, no unknown supply chain. What you receive is exactly what we produce.</p>
+      <p class="cred-desc">We grow, harvest, process and package on-site. No outsourced steps, no unknown supply chain. Transparent from soil to shipment.</p>
     </div>
   </div>
 </section>
@@ -222,7 +266,7 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
     </div>
     <div class="market fade-up d1">
       <div class="market-name">Europe</div>
-      <div class="market-desc">Open to new partnerships · Contact us to discuss terms</div>
+      <div class="market-desc">Open to new partnerships · Contact us to discuss terms and volumes</div>
     </div>
     <div class="market fade-up d2">
       <div class="market-name">Other markets</div>
@@ -236,17 +280,15 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
 <section class="contact" id="contact">
   <div class="label">Get in touch</div>
   <h2>Let's discuss<br><em>your requirements.</em></h2>
-  <p class="contact-sub">Send us an email with your country, target volume, grade of interest and preferred packaging. We will respond within 1 business day with availability and pricing.</p>
-  <a href="/cdn-cgi/l/email-protection#a3c0cccec6d1c0cac2cfe3cec2c0c2cdd6d7d08dc0ccce8dc1d19cd0d6c1c9c6c0d79ee6dbd3ccd1d783eacdd2d6cad1da8341233783eec2c0c2edd6d7d0" class="contact-email">
-    <span class="__cf_email__" data-cfemail="dbb8b4b6bea9b8b2bab79bb6bab8bab5aeafa8f5b8b4b6f5b9a9">[email&#160;protected]</span>
-  </a>
-  <p class="contact-note">Please include: country · estimated volume per year · grade(s) of interest · preferred packaging format</p>
+  <p class="contact-sub">Send us an email with your country, target volume, style of interest and preferred packaging format. We will respond within 1 business day with availability and pricing.</p>
+  <a href="mailto:comercial@macanuts.com.br?subject=Export%20Inquiry%20%E2%80%94%20MacaNuts" class="btn-email">comercial@macanuts.com.br</a>
+  <p class="contact-note">Please include: country · estimated annual volume · style(s) of interest · preferred packaging format</p>
 </section>
 
 <!-- FOOTER -->
 
 <footer>
-  <div class="footer-bottom">
+  <div class="footer-inner">
     <div class="footer-nome"><span class="maca">Maca</span><span class="nuts">Nuts</span></div>
     <ul class="footer-links">
       <li><a href="index.html">PT — Home</a></li>
@@ -257,4 +299,17 @@ footer { background: #2C2E26; padding: 48px 60px 32px; border-top: 1px solid rgb
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
