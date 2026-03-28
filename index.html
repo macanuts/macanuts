@@ -33,16 +33,7 @@ font-weight: 300;
 overflow-x: hidden;
 }
 
-body::before {
-content: ‘’;
-position: fixed;
-inset: 0;
-background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 200 200’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.85’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’ opacity=‘0.025’/%3E%3C/svg%3E”);
-pointer-events: none;
-z-index: 999;
-}
-
-/* ─── NAV ─── */
+/* NAV */
 nav {
 position: fixed;
 top: 0; left: 0; right: 0;
@@ -55,42 +46,22 @@ transition: all 0.5s ease;
 }
 
 nav.scrolled {
-background: rgba(253,252,249,0.94);
+background: rgba(253,252,249,0.95);
 backdrop-filter: blur(16px);
 padding: 18px 60px;
 border-bottom: 1px solid rgba(74,82,64,0.09);
 }
 
-.nav-logo-wrap {
-display: flex;
-align-items: center;
-gap: 12px;
-text-decoration: none;
-}
-
-.nav-logo-icon {
-width: 44px;
-height: 44px;
-background:
-background-color: transparent;
-mix-blend-mode: multiply;
-filter: contrast(1.1);
-}
-
-nav.scrolled .nav-logo-icon {
-mix-blend-mode: normal;
-}
-
-.nav-logo-text {
+.nav-logo {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: 21px;
+font-size: 22px;
 font-weight: 400;
-letter-spacing: 0.1em;
+letter-spacing: 0.12em;
 color: var(–branco);
 transition: color 0.4s;
 }
 
-nav.scrolled .nav-logo-text { color: var(–verde-escuro); }
+nav.scrolled .nav-logo { color: var(–verde-escuro); }
 
 .nav-links {
 display: flex;
@@ -104,19 +75,16 @@ font-weight: 300;
 letter-spacing: 0.22em;
 text-transform: uppercase;
 color: rgba(253,252,249,0.78);
-text-decoration: none;
 transition: color 0.3s;
 }
 
 nav.scrolled .nav-links a { color: var(–texto-medio); }
-nav.scrolled .nav-links a:hover { color: var(–verde-escuro); }
 
 .nav-cta {
 font-size: 10.5px;
 letter-spacing: 0.2em;
 text-transform: uppercase;
 color: rgba(253,252,249,0.78);
-text-decoration: none;
 padding: 10px 24px;
 border: 1px solid rgba(253,252,249,0.35);
 transition: all 0.3s;
@@ -127,12 +95,7 @@ color: var(–verde-escuro);
 border-color: rgba(74,82,64,0.4);
 }
 
-nav.scrolled .nav-cta:hover {
-background: var(–verde-escuro);
-color: var(–branco);
-}
-
-/* ─── HERO ─── */
+/* HERO */
 .hero {
 height: 100vh;
 min-height: 680px;
@@ -140,26 +103,13 @@ position: relative;
 display: flex;
 align-items: flex-end;
 overflow: hidden;
-}
-
-.hero-bg {
-position: absolute;
-inset: 0;
-background: linear-gradient(160deg, rgba(44,46,38,0.95) 0%, #4A5240 40%, #5C6147 70%, #6B7356 100%);
-}
-
-/* Fallback de cor caso imagem não carregue */
-.hero-bg-fallback {
-position: absolute;
-inset: 0;
-background: linear-gradient(155deg, #2C2E26 0%, #4A5240 40%, #5C6147 70%, #6B7356 100%);
-z-index: -1;
+background: linear-gradient(160deg, #2C2E26 0%, #4A5240 40%, #5C6147 70%, #6B7356 100%);
 }
 
 .hero-overlay {
 position: absolute;
 inset: 0;
-background: linear-gradient(to top, rgba(30,33,24,0.85) 0%, rgba(30,33,24,0.2) 50%, transparent 100%);
+background: linear-gradient(to top, rgba(30,33,24,0.7) 0%, rgba(30,33,24,0.1) 60%, transparent 100%);
 }
 
 .hero-content {
@@ -176,8 +126,11 @@ letter-spacing: 0.38em;
 text-transform: uppercase;
 color: var(–terra);
 margin-bottom: 22px;
-opacity: 0;
+
+```
 animation: fadeUp 1s ease 0.4s forwards;
+```
+
 }
 
 .hero-title {
@@ -187,8 +140,11 @@ font-weight: 300;
 line-height: 1.03;
 color: var(–branco);
 margin-bottom: 28px;
-opacity: 0;
+
+```
 animation: fadeUp 1s ease 0.7s forwards;
+```
+
 }
 
 .hero-title em { font-style: italic; color: var(–terra); }
@@ -197,20 +153,25 @@ animation: fadeUp 1s ease 0.7s forwards;
 font-size: 14px;
 font-weight: 300;
 line-height: 1.85;
-color: rgba(253,252,249,0.62);
+color: rgba(253,252,249,0.65);
 max-width: 400px;
 margin-bottom: 48px;
-letter-spacing: 0.03em;
-opacity: 0;
+
+```
 animation: fadeUp 1s ease 1s forwards;
+```
+
 }
 
 .hero-ctas {
 display: flex;
 align-items: center;
 gap: 24px;
-opacity: 0;
+
+```
 animation: fadeUp 1s ease 1.2s forwards;
+```
+
 }
 
 .btn-primary {
@@ -221,7 +182,6 @@ text-transform: uppercase;
 color: var(–verde-escuro);
 background: var(–creme);
 padding: 16px 38px;
-text-decoration: none;
 transition: all 0.35s;
 display: inline-block;
 }
@@ -238,11 +198,9 @@ font-weight: 300;
 letter-spacing: 0.22em;
 text-transform: uppercase;
 color: rgba(253,252,249,0.65);
-text-decoration: none;
 display: flex;
 align-items: center;
 gap: 12px;
-transition: color 0.3s, gap 0.3s;
 }
 
 .btn-ghost::after {
@@ -250,11 +208,7 @@ content: ‘’;
 width: 30px;
 height: 1px;
 background: currentColor;
-transition: width 0.3s;
 }
-
-.btn-ghost:hover { color: var(–branco); gap: 18px; }
-.btn-ghost:hover::after { width: 46px; }
 
 .hero-coord {
 position: absolute;
@@ -265,11 +219,9 @@ letter-spacing: 0.22em;
 text-transform: uppercase;
 color: rgba(253,252,249,0.28);
 writing-mode: vertical-rl;
-opacity: 0;
-animation: fadeIn 2s ease 1.8s forwards;
 }
 
-/* ─── MANIFESTO ─── */
+/* MANIFESTO */
 .manifesto {
 background: var(–creme);
 padding: 100px 60px;
@@ -303,37 +255,50 @@ font-style: italic;
 color: var(–verde-musgo);
 }
 
-/* ─── ORIGEM — split com foto real ─── */
+/* ORIGEM */
 .origem {
 display: grid;
 grid-template-columns: 1fr 1fr;
 min-height: 640px;
 }
 
-.origem-foto {
+.origem-visual {
+background: var(–verde-musgo);
 position: relative;
-overflow: hidden;
-/* FOTO: imgs/macadamia-casca.jpg — a foto linda com casca verde, marrom e crua */
-background: var(–verde-musgo) center/cover no-repeat;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 500px;
 }
 
-.origem-foto::after {
-content: ‘’;
-position: absolute;
-inset: 0;
-background: linear-gradient(to right, transparent 60%, rgba(74,82,64,0.15));
+.origem-visual-inner {
+text-align: center;
+padding: 60px 40px;
 }
 
-/* Legenda sobre a foto */
-.origem-foto-caption {
-position: absolute;
-bottom: 32px;
-left: 32px;
-font-size: 9.5px;
+.origem-coords {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 64px;
+font-weight: 300;
+color: rgba(253,252,249,0.12);
+line-height: 1;
+margin-bottom: 24px;
+}
+
+.origem-fazenda {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 28px;
+font-weight: 400;
+font-style: italic;
+color: var(–terra);
+margin-bottom: 12px;
+}
+
+.origem-loc {
+font-size: 10px;
 letter-spacing: 0.28em;
 text-transform: uppercase;
-color: rgba(253,252,249,0.55);
-z-index: 2;
+color: rgba(253,252,249,0.4);
 }
 
 .origem-content {
@@ -408,7 +373,7 @@ text-transform: uppercase;
 color: rgba(253,252,249,0.32);
 }
 
-/* ─── PRODUTOS ─── */
+/* PRODUTOS */
 .produtos {
 background: var(–branco);
 padding: 110px 60px;
@@ -431,29 +396,23 @@ color: var(–texto-escuro);
 
 .section-title em { font-style: italic; color: var(–verde-musgo); }
 
-.link-ver-todos {
+.link-todos {
 font-size: 10.5px;
 font-weight: 300;
 letter-spacing: 0.22em;
 text-transform: uppercase;
 color: var(–verde-medio);
-text-decoration: none;
 display: flex;
 align-items: center;
 gap: 12px;
-transition: gap 0.3s;
 }
 
-.link-ver-todos::after {
+.link-todos::after {
 content: ‘’;
 width: 28px;
 height: 1px;
 background: currentColor;
-transition: width 0.3s;
 }
-
-.link-ver-todos:hover { gap: 18px; }
-.link-ver-todos:hover::after { width: 44px; }
 
 .produtos-grid {
 display: grid;
@@ -461,13 +420,7 @@ grid-template-columns: repeat(3, 1fr);
 gap: 36px;
 }
 
-.prod-card {
-cursor: pointer;
-text-decoration: none;
-color: inherit;
-display: block;
-}
-
+.prod-card { display: block; }
 .prod-card:nth-child(2) { margin-top: 56px; }
 
 .prod-img {
@@ -476,11 +429,14 @@ aspect-ratio: 3/4;
 overflow: hidden;
 margin-bottom: 24px;
 position: relative;
-background: var(–verde-sage);
 display: flex;
 align-items: center;
 justify-content: center;
 }
+
+.prod-img-t0 { background: var(–verde-sage); }
+.prod-img-t2 { background: var(–creme-escuro); }
+.prod-img-t4 { background: var(–verde-sage); }
 
 .prod-img img {
 width: 100%;
@@ -491,44 +447,17 @@ transition: transform 0.7s ease;
 
 .prod-card:hover .prod-img img { transform: scale(1.05); }
 
-.prod-img::after {
-content: ‘Explorar’;
-position: absolute;
-inset: 0;
-background: rgba(74,82,64,0.82);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 10.5px;
-letter-spacing: 0.28em;
-text-transform: uppercase;
-color: var(–branco);
-opacity: 0;
-transition: opacity 0.4s;
-}
-
-.prod-card:hover .prod-img::after { opacity: 1; }
-
-/* Sem foto — placeholder elegante */
 .prod-img-placeholder {
 text-align: center;
-padding: 30px;
 }
 
-.prod-img-placeholder .tipo-badge {
+.tipo-badge {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: 52px;
+font-size: 80px;
 font-weight: 300;
-color: rgba(122,138,106,0.18);
+color: rgba(122,138,106,0.15);
 display: block;
-margin-bottom: 12px;
-}
-
-.prod-img-placeholder .em-breve {
-font-size: 9px;
-letter-spacing: 0.3em;
-text-transform: uppercase;
-color: rgba(122,138,106,0.4);
+line-height: 1;
 }
 
 .prod-tipo {
@@ -547,10 +476,7 @@ font-weight: 400;
 color: var(–texto-escuro);
 margin-bottom: 9px;
 line-height: 1.2;
-transition: color 0.3s;
 }
-
-.prod-card:hover .prod-nome { color: var(–verde-musgo); }
 
 .prod-desc {
 font-size: 13px;
@@ -565,9 +491,6 @@ font-family: ‘Cormorant Garamond’, serif;
 font-size: 20px;
 font-weight: 300;
 color: var(–verde-musgo);
-display: flex;
-align-items: baseline;
-gap: 6px;
 }
 
 .prod-preco small {
@@ -577,32 +500,28 @@ font-weight: 300;
 color: var(–texto-medio);
 }
 
-/* ─── FLORAÇÃO — foto full width ─── */
+/* BANNER FLORAÇÃO */
 .floracao-banner {
-height: 520px;
-position: relative;
-overflow: hidden;
+background: var(–verde-escuro);
+padding: 100px 60px;
 display: flex;
 align-items: center;
-/* FOTO: imgs/floracao.jpg — a foto linda da floração */
-background: var(–verde-escuro) center 30%/cover no-repeat;
+position: relative;
+overflow: hidden;
 }
 
 .floracao-banner::before {
 content: ‘’;
 position: absolute;
 inset: 0;
-background: linear-gradient(to right, rgba(30,33,24,0.82) 0%, rgba(30,33,24,0.3) 60%, transparent 100%);
+background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(196,168,130,0.08) 0%, transparent 70%);
 }
 
 .floracao-content {
 position: relative;
 z-index: 2;
-padding: 0 60px;
 max-width: 560px;
 }
-
-.floracao-content .section-tag { margin-bottom: 18px; }
 
 .floracao-titulo {
 font-family: ‘Cormorant Garamond’, serif;
@@ -611,6 +530,7 @@ font-weight: 300;
 line-height: 1.15;
 color: var(–branco);
 margin-bottom: 20px;
+margin-top: 16px;
 }
 
 .floracao-titulo em { font-style: italic; color: var(–terra); }
@@ -623,7 +543,25 @@ color: rgba(253,252,249,0.6);
 margin-bottom: 36px;
 }
 
-/* ─── PROCESSO ─── */
+.link-ghost {
+font-size: 10.5px;
+font-weight: 300;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: rgba(253,252,249,0.55);
+display: flex;
+align-items: center;
+gap: 14px;
+}
+
+.link-ghost::after {
+content: ‘’;
+width: 28px;
+height: 1px;
+background: currentColor;
+}
+
+/* PROCESSO */
 .processo {
 background: var(–creme-escuro);
 padding: 110px 60px;
@@ -637,19 +575,7 @@ margin-bottom: 80px;
 .processo-steps {
 display: grid;
 grid-template-columns: repeat(4, 1fr);
-gap: 0;
 position: relative;
-}
-
-.processo-steps::before {
-content: ‘’;
-position: absolute;
-top: 52px;
-left: 12.5%;
-right: 12.5%;
-height: 1px;
-background: linear-gradient(to right, transparent, var(–verde-medio), transparent);
-opacity: 0.25;
 }
 
 .step { text-align: center; padding: 0 24px; }
@@ -668,8 +594,6 @@ font-weight: 300;
 color: var(–verde-medio);
 margin: 32px auto 28px;
 background: var(–creme-escuro);
-position: relative;
-z-index: 2;
 }
 
 .step-tag {
@@ -696,29 +620,34 @@ line-height: 1.75;
 color: var(–texto-medio);
 }
 
-/* ─── CHEESECAKE — receita em destaque ─── */
+/* RECEITA */
 .receita-destaque {
 display: grid;
 grid-template-columns: 1fr 1fr;
-min-height: 560px;
+min-height: 520px;
 }
 
-.receita-foto {
-/* FOTO: imgs/cheesecake.jpg — o cheesecake com macadâmia */
-background: var(–creme-escuro) center/cover no-repeat;
-position: relative;
-overflow: hidden;
+.receita-visual {
+background: linear-gradient(135deg, var(–creme-escuro) 0%, #D4B896 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 400px;
 }
 
-.receita-foto::after {
-content: ‘’;
-position: absolute;
-inset: 0;
-background: rgba(44,46,38,0.08);
-transition: background 0.4s;
+.receita-visual-inner {
+text-align: center;
+padding: 60px;
 }
 
-.receita-foto:hover::after { background: rgba(44,46,38,0); }
+.receita-visual-titulo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 36px;
+font-weight: 300;
+font-style: italic;
+color: var(–texto-escuro);
+opacity: 0.3;
+}
 
 .receita-content {
 background: var(–verde-escuro);
@@ -767,31 +696,25 @@ color: rgba(253,252,249,0.55);
 margin-bottom: 36px;
 }
 
-.link-receita {
+.link-terra {
 font-size: 10.5px;
 font-weight: 300;
 letter-spacing: 0.22em;
 text-transform: uppercase;
 color: var(–terra);
-text-decoration: none;
 display: flex;
 align-items: center;
 gap: 14px;
-transition: gap 0.3s;
 }
 
-.link-receita::after {
+.link-terra::after {
 content: ‘’;
 width: 28px;
 height: 1px;
 background: currentColor;
-transition: width 0.3s;
 }
 
-.link-receita:hover { gap: 20px; }
-.link-receita:hover::after { width: 44px; }
-
-/* ─── CITAÇÃO ─── */
+/* CITAÇÃO */
 .citacao {
 background: var(–verde-sage);
 padding: 100px 60px;
@@ -833,7 +756,7 @@ text-transform: uppercase;
 color: var(–verde-medio);
 }
 
-/* ─── NEWSLETTER ─── */
+/* NEWSLETTER */
 .newsletter {
 background: var(–branco);
 padding: 100px 60px;
@@ -844,7 +767,7 @@ align-items: center;
 border-top: 1px solid var(–creme-escuro);
 }
 
-.newsletter-titulo {
+.nl-titulo {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: clamp(30px, 3.2vw, 46px);
 font-weight: 300;
@@ -853,9 +776,9 @@ color: var(–texto-escuro);
 margin-bottom: 14px;
 }
 
-.newsletter-titulo em { font-style: italic; color: var(–verde-musgo); }
+.nl-titulo em { font-style: italic; color: var(–verde-musgo); }
 
-.newsletter-desc {
+.nl-desc {
 font-size: 14px;
 font-weight: 300;
 line-height: 1.85;
@@ -874,8 +797,6 @@ font-size: 13px;
 font-weight: 300;
 color: var(–texto-escuro);
 outline: none;
-letter-spacing: 0.05em;
-transition: border-color 0.3s;
 }
 
 .nl-form input::placeholder {
@@ -884,8 +805,6 @@ letter-spacing: 0.12em;
 font-size: 11px;
 text-transform: uppercase;
 }
-
-.nl-form input:focus { border-bottom-color: var(–verde-escuro); }
 
 .btn-nl {
 align-self: flex-start;
@@ -899,20 +818,16 @@ background: var(–verde-escuro);
 padding: 15px 36px;
 border: none;
 cursor: pointer;
-transition: all 0.3s;
 margin-top: 8px;
 }
-
-.btn-nl:hover { background: var(–verde-musgo); transform: translateY(-2px); }
 
 .nl-nota {
 font-size: 10.5px;
 color: rgba(74,82,64,0.4);
 margin-top: 10px;
-letter-spacing: 0.04em;
 }
 
-/* ─── FOOTER ─── */
+/* FOOTER */
 footer {
 background: var(–texto-escuro);
 padding: 72px 60px 36px;
@@ -927,29 +842,14 @@ border-bottom: 1px solid rgba(253,252,249,0.07);
 margin-bottom: 36px;
 }
 
-.footer-logo-wrap {
-display: flex;
-align-items: center;
-gap: 12px;
-margin-bottom: 16px;
-}
-
-.footer-logo-icon {
-width: 120px;
-height: 40px;
-background:
-opacity: 0.75;
-mix-blend-mode: lighten;
-margin-bottom: 16px;
-}
-
 .footer-brand-name {
 font-family: ‘Cormorant Garamond’, serif;
 font-size: 22px;
 font-weight: 400;
 color: var(–branco);
 letter-spacing: 0.1em;
-opacity: 0.9;
+margin-bottom: 16px;
+display: block;
 }
 
 .footer-tagline {
@@ -958,7 +858,6 @@ font-weight: 300;
 line-height: 1.75;
 color: rgba(253,252,249,0.3);
 max-width: 230px;
-letter-spacing: 0.04em;
 margin-bottom: 28px;
 }
 
@@ -970,7 +869,6 @@ font-weight: 300;
 letter-spacing: 0.2em;
 text-transform: uppercase;
 color: rgba(253,252,249,0.3);
-text-decoration: none;
 transition: color 0.3s;
 }
 
@@ -991,8 +889,6 @@ margin-bottom: 22px;
 font-size: 13px;
 font-weight: 300;
 color: rgba(253,252,249,0.44);
-text-decoration: none;
-letter-spacing: 0.03em;
 transition: color 0.3s;
 }
 
@@ -1008,7 +904,6 @@ justify-content: space-between;
 font-size: 10.5px;
 font-weight: 300;
 color: rgba(253,252,249,0.18);
-letter-spacing: 0.05em;
 }
 
 .footer-origin {
@@ -1018,21 +913,18 @@ font-style: italic;
 color: rgba(253,252,249,0.18);
 }
 
-/* ─── ANIMATIONS ─── */
+/* ANIMATIONS */
 @keyframes fadeUp {
-from { opacity: 0; transform: translateY(22px); }
+from {  transform: translateY(22px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-
 .reveal {
-opacity: 0;
-transform: translateY(28px);
+
+```
 transition: opacity 0.8s ease, transform 0.8s ease;
+```
+
 }
 
 .reveal.visible { opacity: 1; transform: none; }
@@ -1040,7 +932,7 @@ transition: opacity 0.8s ease, transform 0.8s ease;
 .reveal-d2 { transition-delay: 0.28s; }
 .reveal-d3 { transition-delay: 0.42s; }
 
-/* ─── MOBILE ─── */
+/* MOBILE */
 @media (max-width: 900px) {
 nav, nav.scrolled { padding: 18px 24px; }
 .nav-links { display: none; }
@@ -1049,19 +941,17 @@ nav, nav.scrolled { padding: 18px 24px; }
 .manifesto { grid-template-columns: 1fr; padding: 64px 24px; gap: 16px; }
 .manifesto-label { writing-mode: horizontal-tb; transform: none; }
 .origem { grid-template-columns: 1fr; }
-.origem-foto { min-height: 300px; }
+.origem-visual { min-height: 280px; }
 .origem-content { padding: 56px 24px; }
 .origem-stats { grid-template-columns: repeat(3,1fr); }
 .produtos { padding: 72px 24px; }
 .produtos-grid { grid-template-columns: 1fr; gap: 48px; }
 .prod-card:nth-child(2) { margin-top: 0; }
-.floracao-banner { height: auto; padding: 64px 0; }
-.floracao-content { padding: 0 24px; }
+.floracao-banner { padding: 72px 24px; }
 .processo { padding: 72px 24px; }
 .processo-steps { grid-template-columns: 1fr 1fr; gap: 36px; }
-.processo-steps::before { display: none; }
 .receita-destaque { grid-template-columns: 1fr; }
-.receita-foto { min-height: 280px; }
+.receita-visual { min-height: 200px; }
 .receita-content { padding: 56px 24px; }
 .citacao { padding: 72px 24px; }
 .newsletter { grid-template-columns: 1fr; padding: 72px 24px; gap: 40px; }
@@ -1074,13 +964,8 @@ footer { padding: 56px 24px 28px; }
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
-
 <nav id="mainNav">
-  <a href="/" class="nav-logo-wrap">
-    <div class="nav-logo-icon"></div>
-    <span class="nav-logo-text">MacaNuts</span>
-  </a>
+  <a href="/" class="nav-logo">MacaNuts</a>
   <ul class="nav-links">
     <li><a href="#origem">A Fazenda</a></li>
     <li><a href="#produtos">Produtos</a></li>
@@ -1091,215 +976,131 @@ footer { padding: 56px 24px 28px; }
   <a href="#produtos" class="nav-cta">Comprar</a>
 </nav>
 
-<!-- ═══ HERO ═══ -->
-
-<!--
-  INSTRUÇÕES DE FOTO:
-  Coloque UMA dessas fotos como hero:
-  - A foto da floração (mais editorial e inesperada)
-  - A foto das macadâmias na casca (verde + marrom + crua)
-  No CSS acima, linha .hero-bg, troque 'imgs/floracao.jpg' pelo caminho da sua foto.
--->
-
 <section class="hero">
-  <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
-
   <div class="hero-content">
     <p class="hero-eyebrow">Fazenda própria · Minas Gerais, Brasil</p>
-    <h1 class="hero-title">
-      Da terra.<br>
-      <em>Com precisão.</em>
-    </h1>
-    <p class="hero-sub">
-      Macadâmias cultivadas com rigor, colhidas no ponto exato e entregues diretamente da nossa fazenda para a sua mesa.
-    </p>
+    <h1 class="hero-title">Da terra.<br><em>Com precisão.</em></h1>
+    <p class="hero-sub">Macadâmias cultivadas com rigor, colhidas no ponto exato e entregues diretamente da nossa fazenda para a sua mesa.</p>
     <div class="hero-ctas">
       <a href="#produtos" class="btn-primary">Explorar produtos</a>
       <a href="#origem" class="btn-ghost">Nossa origem</a>
     </div>
   </div>
-
   <div class="hero-coord">-19.9167° S · -43.9345° W · Minas Gerais</div>
 </section>
 
-<!-- ═══ MANIFESTO ═══ -->
-
 <section class="manifesto">
   <span class="manifesto-label">Manifesto</span>
-  <p class="manifesto-quote reveal">
-    Tudo o que produzimos nasce aqui,
-    na nossa fazenda em Minas Gerais.
-    Cultivamos, colhemos e embalamos
-    com <strong>o máximo de cuidado</strong>,
-    e prezamos pela proximidade com nossos clientes.
-    Isso nos permite garantir <strong>frescor,
-    pureza</strong> e a mais alta <strong>qualidade.</strong>
+  <p class="manifesto-quote">
+    Tudo o que produzimos nasce aqui, na nossa fazenda em Minas Gerais. Cultivamos, colhemos e embalamos com <strong>o máximo de cuidado</strong>, e prezamos pela proximidade com nossos clientes. Isso nos permite garantir <strong>frescor, pureza</strong> e a mais alta <strong>qualidade.</strong>
   </p>
 </section>
-
-<!-- ═══ ORIGEM ═══ -->
 
 <section id="origem">
   <div class="origem">
-    <!--
-      FOTO: imgs/macadamia-casca.jpg
-      Use a foto linda com casca verde, casca marrom e macadâmia crua.
-      É a mais impactante do acervo para esta seção.
-    -->
-    <div class="origem-foto">
-      <div class="origem-foto-caption">Macadâmia · Do fruto à noz</div>
+    <div class="origem-visual">
+      <div class="origem-visual-inner">
+        <div class="origem-coords">19°S<br>43°W</div>
+        <div class="origem-fazenda">Fazenda MacaNuts</div>
+        <div class="origem-loc">Minas Gerais · Brasil</div>
+      </div>
     </div>
-
-```
-<div class="origem-content">
-  <div class="section-tag reveal">A Fazenda</div>
-  <h2 class="origem-titulo reveal">
-    Uma origem<br>
-    <em>que você pode</em><br>
-    rastrear.
-  </h2>
-  <p class="origem-texto reveal">
-    Cada embalagem carrega a história de um lugar específico: nossa fazenda em Minas Gerais, onde o microclima, o solo e o cuidado humano se combinam para produzir macadâmias de qualidade excepcional.
-    <br><br>
-    Não terceirizamos. Não compramos de intermediários. Cultivamos, selecionamos e embalamos nós mesmos.
-  </p>
-  <div class="origem-stats">
-    <div class="reveal">
-      <div class="stat-num">+10</div>
-      <div class="stat-lbl">Anos de cultivo</div>
+    <div class="origem-content">
+      <div class="section-tag">A Fazenda</div>
+      <h2 class="origem-titulo">Uma origem<br><em>que você pode</em><br>rastrear.</h2>
+      <p class="origem-texto">Cada embalagem carrega a história de um lugar específico: nossa fazenda em Minas Gerais, onde o microclima, o solo e o cuidado humano se combinam para produzir macadâmias de qualidade excepcional.<br><br>Não terceirizamos. Não compramos de intermediários. Cultivamos, selecionamos e embalamos nós mesmos.</p>
+      <div class="origem-stats">
+        <div class="">
+          <div class="stat-num">+10</div>
+          <div class="stat-lbl">Anos de cultivo</div>
+        </div>
+        <div class="">
+          <div class="stat-num">100%</div>
+          <div class="stat-lbl">Colheita própria</div>
+        </div>
+        <div class="">
+          <div class="stat-num">0</div>
+          <div class="stat-lbl">Intermediários</div>
+        </div>
+      </div>
     </div>
-    <div class="reveal reveal-d1">
-      <div class="stat-num">100%</div>
-      <div class="stat-lbl">Colheita própria</div>
-    </div>
-    <div class="reveal reveal-d2">
-      <div class="stat-num">0</div>
-      <div class="stat-lbl">Intermediários</div>
-    </div>
-  </div>
-</div>
-```
-
   </div>
 </section>
-
-<!-- ═══ PRODUTOS ═══ -->
 
 <section class="produtos" id="produtos">
   <div class="produtos-header">
     <div>
-      <div class="section-tag reveal">Os produtos</div>
-      <h2 class="section-title reveal">Escolhidas<br><em>a dedo.</em></h2>
+      <div class="section-tag">Os produtos</div>
+      <h2 class="section-title">Escolhidas<br><em>a dedo.</em></h2>
     </div>
-    <a href="macanuts-listagem.html" class="link-ver-todos reveal">Ver todos</a>
+    <a href="#" class="link-todos">Ver todos</a>
   </div>
-
   <div class="produtos-grid">
-
-```
-<!-- Tipo 0 — sem foto ainda -->
-<a href="macanuts-produto.html" class="prod-card reveal">
-  <div class="prod-img">
-    <div class="prod-img-placeholder">
-      <span class="tipo-badge">0</span>
-      <span class="em-breve">Foto em breve</span>
-    </div>
-  </div>
-  <div class="prod-tipo">Seleção Premium · Tipo 0</div>
-  <div class="prod-nome">Macadâmia Natural<br>Tipo 0</div>
-  <p class="prod-desc">As maiores e mais inteiras. Mín. 95% acima de 20mm. Para quem não abre mão do melhor.</p>
-  <div class="prod-preco">A partir de R$ 67,00 <small>/ 500g</small></div>
-</a>
-
-<!-- Tipo 2 — COM FOTO -->
-<a href="macanuts-produto.html" class="prod-card reveal reveal-d1">
-  <div class="prod-img">
-    <!--
-      FOTOS DISPONÍVEIS para este produto (escolha uma):
-      - imgs/embalagens-trio.jpg  (as 3 embalagens juntas no fundo claro)
-      - imgs/embalagens-luz.jpg   (as 3 embalagens na luz quente/marrom)
-      - imgs/macadamia-pack.jpg   (embalagem 5kg + macadâmias soltas)
-    -->
-    <img src="imgs/embalagens-tipo2-fundomadeira.jpeg" alt="Macadâmia Natural Tipo 2 — MacaNuts"
-      onerror="this.parentElement.innerHTML='<div class=\'prod-img-placeholder\'><span class=\'tipo-badge\'>2</span><span class=\'em-breve\'>500g · 1kg · 5kg</span></div>'"
-      style="width:100%;height:100%;object-fit:cover">>
-  </div>
-  <div class="prod-tipo">Mais Vendida · Tipo 2</div>
-  <div class="prod-nome">Macadâmia Natural<br>Tipo 2</div>
-  <p class="prod-desc">~50% inteiras, ~50% metades. O equilíbrio perfeito para o dia a dia e para presentear.</p>
-  <div class="prod-preco">A partir de R$ 65,00 <small>/ 500g</small></div>
-</a>
-
-<!-- Tipo 4 — sem foto ainda -->
-<a href="macanuts-produto.html" class="prod-card reveal reveal-d2">
-  <div class="prod-img">
-    <div class="prod-img-placeholder">
-      <span class="tipo-badge">4</span>
-      <span class="em-breve">Foto em breve</span>
-    </div>
-  </div>
-  <div class="prod-tipo">Uso Culinário · Tipo 4</div>
-  <div class="prod-nome">Macadâmia Natural<br>Tipo 4</div>
-  <p class="prod-desc">~90% metades. A preferida de chefs e confeiteiros. Perfeita para receitas e preparações.</p>
-  <div class="prod-preco">A partir de R$ 63,00 <small>/ 500g</small></div>
-</a>
-```
-
+    <a href="#" class="prod-card">
+      <div class="prod-img prod-img-t0">
+        <div class="prod-img-placeholder"><span class="tipo-badge">0</span></div>
+      </div>
+      <div class="prod-tipo">Seleção Premium · Tipo 0</div>
+      <div class="prod-nome">Macadâmia Natural<br>Tipo 0</div>
+      <p class="prod-desc">As maiores e mais inteiras. Mín. 95% acima de 20mm. Para quem não abre mão do melhor.</p>
+      <div class="prod-preco">A partir de R$ 67,00 <small>/ 500g</small></div>
+    </a>
+    <a href="#" class="prod-card">
+      <div class="prod-img prod-img-t2">
+        <div class="prod-img-placeholder"><span class="tipo-badge">2</span></div>
+      </div>
+      <div class="prod-tipo">Mais Vendida · Tipo 2</div>
+      <div class="prod-nome">Macadâmia Natural<br>Tipo 2</div>
+      <p class="prod-desc">~50% inteiras, ~50% metades. O equilíbrio perfeito para o dia a dia e para presentear.</p>
+      <div class="prod-preco">A partir de R$ 65,00 <small>/ 500g</small></div>
+    </a>
+    <a href="#" class="prod-card">
+      <div class="prod-img prod-img-t4">
+        <div class="prod-img-placeholder"><span class="tipo-badge">4</span></div>
+      </div>
+      <div class="prod-tipo">Uso Culinário · Tipo 4</div>
+      <div class="prod-nome">Macadâmia Natural<br>Tipo 4</div>
+      <p class="prod-desc">~90% metades. A preferida de chefs e confeiteiros. Perfeita para receitas e preparações.</p>
+      <div class="prod-preco">A partir de R$ 63,00 <small>/ 500g</small></div>
+    </a>
   </div>
 </section>
-
-<!-- ═══ BANNER FLORAÇÃO ═══ -->
-
-<!--
-  FOTO: imgs/floracao.jpg — a foto da floração branca no fundo verde escuro.
-  Uma das fotos mais raras e bonitas do acervo. Poucas marcas mostram isso.
--->
 
 <div class="floracao-banner">
   <div class="floracao-content">
     <div class="section-tag">A planta</div>
-    <h2 class="floracao-titulo reveal">
-      Tudo começa<br>
-      <em>com a floração.</em>
-    </h2>
-    <p class="floracao-texto reveal">
-      Antes de cada colheita, vem a espera. A macadâmia floresce uma vez por ano e leva meses para desenvolver o fruto. Respeitamos esse tempo — porque é ele que garante o sabor.
-    </p>
-    <a href="#processo" class="btn-ghost reveal" style="color:rgba(253,252,249,0.6)">Ver o processo</a>
+    <h2 class="floracao-titulo">Tudo começa<br><em>com a floração.</em></h2>
+    <p class="floracao-texto">Antes de cada colheita, vem a espera. A macadâmia floresce uma vez por ano e leva meses para desenvolver o fruto. Respeitamos esse tempo — porque é ele que garante o sabor.</p>
+    <a href="#processo" class="link-ghost">Ver o processo</a>
   </div>
 </div>
 
-<!-- ═══ PROCESSO ═══ -->
-
 <section class="processo" id="processo">
   <div class="processo-header">
-    <div class="section-tag reveal" style="justify-content:center">O processo</div>
-    <h2 class="section-title reveal" style="text-align:center;margin-top:14px">
-      Do pé da árvore<br><em>até a sua mão.</em>
-    </h2>
+    <div class="section-tag" style="justify-content:center">O processo</div>
+    <h2 class="section-title" style="text-align:center;margin-top:14px">Do pé da árvore<br><em>até a sua mão.</em></h2>
   </div>
-
   <div class="processo-steps">
-    <div class="step reveal">
+    <div class="step">
       <div class="step-num">I</div>
       <div class="step-tag">Floração</div>
       <div class="step-titulo">A espera certa</div>
       <p class="step-desc">A macadâmia leva anos para produzir. Cada floração é o início de um ciclo que respeitamos sem atalhos.</p>
     </div>
-    <div class="step reveal reveal-d1">
+    <div class="step">
       <div class="step-num">II</div>
       <div class="step-tag">Colheita</div>
       <div class="step-titulo">Queda natural</div>
       <p class="step-desc">A macadâmia cai quando está pronta — nunca é arrancada. Colhemos do chão no momento exato de maturação.</p>
     </div>
-    <div class="step reveal reveal-d2">
+    <div class="step">
       <div class="step-num">III</div>
       <div class="step-tag">Seleção</div>
       <div class="step-titulo">Olho por olho</div>
       <p class="step-desc">Cada macadâmia é inspecionada. As que não atingem o padrão MacaNuts não seguem adiante — simples assim.</p>
     </div>
-    <div class="step reveal reveal-d3">
+    <div class="step">
       <div class="step-num">IV</div>
       <div class="step-tag">Embalagem</div>
       <div class="step-titulo">Frescor selado</div>
@@ -1308,52 +1109,33 @@ footer { padding: 56px 24px 28px; }
   </div>
 </section>
 
-<!-- ═══ RECEITA DESTAQUE ═══ -->
-
-<!--
-  FOTO: imgs/cheesecake.jpg — o cheesecake com caramelo e macadâmia.
-  Foto editorial incrível. Posiciona o produto como ingrediente gourmet.
--->
-
 <section class="receita-destaque">
-  <div class="receita-foto"></div>
+  <div class="receita-visual">
+    <div class="receita-visual-inner">
+      <div class="receita-visual-titulo">Cheesecake<br>de Macadâmia</div>
+    </div>
+  </div>
   <div class="receita-content">
     <div class="receita-tag">À Mesa</div>
-    <h2 class="receita-titulo reveal">
-      Cheesecake de<br>
-      <em>macadâmia com caramelo.</em>
-    </h2>
-    <p class="receita-texto reveal">
-      Base crocante de macadâmia moída, recheio cremoso de cream cheese e cobertura de caramelo salgado com pedaços inteiros. Uma receita que transforma o produto em experiência.
-    </p>
-    <a href="#" class="link-receita reveal">Ver receita completa</a>
+    <h2 class="receita-titulo">Cheesecake de<br><em>macadâmia com caramelo.</em></h2>
+    <p class="receita-texto">Base crocante de macadâmia moída, recheio cremoso de cream cheese e cobertura de caramelo salgado com pedaços inteiros. Uma receita que transforma o produto em experiência.</p>
+    <a href="#" class="link-terra">Ver receita completa</a>
   </div>
 </section>
-
-<!-- ═══ CITAÇÃO ═══ -->
 
 <section class="citacao">
   <div class="citacao-inner">
-    <p class="citacao-text reveal">
-      "Nunca pensei que uma macadâmia pudesse me fazer parar para prestar atenção no que estou comendo. A textura, o sabor — dá pra sentir que tem cuidado por trás disso."
-    </p>
-    <div class="citacao-autor reveal">Ana Clara M. · São Paulo, SP</div>
+    <p class="citacao-text">"Nunca pensei que uma macadâmia pudesse me fazer parar para prestar atenção no que estou comendo. A textura, o sabor — dá pra sentir que tem cuidado por trás disso."</p>
+    <div class="citacao-autor">Ana Clara M. · São Paulo, SP</div>
   </div>
 </section>
 
-<!-- ═══ NEWSLETTER ═══ -->
-
 <section class="newsletter">
   <div>
-    <h2 class="newsletter-titulo reveal">
-      Histórias, receitas<br>
-      e <em>novidades da safra.</em>
-    </h2>
-    <p class="newsletter-desc reveal reveal-d1">
-      Sem spam. Só o que vale a pena — direto da nossa fazenda para a sua caixa de entrada.
-    </p>
+    <h2 class="nl-titulo">Histórias, receitas<br>e <em>novidades da safra.</em></h2>
+    <p class="nl-desc">Sem spam. Só o que vale a pena — direto da nossa fazenda para a sua caixa de entrada.</p>
   </div>
-  <div class="nl-form reveal">
+  <div class="nl-form">
     <input type="text" placeholder="Seu nome">
     <input type="email" placeholder="Seu melhor e-mail">
     <button class="btn-nl">Quero receber</button>
@@ -1361,15 +1143,10 @@ footer { padding: 56px 24px 28px; }
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
-
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-logo-wrap">
-        <div class="footer-logo-icon"></div>
-        <span class="footer-brand-name">MacaNuts</span>
-      </div>
+      <span class="footer-brand-name">MacaNuts</span>
       <p class="footer-tagline">Macadâmias cultivadas com rigor. Direto da nossa fazenda em Minas Gerais para a sua mesa.</p>
       <div class="footer-social">
         <a href="https://instagram.com/macanutsbr" target="_blank">Instagram</a>
@@ -1382,7 +1159,6 @@ footer { padding: 56px 24px 28px; }
         <li><a href="#">Tipo 0 — Premium</a></li>
         <li><a href="#">Tipo 2 — Versátil</a></li>
         <li><a href="#">Tipo 4 — Culinário</a></li>
-        <li><a href="#">Ver todos</a></li>
       </ul>
     </div>
     <div>
@@ -1391,15 +1167,13 @@ footer { padding: 56px 24px 28px; }
         <li><a href="#">A Fazenda</a></li>
         <li><a href="#">O Processo</a></li>
         <li><a href="#">Receitas</a></li>
-        <li><a href="#">Editorial</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Atendimento</div>
       <ul class="footer-links">
-        <li><a href="#">Perguntas frequentes</a></li>
-        <li><a href="#">Entrega e prazos</a></li>
-        <li><a href="#">Atacado / B2B</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Entrega</a></li>
         <li><a href="#">Contato</a></li>
       </ul>
     </div>
@@ -1411,16 +1185,14 @@ footer { padding: 56px 24px 28px; }
 </footer>
 
 <script>
-  // Nav scroll
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  // Reveal on scroll
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  }, { threshold: 0.1 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
