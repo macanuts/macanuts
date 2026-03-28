@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos — MacaNuts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&family=Raleway:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+a { color: inherit; text-decoration: none; }
+body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; color: #2C2E26; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(245,242,236,0.97); backdrop-filter: blur(12px); padding: 22px 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(74,82,64,0.08); }
+.nav-logo { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; color: #2C2E26; display: flex; align-items: center; text-transform: uppercase; }
+.nav-logo .maca { font-weight: 600; color: #3A5232; }
+.nav-logo .nuts { font-weight: 400; color: #4A5240; }
+.nav-links { display: flex; gap: 36px; }
+.nav-links a { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.ativa { color: #2C2E26; }
+.nav-btn { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 12px 28px; transition: all 0.3s; }
+.nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+.hamburger span { width: 22px; height: 1.5px; background: #2C2E26; display: block; }
+@media (max-width: 768px) {
+.nav { padding: 18px 24px; }
+.nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(245,242,236,0.98); flex-direction: column; gap: 0; border-bottom: 1px solid rgba(74,82,64,0.1); z-index: 99; }
+.nav-links.aberto { display: flex; }
+.nav-links a { padding: 16px 24px; border-top: 1px solid rgba(74,82,64,0.07); }
+.hamburger { display: flex; }
+.nav-btn { display: none; }
+}
+
+/* PAGE HERO */
+.page-hero { background: #F5F2EC; padding: 160px 60px 80px; position: relative; overflow: hidden; }
+.tag { font-size: 11px; letter-spacing: 0.35em; text-transform: uppercase; color: #7A8A6A; margin-bottom: 24px; display: flex; align-items: center; gap: 14px; }
+.tag::before { content: ‘’; width: 28px; height: 1px; background: #7A8A6A; opacity: 0.5; }
+.page-hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(44px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: #2C2E26; }
+.page-hero h1 em { font-style: italic; color: #5C6147; }
+.page-hero-sub { font-size: 15px; line-height: 1.9; color: rgba(44,46,38,0.55); max-width: 520px; margin-top: 20px; }
+@media (max-width: 768px) { .page-hero { padding: 120px 24px 60px; } }
+
+/* PRODUTO */
+.produto { padding: 80px 60px; border-bottom: 1px solid #E8E2D6; }
+.produto:nth-child(odd) { background: #FDFCF9; }
+.produto:nth-child(even) { background: #F5F2EC; }
+.produto-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1200px; }
+.produto:nth-child(even) .produto-inner { direction: rtl; }
+.produto:nth-child(even) .produto-inner > * { direction: ltr; }
+
+/* FOTO */
+.produto-foto { position: relative; overflow: hidden; aspect-ratio: 4/5; background: #E8EDE0; }
+.produto-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.produto-foto-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #E8EDE0; }
+.produto-foto-num { font-family: ‘Cormorant Garamond’, serif; font-size: 120px; font-weight: 300; color: rgba(74,82,64,0.1); }
+
+/* INFO */
+.produto-info { padding-top: 8px; }
+.produto-tipo { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.produto-tipo::before { content: ‘’; width: 24px; height: 1px; background: #C4A882; }
+.produto-nome { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; line-height: 1.05; color: #2C2E26; margin-bottom: 16px; }
+.produto-nome em { font-style: italic; color: #5C6147; }
+.produto-spec { font-size: 13px; letter-spacing: 0.12em; color: #7A8A6A; margin-bottom: 24px; padding: 12px 16px; background: rgba(74,82,64,0.05); display: inline-block; }
+.produto-desc { font-size: 15px; line-height: 1.9; color: #5A5D4E; margin-bottom: 32px; }
+
+/* IDEAL PARA */
+.ideal-titulo { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #2C2E26; margin-bottom: 14px; }
+.ideal-lista { display: flex; flex-direction: column; gap: 8px; margin-bottom: 36px; }
+.ideal-item { font-size: 13px; color: #5A5D4E; display: flex; align-items: center; gap: 10px; line-height: 1.5; }
+.ideal-item::before { content: ‘’; width: 16px; height: 1px; background: #C4A882; flex-shrink: 0; }
+
+/* PESOS */
+.pesos-titulo { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: #2C2E26; margin-bottom: 14px; }
+.pesos { display: flex; gap: 10px; margin-bottom: 32px; flex-wrap: wrap; }
+.peso-btn { padding: 10px 22px; border: 1px solid rgba(74,82,64,0.2); background: transparent; cursor: pointer; font-family: ‘Jost’, sans-serif; font-size: 13px; font-weight: 300; color: #2C2E26; transition: all 0.3s; }
+.peso-btn:hover, .peso-btn.ativo { border-color: #4A5240; background: #4A5240; color: #FDFCF9; }
+
+/* PREÇO */
+.preco-linha { display: flex; align-items: baseline; gap: 8px; margin-bottom: 28px; padding: 20px 0; border-top: 1px solid #E8E2D6; border-bottom: 1px solid #E8E2D6; }
+.preco-valor { font-family: ‘Cormorant Garamond’, serif; font-size: 44px; font-weight: 300; color: #4A5240; line-height: 1; }
+.preco-detalhe { font-size: 13px; color: #7A8A6A; }
+
+/* BOTÕES */
+.produto-btns { display: flex; flex-direction: column; gap: 12px; }
+.btn-comprar { background: #4A5240; color: #FDFCF9; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 16px 36px; display: block; text-align: center; transition: all 0.3s; border: none; cursor: pointer; font-family: ‘Jost’, sans-serif; }
+.btn-comprar:hover { background: #5C6147; }
+.btn-whats { background: transparent; color: #4A5240; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; padding: 14px 36px; display: block; text-align: center; transition: all 0.3s; border: 1px solid rgba(74,82,64,0.3); }
+.btn-whats:hover { background: rgba(74,82,64,0.05); }
+
+@media (max-width: 900px) {
+.produto { padding: 60px 24px; }
+.produto-inner { grid-template-columns: 1fr; gap: 36px; }
+.produto:nth-child(even) .produto-inner { direction: ltr; }
+}
+
+/* ORIGEM */
+.origem-banner { background: #4A5240; padding: 80px 60px; display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+.origem-texto h2 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(28px, 3.5vw, 48px); font-weight: 300; color: #FDFCF9; line-height: 1.2; }
+.origem-texto h2 em { font-style: italic; color: #C4A882; }
+.origem-texto p { font-size: 15px; line-height: 1.9; color: rgba(253,252,249,0.55); margin-top: 16px; max-width: 480px; }
+.origem-stats { display: flex; gap: 48px; flex-wrap: wrap; }
+.ostat-n { font-family: ‘Cormorant Garamond’, serif; font-size: 48px; font-weight: 300; color: #C4A882; line-height: 1; margin-bottom: 8px; }
+.ostat-l { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); }
+@media (max-width: 768px) { .origem-banner { padding: 60px 24px; } .origem-stats { gap: 28px; } }
+
+/* FOOTER */
+footer { background: #2C2E26; padding: 60px 60px 36px; }
+.footer-topo { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 32px; padding-bottom: 40px; border-bottom: 1px solid rgba(253,252,249,0.07); margin-bottom: 32px; }
+.footer-nome { font-family: ‘Raleway’, sans-serif; font-size: 18px; letter-spacing: 0.06em; text-transform: uppercase; display: flex; }
+.footer-nome .maca { font-weight: 600; color: #FDFCF9; }
+.footer-nome .nuts { font-weight: 400; color: rgba(253,252,249,0.6); }
+.footer-links { list-style: none; display: flex; gap: 32px; flex-wrap: wrap; }
+.footer-links a { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.35); transition: color 0.3s; }
+.footer-links a:hover { color: #FDFCF9; }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-copy { font-size: 11px; color: rgba(253,252,249,0.18); }
+.footer-origin { font-family: ‘Cormorant Garamond’, serif; font-size: 12px; font-style: italic; color: rgba(253,252,249,0.18); }
+@media (max-width: 768px) { footer { padding: 48px 24px 24px; } .footer-topo { flex-direction: column; } .footer-links { gap: 20px; } .footer-bottom { flex-direction: column; } }
+
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.d1 { transition-delay: 0.15s; }
+.fade-up.visible { opacity: 1; transform: none; }
+</style>
+
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><span class="maca">Maca</span><span class="nuts">Nuts</span></a>
+  <div class="nav-links">
+    <a href="historia.html">Nossa História</a>
+    <a href="produtos.html" class="ativa">Produtos</a>
+    <a href="empresas.html">Para Empresas</a>
+    <a href="sustentabilidade.html">Sustentabilidade</a>
+    <a href="export.html">Export</a>
+  </div>
+  <a href="produtos.html" class="nav-btn">Comprar</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+
+<section class="page-hero">
+  <div class="tag">Produtos</div>
+  <h1>Macadâmia natural,<br><em>escolhida a dedo.</em></h1>
+  <p class="page-hero-sub">Cultivada e processada na nossa fazenda em Minas Gerais. Sem sal, sem aditivos, sem intermediários — diretamente da nossa terra para a sua mesa.</p>
+</section>
+
+<!-- TIPO 0 -->
+
+<section class="produto" id="tipo0">
+  <div class="produto-inner fade-up">
+    <div class="produto-foto">
+      <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Natural Tipo 0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="produto-foto-placeholder" style="display:none"><div class="produto-foto-num">0</div></div>
+    </div>
+    <div class="produto-info">
+      <div class="produto-tipo">Seleção Premium</div>
+      <h2 class="produto-nome">Macadâmia Natural<br><em>Tipo 0</em></h2>
+      <div class="produto-spec">Mín. 95% inteiras · acima de 20mm</div>
+      <p class="produto-desc">As maiores e mais inteiras da nossa fazenda. Selecionadas individualmente para garantir uniformidade e presença. Para quem quer servir a macadâmia como protagonista — pura, em tábuas ou em presentes.</p>
+
+```
+  <div class="ideal-titulo">Ideal para</div>
+  <div class="ideal-lista">
+    <div class="ideal-item">Consumo puro — para apreciar o sabor sem interferência</div>
+    <div class="ideal-item">Tábuas de frios e queijos premium</div>
+    <div class="ideal-item">Presentes e kits gourmet</div>
+    <div class="ideal-item">Cobertura de sobremesas e saladas</div>
+  </div>
+
+  <div class="pesos-titulo">Escolha o peso</div>
+  <div class="pesos">
+    <button class="peso-btn ativo" onclick="atualizarPreco(this, 'R$ 67,00', '/ 500g')">500g</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 134,00', '/ 1kg')">1 kg</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 529,00', '/ 5kg')">5 kg</button>
+  </div>
+
+  <div class="preco-linha">
+    <div class="preco-valor" id="preco-t0">R$ 67,00</div>
+    <div class="preco-detalhe" id="detalhe-t0">/ 500g</div>
+  </div>
+
+  <div class="produto-btns">
+    <a href="mailto:comercial@macanuts.com.br?subject=Pedido — Macadâmia Tipo 0" class="btn-comprar">Pedir por e-mail</a>
+    <a href="https://wa.me/5535992679099?text=Olá!%20Quero%20pedir%20Macadâmia%20Tipo%200." target="_blank" class="btn-whats">Pedir pelo WhatsApp</a>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- TIPO 2 -->
+
+<section class="produto" id="tipo2">
+  <div class="produto-inner fade-up">
+    <div class="produto-foto">
+      <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Natural Tipo 2">
+    </div>
+    <div class="produto-info">
+      <div class="produto-tipo">Mais Vendida</div>
+      <h2 class="produto-nome">Macadâmia Natural<br><em>Tipo 2</em></h2>
+      <div class="produto-spec">~50% inteiras · ~50% metades · acima de 13mm</div>
+      <p class="produto-desc">O equilíbrio perfeito entre presença e versatilidade. Inteiras para snack, metades para receitas — tudo no mesmo pacote. A escolha da maioria dos nossos clientes para o dia a dia.</p>
+
+```
+  <div class="ideal-titulo">Ideal para</div>
+  <div class="ideal-lista">
+    <div class="ideal-item">Consumo diário — snack prático e nutritivo</div>
+    <div class="ideal-item">Granola artesanal e mix de castanhas</div>
+    <div class="ideal-item">Presentear com elegância</div>
+    <div class="ideal-item">Receitas que misturam textura e sabor</div>
+  </div>
+
+  <div class="pesos-titulo">Escolha o peso</div>
+  <div class="pesos">
+    <button class="peso-btn ativo" onclick="atualizarPreco(this, 'R$ 65,00', '/ 500g')">500g</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 124,00', '/ 1kg')">1 kg</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 509,00', '/ 5kg')">5 kg</button>
+  </div>
+
+  <div class="preco-linha">
+    <div class="preco-valor" id="preco-t2">R$ 65,00</div>
+    <div class="preco-detalhe" id="detalhe-t2">/ 500g</div>
+  </div>
+
+  <div class="produto-btns">
+    <a href="mailto:comercial@macanuts.com.br?subject=Pedido — Macadâmia Tipo 2" class="btn-comprar">Pedir por e-mail</a>
+    <a href="https://wa.me/5535992679099?text=Olá!%20Quero%20pedir%20Macadâmia%20Tipo%202." target="_blank" class="btn-whats">Pedir pelo WhatsApp</a>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- TIPO 4 -->
+
+<section class="produto" id="tipo4">
+  <div class="produto-inner fade-up">
+    <div class="produto-foto">
+      <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Natural Tipo 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="produto-foto-placeholder" style="display:none"><div class="produto-foto-num">4</div></div>
+    </div>
+    <div class="produto-info">
+      <div class="produto-tipo">Uso Culinário</div>
+      <h2 class="produto-nome">Macadâmia Natural<br><em>Tipo 4</em></h2>
+      <div class="produto-spec">~90% metades · preferida dos chefs</div>
+      <p class="produto-desc">A favorita de confeiteiros, padeiros e cozinheiros. As metades incorporam melhor em massas, coberturas e cremes. A qualidade é a mesma — o formato é ideal para quem cozinha com intenção.</p>
+
+```
+  <div class="ideal-titulo">Ideal para</div>
+  <div class="ideal-lista">
+    <div class="ideal-item">Confeitaria — brownies, cookies, tortas e bolos</div>
+    <div class="ideal-item">Crosta para carnes e peixes</div>
+    <div class="ideal-item">Pasta e manteiga de macadâmia</div>
+    <div class="ideal-item">Granola premium e barras de cereal</div>
+  </div>
+
+  <div class="pesos-titulo">Escolha o peso</div>
+  <div class="pesos">
+    <button class="peso-btn ativo" onclick="atualizarPreco(this, 'R$ 63,00', '/ 500g')">500g</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 115,00', '/ 1kg')">1 kg</button>
+    <button class="peso-btn" onclick="atualizarPreco(this, 'R$ 490,00', '/ 5kg')">5 kg</button>
+  </div>
+
+  <div class="preco-linha">
+    <div class="preco-valor" id="preco-t4">R$ 63,00</div>
+    <div class="preco-detalhe" id="detalhe-t4">/ 500g</div>
+  </div>
+
+  <div class="produto-btns">
+    <a href="mailto:comercial@macanuts.com.br?subject=Pedido — Macadâmia Tipo 4" class="btn-comprar">Pedir por e-mail</a>
+    <a href="https://wa.me/5535992679099?text=Olá!%20Quero%20pedir%20Macadâmia%20Tipo%204." target="_blank" class="btn-whats">Pedir pelo WhatsApp</a>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ORIGEM BANNER -->
+
+<section class="origem-banner">
+  <div class="origem-texto">
+    <h2>Da nossa fazenda<br><em>direto para você.</em></h2>
+    <p>Cultivamos, processamos e embalamos na nossa própria fazenda em Minas Gerais. Sem intermediários, com rastreabilidade total de cada lote.</p>
+  </div>
+  <div class="origem-stats">
+    <div><div class="ostat-n">+10</div><div class="ostat-l">Anos de cultivo</div></div>
+    <div><div class="ostat-n">100%</div><div class="ostat-l">Fazenda própria</div></div>
+    <div><div class="ostat-n">0</div><div class="ostat-l">Intermediários</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-topo">
+    <div class="footer-nome"><span class="maca">Maca</span><span class="nuts">Nuts</span></div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="historia.html">Nossa História</a></li>
+      <li><a href="produtos.html">Produtos</a></li>
+      <li><a href="empresas.html">Para Empresas</a></li>
+      <li><a href="sustentabilidade.html">Sustentabilidade</a></li>
+      <li><a href="export.html">Export</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 MacaNuts · Todos os direitos reservados</span>
+    <span class="footer-origin">Fazenda própria · Minas Gerais, Brasil</span>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+function toggleMenu() {
+  document.querySelector('.nav-links').classList.toggle('aberto');
+}
+
+function atualizarPreco(btn, preco, detalhe) {
+  const section = btn.closest('.produto');
+  section.querySelectorAll('.peso-btn').forEach(b => b.classList.remove('ativo'));
+  btn.classList.add('ativo');
+  const id = section.id;
+  document.getElementById('preco-' + id).textContent = preco;
+  document.getElementById('detalhe-' + id).textContent = detalhe;
+}
+</script>
+
+</body>
+</html>
