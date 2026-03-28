@@ -19,7 +19,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .nav-links { display: flex; gap: 36px; }
 .nav-links a { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(44,46,38,0.55); transition: color 0.3s; }
 .nav-links a:hover { color: #2C2E26; }
-.nav-btn { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 10px 24px; transition: all 0.3s; }
+.nav-btn { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #2C2E26; border: 1px solid rgba(44,46,38,0.35); padding: 12px 28px; transition: all 0.3s; }
 .nav-btn:hover { background: #4A5240; color: #FDFCF9; border-color: #4A5240; }
 @media (max-width: 768px) { .nav { padding: 18px 24px; } .nav-links { display: none; } }
 
@@ -27,7 +27,7 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 .hero { background: #F1E9DD; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 120px 60px 90px; position: relative; overflow: hidden; }
 .hero-logo { width: 180px; height: 180px; position: absolute; top: 80px; right: 60px; }
 .hero-logo img { width: 100%; height: 100%; object-fit: contain; }
-.hero-tag { font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: #7A8A6A; margin-bottom: 24px; }
+.hero-tag { font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: #7A8A6A; margin-bottom: 24px; }
 .hero h1 { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(48px, 7vw, 88px); font-weight: 300; line-height: 1.04; color: #2C2E26; margin-bottom: 28px; }
 .hero h1 em { font-style: italic; color: #5C6147; }
 .hero-sub { font-size: 15px; line-height: 1.85; color: rgba(44,46,38,0.55); max-width: 400px; margin-bottom: 52px; }
@@ -80,8 +80,8 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 @media (max-width: 768px) { .produtos { padding: 72px 24px; } .prods { flex-direction: column; } .prod, .prod:nth-child(2), .prod:nth-child(3) { margin-top: 0; } }
 
 /* FLORAÇÃO */
-.floracao { background: #4A5240; padding: 0; display: flex; min-height: 380px; }
-.floracao-img { flex: 1; min-height: 380px; overflow: hidden; background: #5C6147; }
+.floracao { background: #4A5240; padding: 0; display: flex; min-height: 300px; }
+.floracao-img { flex: 1; min-height: 300px; overflow: hidden; background: #5C6147; }
 .floracao-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.8; }
 .floracao-texto { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
 .floracao-tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
@@ -108,8 +108,8 @@ body { font-family: 'Jost', sans-serif; font-weight: 300; background: #FDFCF9; c
 @media (max-width: 768px) { .processo { padding: 72px 24px; } .steps { flex-direction: column; gap: 36px; } .step { border-left: none; border-top: 1px solid rgba(74,82,64,0.12); padding: 28px 0 0; } .step:first-child { border-top: none; padding-top: 0; } }
 
 /* RECEITA */
-.receita { background: #2C2E26; display: flex; min-height: 380px; }
-.receita-img { flex: 1; overflow: hidden; background: #3A3C33; min-height: 380px; }
+.receita { background: #2C2E26; display: flex; min-height: 300px; }
+.receita-img { flex: 1; overflow: hidden; background: #3A3C33; min-height: 300px; }
 .receita-img img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; }
 .receita-texto { flex: 1; padding: 60px; display: flex; flex-direction: column; justify-content: center; }
 .receita-tag { font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; color: #C4A882; margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
@@ -143,7 +143,9 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 .footer-top { display: flex; gap: 48px; flex-wrap: wrap; padding-bottom: 48px; border-bottom: 1px solid rgba(253,252,249,0.07); margin-bottom: 32px; }
 .footer-marca { flex: 2; min-width: 200px; }
 .footer-col { flex: 1; min-width: 130px; }
-.footer-nome { font-family: ‘Cormorant Garamond’, serif; font-size: 22px; color: #FDFCF9; letter-spacing: 0.1em; display: block; margin-bottom: 14px; }
+.footer-nome { font-family: ‘Raleway’, sans-serif; font-size: 20px; letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 14px; }
+.footer-nome .maca { font-weight: 600; color: #FDFCF9; }
+.footer-nome .nuts { font-weight: 400; color: rgba(253,252,249,0.7); }
 .footer-desc { font-size: 12px; line-height: 1.8; color: rgba(253,252,249,0.28); margin-bottom: 24px; max-width: 220px; }
 .footer-social { display: flex; gap: 20px; }
 .footer-social a { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(253,252,249,0.28); transition: color 0.3s; }
@@ -223,7 +225,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
     <a href="#" class="link-todos">Ver todos</a>
   </div>
   <div class="prods">
-    <div class="prod">
+    <div class="prod fade-up">
       <div class="prod-img">
         <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 0">
       </div>
@@ -234,7 +236,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
         <div class="prod-preco">A partir de R$ 67,00 <small>/ 500g</small></div>
       </div>
     </div>
-    <div class="prod">
+    <div class="prod fade-up d1">
       <div class="prod-img">
         <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 2">
       </div>
@@ -245,7 +247,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
         <div class="prod-preco">A partir de R$ 65,00 <small>/ 500g</small></div>
       </div>
     </div>
-    <div class="prod">
+    <div class="prod fade-up d2">
       <div class="prod-img">
         <img src="imgs/embalagens-tipo2-fundooff.jpeg" alt="Macadâmia Tipo 4">
       </div>
@@ -345,7 +347,7 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
 <footer>
   <div class="footer-top">
     <div class="footer-marca">
-      <span class="footer-nome">MacaNuts</span>
+      <span class="footer-nome"><span class="maca">Maca</span><span class="nuts">Nuts</span></span>
       <p class="footer-desc">Macadâmias cultivadas com rigor. Direto da nossa fazenda em Minas Gerais para a sua mesa.</p>
       <div class="footer-social">
         <a href="https://instagram.com/macanutsbr">Instagram</a>
@@ -382,6 +384,20 @@ footer { background: #2C2E26; padding: 72px 60px 36px; }
     <span class="footer-origin">Fazenda própria · Minas Gerais, Brasil</span>
   </div>
 </footer>
+
+<style>
+.fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+.fade-up.d1 { transition-delay: 0.15s; }
+.fade-up.d2 { transition-delay: 0.3s; }
+</style>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
